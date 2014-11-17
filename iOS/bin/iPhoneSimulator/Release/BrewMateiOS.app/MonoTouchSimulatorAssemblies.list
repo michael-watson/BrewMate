@@ -1,0 +1,10 @@
+mscorlib.dll
+System.dll
+System.Core.dll
+Mono.Dynamic.Interpreter.dll
+Xamarin.Insights.dll
+PLCrashReporter.dll
+Xamarin.Forms.Platform.iOS.dll
+Xamarin.Forms.Core.dll
+System.Net.Http.dll
+BrewMate.dll

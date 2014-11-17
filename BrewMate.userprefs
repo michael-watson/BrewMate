@@ -1,0 +1,24 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.Michael Watson’s iPhone" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="iOS/CustomRenders.cs">
+    <Files>
+      <File FileName="BrewMate/Pages/MissionControlPage.cs" Line="1" Column="1" />
+      <File FileName="BrewMate/Databases/BeerStyleDatabase.cs" Line="1" Column="1" />
+      <File FileName="Bremate.Shared/Timer.cs" Line="1" Column="1" />
+      <File FileName="BrewMate/Databases/GrainDatabase.cs" Line="1" Column="1" />
+      <File FileName="BrewMate/Models/Grains.cs" Line="1" Column="1" />
+      <File FileName="BrewMate/Models/Hops.cs" Line="1" Column="1" />
+      <File FileName="BrewMate/Models/BeerStyle.cs" Line="1" Column="1" />
+      <File FileName="BrewMate/Pages/BeerStylePage.cs" Line="1" Column="1" />
+      <File FileName="BrewMate/Pages/BeerStyleDetailScrollPage.cs" Line="1" Column="1" />
+      <File FileName="BrewMate/Pages/CommercialBeersDetailPage.cs" Line="1" Column="1" />
+      <File FileName="iOS/CustomRenders.cs" Line="3" Column="3" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/michaelwatson/Projects/BrewMate/BrewMate/Databases/HopBoilDatabase.cs" line="80" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
