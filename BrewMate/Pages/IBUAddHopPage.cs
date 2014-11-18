@@ -1,8 +1,8 @@
 ﻿using System;
-using Xamarin.Forms;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using BrewMate;
+
+using Xamarin.Forms;
 
 namespace BrewMate
 {
@@ -13,7 +13,7 @@ namespace BrewMate
 			StackLayout hopHeader = new HopListHeader ();
 			ListView hopList = new HopListView ();
 
-			this.Content = new StackLayout () {
+			Content = new StackLayout {
 				Spacing = 0,
 				Children = {
 					hopHeader,
@@ -21,7 +21,7 @@ namespace BrewMate
 				}
 			};
 					
-			hopList.ItemSelected += (object sender, SelectedItemChangedEventArgs e) => 
+			hopList.ItemSelected += ( sender,  e) => 
 			{
 				Hops selected = e.SelectedItem as Hops;
 				MessagingCenter.Send<IBUAddHopPage,Hops> (this,"Add",selected);
@@ -30,4 +30,3 @@ namespace BrewMate
 		}
 	}
 }
-

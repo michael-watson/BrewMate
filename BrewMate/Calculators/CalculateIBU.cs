@@ -1,8 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using Xamarin.Forms;
-using System.Collections.ObjectModel;
 using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+
+using Xamarin.Forms;
 
 namespace BrewMate
 {
@@ -13,12 +14,12 @@ namespace BrewMate
 		public void CalculateIBUs (TableView hopsInTable, Entry boilGravityEntry, Entry boilVolumeEntry, Label calculatedIBULabel)
 		{
 			Entry aaPercent, ounces, boilTime;
+			ViewCell indexableRowCell;
+
 			double AAU, utilization, rowIBU;
 			double totalIBU = 0;
-			ViewCell indexableRowCell;
 			double boilGravity = Convert.ToDouble (boilGravityEntry.Text);
 			double boilVolume = Convert.ToDouble (boilVolumeEntry.Text);
-			var test2 = hopsInTable.Root [0].Count;
 
 			for (int i = 1; i<hopsInTable.Root [0].Count; i++) {
 				indexableRowCell = hopsInTable.Root [0] [i] as ViewCell;
@@ -40,4 +41,3 @@ namespace BrewMate
 		}
 	}
 }
-

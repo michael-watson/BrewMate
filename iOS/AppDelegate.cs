@@ -4,6 +4,7 @@ using System.Linq;
 
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
+
 using Xamarin;
 using Xamarin.Forms;
 
@@ -29,4 +30,3 @@ namespace BrewMate.iOS
 		}
 	}
 }
-

@@ -1,20 +1,22 @@
 ﻿using System;
 using System.Reflection;
-using Xamarin.Forms;
 using System.Collections.Generic;
+
+using Xamarin.Forms;
 
 namespace BrewMate
 {
 	public class HopsGuidePage : GreenGradientPage
 	{
 		ListView hopList;
+
 		public HopsGuidePage ()
 		{
 			StackLayout hopHeader = new HopListHeader ();
 			hopList = new HopListView ();
 
-			this.Title = "Hops Hops Hops";
-			this.Content =	new StackLayout () {
+			Title = "Hops Hops Hops";
+			Content =	new StackLayout {
 				Spacing = 0,
 				Children = { 
 					hopHeader,
@@ -37,4 +39,3 @@ namespace BrewMate
 		}
 	}
 }
-

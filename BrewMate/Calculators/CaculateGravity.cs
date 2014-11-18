@@ -1,8 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using Xamarin.Forms;
 using System.Linq;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+
+using Xamarin.Forms;
 
 namespace BrewMate
 {
@@ -14,8 +15,11 @@ namespace BrewMate
 		{
 			List<Grains> grainsList = grainsAvailable.GetGrains();
 
-			double extractPPG = 0; double grainPPG = 0; double points = 0;
-			Label ppg; Label grainNameLabel;
+			double extractPPG = 0; 
+			double grainPPG = 0; 
+			double points = 0;
+			Label ppg; 
+			Label grainNameLabel;
 			Entry grainWeight;
 			ViewCell indexableRowCell;
 
@@ -49,4 +53,3 @@ namespace BrewMate
 		}
 	}
 }
-

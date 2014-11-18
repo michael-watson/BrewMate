@@ -28,7 +28,8 @@ namespace BrewMate
 					OG = "1.028-1.040",
 					FG = "0.998-1.008",
 					ABV = "2.8-4.2"
-				},new BeerStyle{
+				},
+				new BeerStyle{
 					Style = "Standard American Lager",
 					Aroma = "Little to no malt aroma, although it can be grainy, sweet or corn-like if present. Hop aroma may range from none to a light, spicy or floral hop presence. Low levels of yeast character (green apples, DMS, or fruitiness) are optional but acceptable. No diacetyl.",
 					Appearance = "Very pale straw to medium yellow color. White, frothy head seldom persists. Very clear.",
@@ -41,7 +42,8 @@ namespace BrewMate
 					OG = "1.040-1.050",
 					FG = "1.004-1.010",
 					ABV = "4.2-5.3"
-				},new BeerStyle{
+				},
+				new BeerStyle{
 					Style = "Premium American Lager",
 					Aroma = "Aroma: Low to medium-low malt aroma, which can be grainy, sweet or corn-like. Hop aroma may range from very low to a medium-low, spicy or floral hop presence. Low levels of yeastcharacter (green apples, DMS, or fruitiness) are optional but acceptable. No diacetyl.",
 					Appearance = "Pale straw to gold color. White, frothy head may not be long lasting. Very clear.",
@@ -54,7 +56,8 @@ namespace BrewMate
 					OG = "1.046-1.056",
 					FG = "1.008-1.012",
 					ABV = "4.6-6"
-				},new BeerStyle{
+				},
+				new BeerStyle{
 					Style = "Munich Helles",
 					Aroma = "Pleasantly grainy-sweet, clean Pils malt aroma dominates. Low to moderately-low spicy noble hop aroma, and a low background note of DMS (from Pils malt). No esters or diacetyl.",
 					Appearance = "Medium yellow to pale gold, clear, with a creamy white head.",
@@ -67,7 +70,8 @@ namespace BrewMate
 					OG = "1.045-1.051",
 					FG = "1.008-1.012",
 					ABV = "4.7-5.4"
-				},new BeerStyle{
+				},
+				new BeerStyle{
 					Style = "Dortmunder Export",
 					Aroma = "Low to medium noble (German or Czech) hop aroma. Moderate Pils malt aroma; can be grainy to somewhat sweet. May have an initial sulfury aroma (from water and/or yeast) and a low background note of DMS (from Pils malt). No diacetyl.",
 					Appearance = "Light gold to deep gold, clear with a persistent white head.",
@@ -80,7 +84,8 @@ namespace BrewMate
 					OG = "1.048-1.056",
 					FG = "1.010-1.015",
 					ABV = "4.8-6"
-				},new BeerStyle{
+				},
+				new BeerStyle{
 					Style = "German Pilsner (Pils)",
 					Aroma = "Typically features a light grainy Pils malt character (sometimes Graham cracker-like) and distinctive flowery or spicy noble hops. Clean, no fruity esters, no diacetyl. May have an initial sulfury aroma (from water and/or yeast) and a low background note of DMS (from Pils malt).",
 					Appearance = "Straw to light gold, brilliant to very clear, with a creamy, long-lasting white head.",
@@ -93,7 +98,8 @@ namespace BrewMate
 					OG = "1.044-1.050",
 					FG = "1.008-1.013",
 					ABV = "4.4-5.2"
-				},new BeerStyle{
+				},
+				new BeerStyle{
 					Style = "Bohemian Pilsener",
 					Aroma = "Rich with complex malt and a spicy, floral Saaz hop bouquet. Some pleasant, restrained diacetyl is acceptable, but need not be present. Otherwise clean, with no fruity esters.",
 					Appearance = "Very pale gold to deep burnished gold, brilliant to very clear, with a dense, long-lasting, creamy white head.",
@@ -106,7 +112,8 @@ namespace BrewMate
 					OG = "1.044-1.056",
 					FG = "1.013-1.017",
 					ABV = "4.2-5.4"
-				},new BeerStyle{
+				},
+				new BeerStyle{
 					Style = "Classic American Pilsner",
 					Aroma = "Low to medium grainy, corn-like or sweet maltiness may be evident (although rice-based beers are more neutral). Medium to moderately high hop aroma, often classic noble hops. Clean lager character, with no fruitiness or diacetyl. Some DMS is acceptable.",
 					Appearance = "Yellow to deep gold color. Substantial, long lasting white head. Bright clarity.",
@@ -119,7 +126,8 @@ namespace BrewMate
 					OG = "1.044-1.060",
 					FG = "1.010-1.015",
 					ABV = "4.5-6"
-				},new BeerStyle{
+				},
+				new BeerStyle{
 					Style = "Vienna Lager",
 					Aroma = "Moderately rich German malt aroma (of Vienna and/or Munich malt). A light toasted malt aroma may be present. Similar, though less intense than Oktoberfest. Clean lager character, with no fruity esters or diacetyl. Noble hop aroma may be low to none. Caramel aroma is inappropriate.",
 					Appearance = "Light reddish amber to copper color. Bright clarity. Large, off-white, persistent head.",
@@ -132,7 +140,8 @@ namespace BrewMate
 					OG = "1.046-1.052",
 					FG = "1.010-1.014",
 					ABV = "4.5-5.5"
-				},new BeerStyle{
+				},
+				new BeerStyle{
 					Style = "Oktoberfest/Märzen",
 					Aroma = "Rich German malt aroma (of Vienna and/or Munich malt). A light to moderate toasted malt aroma is often present. Clean lager aroma with no fruity esters or diacetyl. No hop aroma. Caramel aroma is inappropriate.",
 					Appearance = "Dark gold to deep orange-red color. Bright clarity, with solid, off-white, foam stand.",
@@ -145,7 +154,8 @@ namespace BrewMate
 					OG = "1.050-1.057",
 					FG = "1.012-1.016",
 					ABV = "4.8-5.7"
-				},new BeerStyle{
+				},
+				new BeerStyle{
 					Style = "Dark American Lager",
 					Aroma = "Little to no malt aroma. Medium-low to no roast and caramel malt aroma. Hop aroma may range from none to light spicy or floral hop presence. Can have low levels of yeast character (green apples, DMS, or fruitiness). No diacetyl.",
 					Appearance = "Deep amber to dark brown with bright clarity and ruby highlights. Foam stand may not be long lasting, and is usually light tan in color.",
@@ -158,7 +168,8 @@ namespace BrewMate
 					OG = "1.044-1.056",
 					FG = "1.008-1.012",
 					ABV = "4.2-6"
-				},new BeerStyle{
+				},
+				new BeerStyle{
 					Style = "Munich Dunkel",
 					Aroma = "Rich, Munich malt sweetness, like bread crusts (and sometimes toast.) Hints of chocolate, nuts, caramel, and/or toffee are also acceptable. No fruity esters or diacetyl should be detected, but a slight noble hop aroma is acceptable.",
 					Appearance = "Deep copper to dark brown, often with a red or garnet tint. Creamy, light to medium tan head. Usually clear, although murky unfiltered versions exist.",
@@ -171,7 +182,8 @@ namespace BrewMate
 					OG = "1.048-1.056",
 					FG = "1.010-1.016",
 					ABV = "4.5-5.6"
-				},new BeerStyle{
+				},
+				new BeerStyle{
 					Style = "Schwarzbier (Black Beer)",
 					Aroma = "Low to moderate malt, with low aromatic sweetness and/or hints of roast malt often apparent. The malt can be clean and neutral or rich and Munich-like, and may have a hint of caramel. The roast can be coffee-like but should never be burnt. A low noble hop aroma is optional. Clean lager yeast character (light sulfur possible) with no fruity esters or diacetyl.",
 					Appearance = "Medium to very dark brown in color, often with deep ruby to garnet highlights, yet almost never truly black. Very clear. Large, persistent, tan-colored head.",
@@ -184,7 +196,8 @@ namespace BrewMate
 					OG = "1.046-1.052",
 					FG = "1.010-1.016",
 					ABV = "4.4-5.4"
-				},new BeerStyle{
+				},
+				new BeerStyle{
 					Style = "Maibock/Helles Bock",
 					Aroma = "Moderate to strong malt aroma, often with a lightly toasted quality and low melanoidins. Moderately low to no noble hop aroma, often with a spicy quality. Clean. No diacetyl. Fruity esters should be low to none. Some alcohol may be noticeable. May have a light DMS aroma from Pils malt.",
 					Appearance = "Deep gold to light amber in color. Lagering should provide good clarity. Large, creamy, persistent, white head.",
@@ -197,7 +210,8 @@ namespace BrewMate
 					OG = "1.064-1.072",
 					FG = "1.011-1.018",
 					ABV = "6.3-7.4"
-				},new BeerStyle{
+				},
+				new BeerStyle{
 					Style = "Traditional Bock",
 					Aroma = "Strong malt aroma, often with moderate amounts of rich melanoidins and/or toasty overtones. Virtually no hop aroma. Some alcohol may be noticeable. Clean. No diacetyl. Low to no fruity esters.",
 					Appearance = "Light copper to brown color, often with attractive garnet highlights. Lagering should provide good clarity despite the dark color. Large, creamy, persistent, off-white head.",
@@ -210,7 +224,8 @@ namespace BrewMate
 					OG = "1.064-1.072",
 					FG = "1.013-1.019",
 					ABV = "6.3-7.2"
-				},new BeerStyle{
+				},
+				new BeerStyle{
 					Style = "Doppelbock",
 					Aroma = "Very strong maltiness. Darker versions will have significant melanoidins and often some toasty aromas. A light caramel flavor from a long boil is acceptable. Lighter versions will have a strong malt presence with some melanoidins and toasty notes. Virtually no hop aroma, although a light noble hop aroma is acceptable in pale versions. No diacetyl. A moderately low fruity aspect to the aroma often described as prune, plum or grape may be present (but is optional) in dark versions due to reactions between malt, the boil, and aging. A very slight chocolate-like aroma may be present in darker versions, but no roasted or burned aromatics should ever be present. Moderate alcohol aroma may be present.",
 					Appearance = "Deep gold to dark brown in color. Darker versions often have ruby highlights. Lagering should provide good clarity. Large, creamy, persistent head (color varies with base style: white for pale versions, off-white for dark varieties). Stronger versions might have impaired head retention, and can display noticeable legs.",
@@ -223,7 +238,8 @@ namespace BrewMate
 					OG = "1.072-1.112",
 					FG = "1.016-1.024",
 					ABV = "7-10"
-				},new BeerStyle{
+				},
+				new BeerStyle{
 					Style = "Eisbock",
 					Aroma = "Dominated by a balance of rich, intense malt and a definite alcohol presence. No hop aroma. No diacetyl. May have significant fruity esters, particularly those reminiscent of plum, prune or grape. Alcohol aromas should not be harsh or solventy.",
 					Appearance = "Deep copper to dark brown in color, often with attractive ruby highlights. Lagering should provide good clarity. Head retention may be impaired by higher-than-average alcohol content and low carbonation. Off-white to deep ivory colored head. Pronounced legs are often evident.",
@@ -236,7 +252,8 @@ namespace BrewMate
 					OG = "1.078-1.120",
 					FG = "1.020-1.035",
 					ABV = "9-14"
-				},new BeerStyle{
+				},
+				new BeerStyle{
 					Style = "Cream Ale",
 					Aroma = "Faint malt notes. A sweet, corn-like aroma and low levels of DMS are commonly found. Hop aroma low to none. Any variety of hops may be used, but neither hops nor malt dominate. Faint esters may be present in some examples, but are not required. No diacetyl.",
 					Appearance = "Pale straw to moderate gold color, although usually on the pale side. Low to medium head with medium to high carbonation. Head retention may be no better than fair due to adjunct use. Brilliant, sparkling clarity.",
@@ -249,7 +266,8 @@ namespace BrewMate
 					OG = "1.042-1.055",
 					FG = "1.006-1.012",
 					ABV = "4.2-5.6"
-				},new BeerStyle{
+				},
+				new BeerStyle{
 					Style = "Blonde Ale",
 					Aroma = "Light to moderate sweet malty aroma. Low to moderate fruitiness is optional, but acceptable. May have a low to medium hop aroma, and can reflect almost any hop variety. No diacetyl.",
 					Appearance = "Light yellow to deep gold in color. Clear to brilliant. Low to medium white head with fair to good retention.",
@@ -262,7 +280,8 @@ namespace BrewMate
 					OG = "1.038-1.054",
 					FG = "1.008-1.013",
 					ABV = "3.8-5.5"
-				},new BeerStyle{
+				},
+				new BeerStyle{
 					Style = "Kölsch",
 					Aroma = "Very low to no Pils malt aroma. A pleasant, subtle fruit aroma from fermentation (apple, cherry or pear) is acceptable, but not always present. A low noble hop aroma is optional but not out of place (it is present only in a small minority of authentic versions). Some yeasts may give a slight winy or sulfury character (this characteristic is also optional, but not a fault).",
 					Appearance = "Very pale gold to light gold. Authentic versions are filtered to a brilliant clarity. Has a delicate white head that may not persist.",
@@ -275,7 +294,8 @@ namespace BrewMate
 					OG = "1.044-1.050",
 					FG = "1.007-1.011",
 					ABV = "4.4-5.2"
-				},new BeerStyle{
+				},
+				new BeerStyle{
 					Style = "American Wheat or Rye Beer",
 					Aroma = "Low to moderate grainy wheat or rye character. Some malty sweetness is acceptable. Esters can be moderate to none, although should reflect American yeast strains. The clove and banana aromas common to German hefeweizens are inappropriate. Hop aroma may be low to moderate, and can have either a citrusy American or a spicy or floral noble hop character. Slight crisp sharpness is optional. No diacetyl.",
 					Appearance = "Usually pale yellow to gold. Clarity may range from brilliant to hazy with yeast approximating the German hefeweizen style of beer. Big, long-lasting white head.",
@@ -288,7 +308,8 @@ namespace BrewMate
 					OG = "1.040-1.055",
 					FG = "1.008-1.013",
 					ABV = "4-5.5"
-				},new BeerStyle{
+				},
+				new BeerStyle{
 					Style = "Northern German Altbier",
 					Aroma = "Subtle malty, sometimes grainy aroma. Low to no noble hop aroma. Clean, lager character with very restrained ester profile. No diacetyl.",
 					Appearance = "Light copper to light brown color; very clear from extended cold conditioning. Low to moderate off-white to white head with good retention.",
@@ -301,7 +322,8 @@ namespace BrewMate
 					OG = "1.046-1.054",
 					FG = "1.010-1.015",
 					ABV = "4.5-5.2"
-				},new BeerStyle{
+				},
+				new BeerStyle{
 					Style = "California Common Beer",
 					Aroma = "Typically showcases the signature Northern Brewer hops (with woody, rustic or minty qualities) in moderate to high strength. Light fruitiness acceptable. Low to moderate caramel and/or toasty malt aromatics support the hops. No diacetyl.",
 					Appearance = "Medium amber to light copper color. Generally clear. Moderate off-white head with good retention.",
@@ -314,7 +336,8 @@ namespace BrewMate
 					OG = "1.048-1.054",
 					FG = "1.011 - 1.014",
 					ABV = "4.5-5.5"
-				},new BeerStyle{
+				},
+				new BeerStyle{
 					Style = "Düsseldorf Altbier",
 					Aroma = "Clean yet robust and complex aroma of rich malt, noble hops and restrained fruity esters. The malt character reflects German base malt varieties. The hop aroma may vary from moderate to very low, and can have a peppery, floral or perfumy character associated with noble hops. No diacetyl.",
 					Appearance = "Light amber to orange-bronze to deep copper color, yet stopping short of brown. Brilliant clarity (may be filtered). Thick, creamy, long-lasting off-white head.",
@@ -327,7 +350,8 @@ namespace BrewMate
 					OG = "1.046-1.054",
 					FG = "1.010-1.015",
 					ABV = "4.5-5.2"
-				},new BeerStyle{
+				},
+				new BeerStyle{
 					Style = "Standard/Ordinary Bitter",
 					Aroma = "The best examples have some malt aroma, often (but not always) with a caramel quality. Mild to moderate fruitiness is common. Hop aroma can range from moderate to none (UK varieties typically, although US varieties may be used). Generally no diacetyl, although very low levels are allowed.",
 					Appearance = "Light yellow to light copper. Good to brilliant clarity. Low to moderate white to off-white head. May have very little head due to low carbonation.",
@@ -340,7 +364,8 @@ namespace BrewMate
 					OG = "1.032-1.040",
 					FG = "1.007-1.011",
 					ABV = "3.2-3.8"
-				},new BeerStyle{
+				},
+				new BeerStyle{
 					Style = "Special/Best/Premium Bitter",
 					Aroma = "The best examples have some malt aroma, often (but not always) with a caramel quality. Mild to moderate fruitiness. Hop aroma can range from moderate to none (UK varieties typically, although US varieties may be used). Generally no diacetyl, although very low levels are allowed.",
 					Appearance = "Medium gold to medium copper. Good to brilliant clarity. Low to moderate white to off-white head. May have very little head due to low carbonation.",
@@ -353,8 +378,8 @@ namespace BrewMate
 					OG = "1.040-1.048",
 					FG = "1.008-1.012",
 					ABV = "3.8-4.6"
-						//////started limitnig text
-				},new BeerStyle{
+				},
+				new BeerStyle{
 					Style = "Extra Special/Strong Bitter (English Pale Ale)",
 					Aroma = "Hop aroma moderately-high to moderately-low, and can use any variety of hops although UK hops are most traditional. Medium to medium-high malt aroma, often with a low to moderately strong caramel component (although this character will be more subtle in paler versions). Medium-low to medium- high fruity esters. Generally no diacetyl, although very low levels are allowed.",
 					Appearance = "Golden to deep copper. Good to brilliant clarity. Low to moderate white to off-white head. A low head is acceptable when carbonation is also low.",
@@ -367,7 +392,8 @@ namespace BrewMate
 					OG = "1.048-1.060",
 					FG = "1.010-1.016",
 					ABV = "4.6-6.2"
-				},new BeerStyle{
+				},
+				new BeerStyle{
 					Style = "Irish Red Ale",
 					Aroma = "Low to moderate malt aroma, generally caramel-like but occasionally toasty or toffee-like in nature. May have a light buttery character (although this is not required). Hop aroma is low to none (usually not present). Quite clean.",
 					Appearance = "Amber to deep reddish copper color (most examples have a deep reddish hue). Clear. Low off-white to tan colored head.",
@@ -380,7 +406,8 @@ namespace BrewMate
 					OG = "1.044-1.060",
 					FG = "1.010-1.014",
 					ABV = "4.0-6.0"
-				},new BeerStyle{
+				},
+				new BeerStyle{
 					Style = "Strong Scotch Ale",
 					Aroma = "Deeply malty, with caramel often apparent. Peaty, earthy and/or smoky secondary aromas may also be present, adding complexity. Caramelization often is mistaken for diacetyl, which should be low to none. Low to moderate esters and alcohol are often present in stronger versions. Hops are very low to none.",
 					Appearance = "Light copper to dark brown color, often with deep ruby highlights. Clear. Usually has a large tan head, which may not persist in stronger versions. Legs may be evident in stronger versions.",
@@ -393,7 +420,8 @@ namespace BrewMate
 					OG = "1.070-1.130",
 					FG = "1.018-1.056",
 					ABV = "6.5-10"
-				},new BeerStyle{
+				},
+				new BeerStyle{
 					Style = "American Pale Ale",
 					Aroma = "Usually moderate to strong hop aroma from dry hopping or late kettle additions of American hop varieties. A citrusy hop character is very common, but not required. Low to moderate maltiness supports the hop presentation, and may optionally show small amounts of specialty malt character (bready, toasty, biscuity). Fruity esters vary from moderate to none. No diacetyl. Dry hopping (if used) may add grassy notes, although this character should not be excessive.",
 					Appearance = "Pale golden to deep amber. Moderately large white to off-white head with good retention. Generally quite clear, although dry-hopped versions may be slightly hazy.",
@@ -406,7 +434,8 @@ namespace BrewMate
 					OG = "1.045-1.060",
 					FG = "1.010-1.015",
 					ABV = "4.5-6.2"
-				},new BeerStyle{
+				},
+				new BeerStyle{
 					Style = "American Amber Ale",
 					Aroma = "Low to moderate hop aroma from dry hopping or late kettle additions of American hop varieties. A citrusy hop character is common, but not required. Moderately low to moderately high maltiness balances and sometimes masks the hop presentation, and usually shows a moderate caramel character. Esters vary from moderate to none. No diacetyl.",
 					Appearance = "Amber to coppery brown in color. Moderately large off-white head with good retention. Generally quite clear, although dry-hopped versions may be slightly hazy.",
@@ -419,7 +448,8 @@ namespace BrewMate
 					OG = "1.045-1.060",
 					FG = "1.010-1.015",
 					ABV = "4.5-6.2"
-				},new BeerStyle{
+				},
+				new BeerStyle{
 					Style = "American Brown Ale",
 					Aroma = "Malty, sweet and rich, which often has a chocolate, caramel, nutty and/or toasty quality. Hop aroma is typically low to moderate. Some interpretations of the style may feature a stronger hop aroma, a citrusy American hop character, and/or a fresh dry-hopped aroma (all are optional). Fruity esters are moderate to very low. The dark malt character is more robust than other brown ales, yet stops short of being overly porter-like. The malt and hops are generally balanced. Moderately low to no diacetyl.",
 					Appearance = "Light to very dark brown color. Clear. Low to moderate off-white to light tan head.",
@@ -746,4 +776,3 @@ namespace BrewMate
 		}
 	}
 }
-

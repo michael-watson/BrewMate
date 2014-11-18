@@ -22,8 +22,7 @@ namespace BrewMate
 			} else if (boilTime < 15) {
 				//10 minute equation
 				y = (2.8409 * Math.Pow (x, 2)) - (6.7164 * x) + 4.0038;
-			} 
-			else if (boilTime < 20 ) {
+			} else if (boilTime < 20 ) {
 				//15 minute equation
 				y = (3.7121 * Math.Pow (x, 2)) - (8.8168 * x) + 5.2797;
 			} else if (boilTime < 25) {
@@ -77,4 +76,3 @@ namespace BrewMate
 		}
 	}
 }
-

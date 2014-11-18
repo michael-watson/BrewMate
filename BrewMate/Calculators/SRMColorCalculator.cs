@@ -1,4 +1,5 @@
 ﻿using System;
+
 using Xamarin.Forms;
 
 namespace BrewMate
@@ -12,6 +13,7 @@ namespace BrewMate
 			Color srmColor = Color.Blue;
 			string lowSRMstring = lowSRM.Text.Remove (0, 10);
 			string highSRMstring = highSRM.Text.Remove (0, 11);
+
 			for (int i = 0; i < 2; i++) {
 				if (i == 0) {
 					srm = Convert.ToDouble (lowSRMstring);
@@ -27,13 +29,13 @@ namespace BrewMate
 				} else if (i == 1) {
 					highSRM.BackgroundColor = srmColor;
 				}
-
 			}
 		}
 
 		public MashCalculatedModel CalculateSRM(TableView grainsInTable, Entry mashVolumeEntry)
 		{
-			double totalMCU = 0; double MCU = 0;
+			double totalMCU = 0; 
+			double MCU = 0;
 			Label srm;
 			Entry grainWeight;
 			ViewCell indexableRowCell;
@@ -149,4 +151,3 @@ namespace BrewMate
 		}
 	}
 }
-

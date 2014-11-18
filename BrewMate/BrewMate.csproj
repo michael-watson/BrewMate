@@ -32,7 +32,6 @@
   <ItemGroup>
     <Compile Include="App.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StartupPage.cs" />
     <Compile Include="Databases\HopDatabase.cs" />
     <Compile Include="Databases\HopBoilDatabase.cs" />
     <Compile Include="Calculators\CalculateIBU.cs" />
@@ -58,23 +57,22 @@
     <Compile Include="Pages\BeerStylePage.cs" />
     <Compile Include="Pages\BeerStyleDetailScrollPage.cs" />
     <Compile Include="Pages\CommercialBeersDetailPage.cs" />
-    <Compile Include="Models\NoAttributeElements.cs" />
-    <Compile Include="Models\ThemedButton.cs" />
-    <Compile Include="Models\ThemedLabel.cs" />
-    <Compile Include="Models\WhiteTextColorLabel.cs" />
-    <Compile Include="Models\CenteredBoldWhiteTextColorLabel.cs" />
     <Compile Include="Calculators\SRMColorCalculator.cs" />
-    <Compile Include="Models\CalcPages_TableViewHeader_Label.cs" />
-    <Compile Include="Models\GrainThemedButton.cs" />
-    <Compile Include="Models\GrainThemedNumberEntry.cs" />
-    <Compile Include="Models\HopThemedNumberEntry.cs" />
     <Compile Include="Models\MashCalculatedModel.cs" />
     <Compile Include="Calculators\CaculateGravity.cs" />
     <Compile Include="Models\ExtractAndPPGModel.cs" />
     <Compile Include="Pages\MashCalculatorPage.cs" />
     <Compile Include="Pages\MashCalcAddGrainPage.cs" />
     <Compile Include="Pages\MashCalculatedResultsPage.cs" />
-    <Compile Include="Models\OptionItem.cs" />
+    <Compile Include="Views\CalcPages_TableViewHeader_Label.cs" />
+    <Compile Include="Views\CenteredBoldWhiteTextColorLabel.cs" />
+    <Compile Include="Views\GrainThemedButton.cs" />
+    <Compile Include="Views\GrainThemedNumberEntry.cs" />
+    <Compile Include="Views\HopThemedNumberEntry.cs" />
+    <Compile Include="Views\ThemedButton.cs" />
+    <Compile Include="Views\ThemedLabel.cs" />
+    <Compile Include="Views\WhiteTextColorLabel.cs" />
+    <Compile Include="Views\NoAttributeViews.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.1.2.3.6257\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.2.3.6257\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10\Xamarin.Forms.targets')" />

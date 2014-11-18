@@ -1,6 +1,7 @@
 ﻿using System;
-using Xamarin.Forms;
 using System.Collections.Generic;
+
+using Xamarin.Forms;
 
 namespace BrewMate
 {
@@ -12,11 +13,12 @@ namespace BrewMate
 		{
 			List<Hops> hopsAvailable = hopDatabase.GetHops();
 
-			this.VerticalOptions = LayoutOptions.FillAndExpand;
-			this.HorizontalOptions = LayoutOptions.FillAndExpand;
-			this.BackgroundColor = Color.Transparent;
-			this.ItemsSource = hopsAvailable;
-			this.ItemTemplate = new DataTemplate (() => {
+			VerticalOptions = LayoutOptions.FillAndExpand;
+			HorizontalOptions = LayoutOptions.FillAndExpand;
+			BackgroundColor = Color.Transparent;
+			ItemsSource = hopsAvailable;
+
+			ItemTemplate = new DataTemplate (() => {
 				Label hopLabel = new Label ();
 				hopLabel.SetBinding(Label.TextProperty,
 					new Binding("HopName", BindingMode.OneWay,null,null,"{0}"));
@@ -55,4 +57,3 @@ namespace BrewMate
 		}
 	}
 }
-

@@ -1,4 +1,5 @@
 ﻿using System;
+
 using Xamarin.Forms;
 
 namespace BrewMate
@@ -11,24 +12,24 @@ namespace BrewMate
 		{
 			this.Title = selected.Style;
 
-			CenteredBoldWhiteTextColorLabel aromaLabel = new CenteredBoldWhiteTextColorLabel () {Text = "Aroma"};
-			WhiteTextColorLabel aroma = new WhiteTextColorLabel (){ Text = selected.Aroma };
+			CenteredBoldWhiteTextColorLabel aromaLabel = new CenteredBoldWhiteTextColorLabel {Text = "Aroma"};
+			WhiteTextColorLabel aroma = new WhiteTextColorLabel { Text = selected.Aroma };
 
-			CenteredBoldWhiteTextColorLabel appearanceLabel = new CenteredBoldWhiteTextColorLabel () {Text = "Appearance"};
-			WhiteTextColorLabel appearance = new WhiteTextColorLabel (){ Text = selected.Appearance };
+			CenteredBoldWhiteTextColorLabel appearanceLabel = new CenteredBoldWhiteTextColorLabel {Text = "Appearance"};
+			WhiteTextColorLabel appearance = new WhiteTextColorLabel { Text = selected.Appearance };
 
-			CenteredBoldWhiteTextColorLabel flavorLabel = new CenteredBoldWhiteTextColorLabel () {Text = "Flavor"};
-			WhiteTextColorLabel flavor = new WhiteTextColorLabel (){ Text = selected.Flavor };
+			CenteredBoldWhiteTextColorLabel flavorLabel = new CenteredBoldWhiteTextColorLabel {Text = "Flavor"};
+			WhiteTextColorLabel flavor = new WhiteTextColorLabel { Text = selected.Flavor };
 
-			CenteredBoldWhiteTextColorLabel ingredientsLabel = new CenteredBoldWhiteTextColorLabel () {Text = "Ingredients"};
-			WhiteTextColorLabel ingredients = new WhiteTextColorLabel (){ Text = selected.Ingredients };
+			CenteredBoldWhiteTextColorLabel ingredientsLabel = new CenteredBoldWhiteTextColorLabel {Text = "Ingredients"};
+			WhiteTextColorLabel ingredients = new WhiteTextColorLabel { Text = selected.Ingredients };
 
-			CenteredBoldWhiteTextColorLabel commentsLabel = new CenteredBoldWhiteTextColorLabel () {Text = "Comments"};
-			WhiteTextColorLabel comments = new WhiteTextColorLabel (){ Text = selected.Comments };
+			CenteredBoldWhiteTextColorLabel commentsLabel = new CenteredBoldWhiteTextColorLabel {Text = "Comments"};
+			WhiteTextColorLabel comments = new WhiteTextColorLabel { Text = selected.Comments };
 
-			CenteredBoldWhiteTextColorLabel srmColorLabel = new CenteredBoldWhiteTextColorLabel (){ Text = "Beer Color Range" };
+			CenteredBoldWhiteTextColorLabel srmColorLabel = new CenteredBoldWhiteTextColorLabel { Text = "Beer Color Range" };
 
-			StackLayout description = new StackLayout () {
+			StackLayout description = new StackLayout {
 				Orientation = StackOrientation.Vertical,
 				Children = {
 					aromaLabel,
@@ -45,12 +46,12 @@ namespace BrewMate
 				}
 			};
 
-			WhiteTextColorLabel ibuLabel = new WhiteTextColorLabel (){ Text = "IBU:", HorizontalOptions = LayoutOptions.End };
-			WhiteTextColorLabel ogLabel = new WhiteTextColorLabel (){ Text = "Original Gravity:", HorizontalOptions = LayoutOptions.End };
-			WhiteTextColorLabel fgLabel = new WhiteTextColorLabel (){ Text = "Final Gravity:", HorizontalOptions = LayoutOptions.End };
-			WhiteTextColorLabel abvLabel = new WhiteTextColorLabel (){ Text = "Alcohol Percent:", HorizontalOptions = LayoutOptions.End };
+			WhiteTextColorLabel ibuLabel = new WhiteTextColorLabel { Text = "IBU:", HorizontalOptions = LayoutOptions.End };
+			WhiteTextColorLabel ogLabel = new WhiteTextColorLabel { Text = "Original Gravity:", HorizontalOptions = LayoutOptions.End };
+			WhiteTextColorLabel fgLabel = new WhiteTextColorLabel { Text = "Final Gravity:", HorizontalOptions = LayoutOptions.End };
+			WhiteTextColorLabel abvLabel = new WhiteTextColorLabel { Text = "Alcohol Percent:", HorizontalOptions = LayoutOptions.End };
 
-			StackLayout labels = new StackLayout () {
+			StackLayout labels = new StackLayout {
 				Orientation = StackOrientation.Vertical,
 				Children = {
 					ibuLabel,
@@ -60,12 +61,12 @@ namespace BrewMate
 				}
 			};
 
-			WhiteTextColorLabel ibu = new WhiteTextColorLabel (){ Text = selected.IBUs };
-			WhiteTextColorLabel og = new WhiteTextColorLabel (){ Text = selected.OG };
-			WhiteTextColorLabel fg = new WhiteTextColorLabel (){ Text = selected.FG };
-			WhiteTextColorLabel abv = new WhiteTextColorLabel (){ Text = selected.ABV + " %" };
+			WhiteTextColorLabel ibu = new WhiteTextColorLabel { Text = selected.IBUs };
+			WhiteTextColorLabel og = new WhiteTextColorLabel { Text = selected.OG };
+			WhiteTextColorLabel fg = new WhiteTextColorLabel { Text = selected.FG };
+			WhiteTextColorLabel abv = new WhiteTextColorLabel { Text = selected.ABV + " %" };
 
-			StackLayout values = new StackLayout () {
+			StackLayout values = new StackLayout {
 				Orientation = StackOrientation.Vertical,
 				Children = {
 					ibu,
@@ -75,7 +76,7 @@ namespace BrewMate
 				}
 			};
 
-			StackLayout specs = new StackLayout () {
+			StackLayout specs = new StackLayout {
 				Orientation = StackOrientation.Horizontal,
 				HorizontalOptions = LayoutOptions.CenterAndExpand,
 				Children = {
@@ -84,14 +85,14 @@ namespace BrewMate
 				}
 			};
 
-			ThemedButton commercialBeers = new ThemedButton (){ 
+			ThemedButton commercialBeers = new ThemedButton { 
 				Text = "Commercial Beers of this style",
 				WidthRequest = 250
 			};
 
 			string[] srmRange = selected.SRM.Split ('-');
 
-			WhiteTextColorLabel srmLow = new WhiteTextColorLabel (){ 
+			WhiteTextColorLabel srmLow = new WhiteTextColorLabel { 
 				Text = "Low SRM : " + srmRange [0],
 				HorizontalOptions = LayoutOptions.CenterAndExpand,
 				HeightRequest = 30,
@@ -99,7 +100,7 @@ namespace BrewMate
 				YAlign = TextAlignment.Center,
 				XAlign = TextAlignment.Center
 			};
-			WhiteTextColorLabel srmHigh = new WhiteTextColorLabel (){ 
+			WhiteTextColorLabel srmHigh = new WhiteTextColorLabel { 
 				Text = "High SRM : " + srmRange [1] ,
 				HorizontalOptions = LayoutOptions.CenterAndExpand,
 				HeightRequest = 30,
@@ -110,7 +111,7 @@ namespace BrewMate
 
 			srmCalculator.SRMCalculator (srmLow, srmHigh);
 
-			StackLayout srmLabels = new StackLayout () {
+			StackLayout srmLabels = new StackLayout {
 				Orientation = StackOrientation.Horizontal,
 				Children = {
 					srmLow,
@@ -118,7 +119,7 @@ namespace BrewMate
 				}
 			};
 
-			StackLayout fullStack = new StackLayout () {
+			StackLayout fullStack = new StackLayout {
 				Orientation = StackOrientation.Vertical,
 				Padding = new Thickness(10,10,10,10),
 				Children = {
@@ -130,13 +131,11 @@ namespace BrewMate
 				}
 			};
 
-			this.Content = new ScrollView (){ Content = fullStack };
+			Content = new ScrollView { Content = fullStack };
 
-			commercialBeers.Clicked += (object sender, EventArgs e) => {
+			commercialBeers.Clicked += ( sender, e) => {
 				Navigation.PushAsync(new CommercialBeersDetailPage(selected));
 			};
-
 		}
 	}
 }
-

@@ -1661,7 +1661,7 @@ image_table:
 
 	.long 0,1,2,3,0
 	.asciz "BrewMateiOS"
-	.asciz "AF61D08A-1B90-4E94-8049-5051E0B5BA89"
+	.asciz "AA965AD3-C5FB-48DB-808D-09DCC6B4C0F4"
 	.asciz ""
 	.asciz ""
 	.align 3
@@ -1689,12 +1689,12 @@ image_table:
 
 	.long 0,1,0,0,0
 	.asciz "BrewMate"
-	.asciz "092E1B93-66F4-4CAA-B2BC-51939C982118"
+	.asciz "E48CDF1C-5C05-45F9-9573-8837EAE33382"
 	.asciz ""
 	.asciz ""
 	.align 3
 
-	.long 0,1,0,5434,27265
+	.long 0,1,0,5434,27602
 .data
 	.align 3
 _mono_aot_BrewMateiOS_got:
@@ -1703,7 +1703,7 @@ got_end:
 .section __TEXT, __const
 	.align 2
 assembly_guid:
-	.asciz "AF61D08A-1B90-4E94-8049-5051E0B5BA89"
+	.asciz "AA965AD3-C5FB-48DB-808D-09DCC6B4C0F4"
 .section __TEXT, __const
 	.align 2
 runtime_version:

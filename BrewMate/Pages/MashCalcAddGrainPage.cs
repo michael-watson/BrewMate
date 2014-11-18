@@ -1,4 +1,5 @@
 ﻿using System;
+
 using Xamarin.Forms;
 
 namespace BrewMate
@@ -10,7 +11,7 @@ namespace BrewMate
 			StackLayout grainHeader = new GrainListHeader ();
 			ListView grainList = new GrainListView ();
 
-			this.Content = new StackLayout () {
+			Content = new StackLayout {
 				Spacing = 0,
 				Children = {
 					grainHeader,
@@ -18,7 +19,7 @@ namespace BrewMate
 				}
 			};
 
-			grainList.ItemSelected += (object sender, SelectedItemChangedEventArgs e) => 
+			grainList.ItemSelected += ( sender, e) => 
 			{
 				Grains selected = e.SelectedItem as Grains;
 				MessagingCenter.Send<MashCalcAddGrainPage,Grains> (this,"AddGrain",selected);
@@ -27,4 +28,3 @@ namespace BrewMate
 		}
 	}
 }
-

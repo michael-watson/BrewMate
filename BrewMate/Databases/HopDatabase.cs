@@ -738,9 +738,5 @@ namespace BrewMate
 				},
 			};
 		}
-
-
-
 	}
 }
-

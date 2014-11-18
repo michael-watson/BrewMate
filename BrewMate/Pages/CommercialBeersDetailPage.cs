@@ -1,4 +1,5 @@
 ﻿using System;
+
 using Xamarin.Forms;
 
 namespace BrewMate
@@ -13,9 +14,10 @@ namespace BrewMate
 
 			TableRoot list = new TableRoot ();
 			TableSection section = new TableSection ();
+
 			foreach (string beer in beers)
 			{
-				WhiteTextColorLabel beerName = new WhiteTextColorLabel(){ 
+				WhiteTextColorLabel beerName = new WhiteTextColorLabel { 
 					Text = beer, 
 					Font = Font.SystemFontOfSize (NamedSize.Small),
 					YAlign = TextAlignment.Center,
@@ -26,9 +28,9 @@ namespace BrewMate
 			}
 			list.Add (section);
 			commercialBeers.Root = list;
-			this.Content = commercialBeers;
-			this.Title = "Commercial Beers";
+
+			Content = commercialBeers;
+			Title = "Commercial Beers";
 		}
 	}
 }
-

@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Reflection;
-using Xamarin.Forms;
-using Xamarin;
-using System.Net.NetworkInformation.NetworkInterface;
 using System.Net.NetworkInformation;
+using System.Net.NetworkInformation.NetworkInterface;
+
+using Xamarin;
+using Xamarin.Forms;
 
 namespace BrewMate
 {
@@ -11,12 +12,7 @@ namespace BrewMate
 	{
 		public static Page GetMainPage ()
 		{	
-			//Build welcome loading page
-//			return new NavigationPage (new MissionControlPage ());
-
 			return new NavigationPage(new MissionControlPage ());
-//			return new NavigationPage (new MasterBrewMatePage ());
 		}
 	}
 }
-

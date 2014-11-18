@@ -1,6 +1,7 @@
 ﻿using System;
-using Xamarin.Forms;
 using System.Collections.Generic;
+
+using Xamarin.Forms;
 
 namespace BrewMate
 {
@@ -12,12 +13,12 @@ namespace BrewMate
 		{
 			List<BeerStyle> beersAvailable = beerStyleDatabase.GetStyles ();
 
-			this.VerticalOptions = LayoutOptions.FillAndExpand;
-			this.HorizontalOptions = LayoutOptions.FillAndExpand;
-			this.BackgroundColor = Color.Transparent;
-			this.ItemsSource = beersAvailable;
+			VerticalOptions = LayoutOptions.FillAndExpand;
+			HorizontalOptions = LayoutOptions.FillAndExpand;
+			BackgroundColor = Color.Transparent;
+			ItemsSource = beersAvailable;
 
-			this.ItemTemplate = new DataTemplate (() => {
+			ItemTemplate = new DataTemplate (() => {
 				WhiteTextColorLabel beerName = new WhiteTextColorLabel ();
 				beerName.SetBinding(Label.TextProperty,
 					new Binding("Style", BindingMode.OneWay,null,null,"{0}"));
@@ -33,7 +34,7 @@ namespace BrewMate
 				abv.HorizontalOptions = LayoutOptions.End;
 
 				return new ViewCell {
-					View = new StackLayout(){
+					View = new StackLayout {
 						Orientation = StackOrientation.Horizontal,
 						Children = {
 							beerName,
@@ -45,4 +46,3 @@ namespace BrewMate
 		}
 	}
 }
-

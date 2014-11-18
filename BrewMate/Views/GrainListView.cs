@@ -1,6 +1,7 @@
 ﻿using System;
-using Xamarin.Forms;
 using System.Collections.Generic;
+
+using Xamarin.Forms;
 
 namespace BrewMate 
 {
@@ -12,11 +13,12 @@ namespace BrewMate
 		{
 			List<Grains> grainsAvailable = grainDatabase.GetGrains();
 
-			this.VerticalOptions = LayoutOptions.FillAndExpand;
-			this.HorizontalOptions = LayoutOptions.FillAndExpand;
-			this.BackgroundColor = Color.Transparent;
-			this.ItemsSource = grainsAvailable;
-			this.ItemTemplate = new DataTemplate (() => {
+			VerticalOptions = LayoutOptions.FillAndExpand;
+			HorizontalOptions = LayoutOptions.FillAndExpand;
+			BackgroundColor = Color.Transparent;
+			ItemsSource = grainsAvailable;
+
+			ItemTemplate = new DataTemplate (() => {
 				WhiteTextColorLabel grainLabel = new WhiteTextColorLabel ();
 				grainLabel.SetBinding(Label.TextProperty,
 					new Binding("GrainName", BindingMode.OneWay,null,null,"{0}"));
@@ -51,8 +53,6 @@ namespace BrewMate
 					}
 				};
 			});
-
 		}
 	}
 }
-

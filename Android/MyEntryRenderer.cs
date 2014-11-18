@@ -1,6 +1,8 @@
 ﻿using System;
+
 using Xamarin.Forms.Platform.Android;
 using Xamarin.Forms;
+
 using BrewMate.Android;
 using BrewMate;
 
@@ -13,12 +15,9 @@ namespace BrewMate.Android
 		{
 			base.OnElementChanged (e);
 			if (e.OldElement == null) {   // perform initial setup
-				// lets get a reference to the native control
 				var nativeEditText = (global::Android.Widget.EditText) Control;
-				// do whatever you want to the textField here!
 				nativeEditText.Gravity = global::Android.Views.GravityFlags.Center;
 			}
 		}
 	}
 }
-

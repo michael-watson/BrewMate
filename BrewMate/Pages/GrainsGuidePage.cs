@@ -1,4 +1,5 @@
 ﻿using System;
+
 using Xamarin.Forms;
 
 namespace BrewMate
@@ -9,9 +10,9 @@ namespace BrewMate
 		{
 			StackLayout grainHeader = new GrainListHeader ();
 			ListView grainList = new GrainListView ();
-			this.Title = "Grains Grains Grains";
 
-			this.Content =	new StackLayout () {
+			Title = "Grains Grains Grains";
+			Content =	new StackLayout {
 				Spacing = 0,
 				Children = { 
 					grainHeader,
@@ -19,7 +20,7 @@ namespace BrewMate
 				}
 			};
 
-			grainList.ItemTapped += (object sender, ItemTappedEventArgs e) => 
+			grainList.ItemTapped += ( sender,  e) => 
 			{
 				Grains selected = e.Item as Grains;
 				Navigation.PushAsync(new GrainDetailsPage(selected));
@@ -28,4 +29,3 @@ namespace BrewMate
 		}
 	}
 }
-

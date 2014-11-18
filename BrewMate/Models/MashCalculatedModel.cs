@@ -1,4 +1,5 @@
 ﻿using System;
+
 using Xamarin.Forms;
 
 namespace BrewMate
@@ -12,4 +13,3 @@ namespace BrewMate
 		public string name { get; set; }
 	}
 }
-

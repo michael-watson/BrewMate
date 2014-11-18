@@ -36,8 +36,8 @@
 	-debug \
 	-nolink \
 	-sdk \
-	8.0 \
+	8.1 \
 	-targetver \
-	7.0 \
+	8.0 \
 	--abi=i386 \
 	/Users/michaelwatson/Projects/BrewMate/iOS/bin/iPhoneSimulator/Debug/BrewMateiOS.exe \

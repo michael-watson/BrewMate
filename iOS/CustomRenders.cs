@@ -1,9 +1,12 @@
 ﻿using System;
+
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
-using BrewMate.iOS;
-using MonoTouch.UIKit;
+
 using BrewMate;
+using BrewMate.iOS;
+
+using MonoTouch.UIKit;
 using MonoTouch.CoreAnimation;
 using MonoTouch.CoreGraphics;
 using MonoTouch.Foundation;
@@ -23,14 +26,11 @@ namespace BrewMate.iOS
 {
 	public class HopThemedNumberEntryRenderer : EntryRenderer
 	{
-
 		protected override void OnElementChanged (ElementChangedEventArgs<Entry> e)
 		{
 			base.OnElementChanged (e);
 			if (e.OldElement == null) {   // perform initial setup
-				// lets get a reference to the native control
 				var nativeTextField = (UITextField) Control;
-				// do whatever you want to the UITextField here!
 				nativeTextField.TextAlignment = UITextAlignment.Center;
 				nativeTextField.TintColor = UIColor.FromRGB (3, 190, 0);
 			}
@@ -39,14 +39,11 @@ namespace BrewMate.iOS
 
 	public class GrainThemedNumberEntryRenderer : EntryRenderer
 	{
-
 		protected override void OnElementChanged (ElementChangedEventArgs<Entry> e)
 		{
 			base.OnElementChanged (e);
 			if (e.OldElement == null) {   // perform initial setup
-				// lets get a reference to the native control
 				var nativeTextField = (UITextField) Control;
-				// do whatever you want to the UITextField here!
 				nativeTextField.TextAlignment = UITextAlignment.Center;
 				nativeTextField.TintColor = UIColor.FromRGB (178, 92, 0);
 			}
@@ -60,7 +57,6 @@ namespace BrewMate.iOS
 			base.OnElementChanged (e);
 			if (e.OldElement == null) {   
 				var nativePage = (UIView) NativeView;
-//				nativePage.BackgroundColor = UIColor.FromRGB (100, 210, 40);
 				CAGradientLayer gradient = new CAGradientLayer ();
 				gradient.Frame = nativePage.Bounds;
 				gradient.Colors = new CGColor[]{ UIColor.FromRGB (100, 210, 40).CGColor, UIColor.FromRGB (23,130,0).CGColor };
@@ -76,7 +72,6 @@ namespace BrewMate.iOS
 			base.OnElementChanged (e);
 			if (e.OldElement == null) {   
 				var nativePage = (UIView) NativeView;
-				//				nativePage.BackgroundColor = UIColor.FromRGB (100, 210, 40);
 				CAGradientLayer gradient = new CAGradientLayer ();
 				gradient.Frame = nativePage.Bounds;
 				gradient.Colors = new CGColor[]{ UIColor.FromRGB (221, 150, 42).CGColor, UIColor.FromRGB (178, 92, 0).CGColor };
@@ -115,6 +110,7 @@ namespace BrewMate.iOS
 			this.TintColor = UIColor.Brown;
 		}
 	}
+
 	public class GreenNavigationRenderer : NavigationRenderer
 	{
 		public GreenNavigationRenderer()
@@ -124,10 +120,8 @@ namespace BrewMate.iOS
 		public override void ViewDidLoad()
 		{
 			base.ViewDidLoad();
-			this.NavigationBar.TintColor = UIColor.White;
-
-//			this.NavigationBar.BarTintColor = UIColor.FromRGB (100, 210, 40);
-			this.NavigationBar.BarTintColor = UIColor.FromRGB (255, 195, 0);
+			NavigationBar.TintColor = UIColor.White;
+			NavigationBar.BarTintColor = UIColor.FromRGB (255, 195, 0);
 			UINavigationBar.Appearance.SetTitleTextAttributes (new UITextAttributes (){ TextColor = UIColor.White ,TextShadowColor = UIColor.White});
 		}
 	}
@@ -144,4 +138,3 @@ namespace BrewMate.iOS
 		}
 	}
 }
-	

@@ -1,4 +1,5 @@
 ﻿using System;
+
 using Xamarin.Forms;
 
 namespace BrewMate
@@ -7,85 +8,85 @@ namespace BrewMate
 	{
 		public MashCalculatedResultsPage ( MashCalculatedModel calculations, TableSection tableSection )
 		{
-			this.BackgroundColor = calculations.srmColor;
+			BackgroundColor = calculations.srmColor;
 
-			Label title = new Label () {
+			Label title = new Label {
 				Text = "Your Beer Estimates",
 				XAlign = TextAlignment.Center,
 				Font = Font.SystemFontOfSize(NamedSize.Large)
 			};
-			Label subtitle = new Label () {
+			Label subtitle = new Label {
 				Text = "The background is the color of your beer",
 				XAlign = TextAlignment.Center,
 				Font = Font.SystemFontOfSize (NamedSize.Micro)
 			};	
 
-			StackLayout titleStack = new StackLayout () {
+			StackLayout titleStack = new StackLayout {
 				Orientation = StackOrientation.Vertical,
 				Children = { title, subtitle },
 				Spacing = 0
 			};
 
-			GrainThemedButton newBeer = new GrainThemedButton (){ 
+			GrainThemedButton newBeer = new GrainThemedButton { 
 				Text = "New Beer",
 				WidthRequest = 150
 			};
-			GrainThemedButton addMoreGrains = new GrainThemedButton () {
+			GrainThemedButton addMoreGrains = new GrainThemedButton {
 				Text = "Add more grains",
 				WidthRequest = 150
 			};
 
-			StackLayout buttonStack = new StackLayout () {
+			StackLayout buttonStack = new StackLayout {
 				Orientation = StackOrientation.Horizontal,
 				Children = { newBeer, addMoreGrains },
 				HorizontalOptions = LayoutOptions.Center
 			};
 
-			Label srmLabel = new Label (){ 
+			Label srmLabel = new Label { 
 				Text = "SRM Color:",
 				HorizontalOptions = LayoutOptions.EndAndExpand
 			};
-			Label extractPPGLabel = new Label (){ 
+			Label extractPPGLabel = new Label { 
 				Text = "Extract PPG:",
 				HorizontalOptions = LayoutOptions.EndAndExpand
 			};
-			Label grainPPGLabel = new Label (){ 
+			Label grainPPGLabel = new Label { 
 				Text = "Grain Malt PPG:",
 				HorizontalOptions = LayoutOptions.EndAndExpand
 			};
-			Label ogLabel = new Label (){ 
+			Label ogLabel = new Label { 
 				Text = "Estimated OG:",
 				HorizontalOptions = LayoutOptions.EndAndExpand
 			};
-			Label efficiencyLabel = new Label (){ 
+			Label efficiencyLabel = new Label { 
 				Text = "Efficiency:",
 				HorizontalOptions = LayoutOptions.EndAndExpand
 			};
 
 			double og = (calculations.extractPPG + (calculations.grainPPG*.8))/1000 + 1;
 
-			Label srmIntLabel = new Label () { 
+			Label srmIntLabel = new Label { 
 				Text = calculations.srmInt.ToString (),
 				HorizontalOptions = LayoutOptions.CenterAndExpand
 			};
-			Label extractPPG = new Label () { 
+			Label extractPPG = new Label { 
 				Text = calculations.extractPPG.ToString (),
 				HorizontalOptions = LayoutOptions.CenterAndExpand 
 			};
-			Label grainPPG = new Label () { 
+			Label grainPPG = new Label { 
 				Text = calculations.grainPPG.ToString (),
 				HorizontalOptions = LayoutOptions.CenterAndExpand 
 			};
-			Label estimatedOG = new Label () { 
+			Label estimatedOG = new Label { 
 				Text = og.ToString (),
 				HorizontalOptions = LayoutOptions.CenterAndExpand
 			};
 
-			GrainThemedNumberEntry efficiency = new GrainThemedNumberEntry (){ 
+			GrainThemedNumberEntry efficiency = new GrainThemedNumberEntry { 
 				Text = "0.80",
 			};
 
-			BrownStepper efficiencyStepper = new BrownStepper () {
+			BrownStepper efficiencyStepper = new BrownStepper {
 				Minimum = 0,
 				Maximum = 1,
 				Increment = 0.01,
@@ -93,7 +94,7 @@ namespace BrewMate
 				HorizontalOptions = LayoutOptions.Center
 			};
 
-			Grid gridLayout = new Grid () {
+			Grid gridLayout = new Grid {
 				ColumnDefinitions = {
 					new ColumnDefinition{ Width = new GridLength (3, GridUnitType.Star) },
 					new ColumnDefinition{ Width = new GridLength (1, GridUnitType.Star) },
@@ -114,7 +115,7 @@ namespace BrewMate
 			gridLayout.Children.Add (efficiency, 1, 4);
 			gridLayout.Children.Add (efficiencyStepper, 2, 4);
 
-			this.Content = new StackLayout () {
+			Content = new StackLayout () {
 				Orientation = StackOrientation.Vertical,
 				VerticalOptions = LayoutOptions.Center,
 				Spacing = 20,
@@ -125,12 +126,13 @@ namespace BrewMate
 				}
 			};
 
-			efficiencyStepper.ValueChanged += (object sender, ValueChangedEventArgs e) => {
+			efficiencyStepper.ValueChanged += ( sender, e) => {
 				efficiency.Text = efficiencyStepper.Value.ToString();
 				og = ( Convert.ToDouble(extractPPG.Text) + Convert.ToDouble(grainPPG.Text)*Convert.ToDouble(efficiency.Text) )/1000 + 1;
 				estimatedOG.Text = og.ToString();
 			};
-			efficiency.TextChanged += (object sender, TextChangedEventArgs e) => {
+
+			efficiency.TextChanged += ( sender, e) => {
 				if(efficiency.Text != "" && efficiency.Text != "." ){
 					efficiencyStepper.Value = Convert.ToDouble(efficiency.Text);
 					og = ( Convert.ToDouble(extractPPG.Text) + Convert.ToDouble(grainPPG.Text)*Convert.ToDouble(efficiency.Text) )/1000 + 1;
@@ -138,7 +140,7 @@ namespace BrewMate
 				}
 			};
 
-			newBeer.Clicked += (object sender, EventArgs e) => {
+			newBeer.Clicked += ( sender, e) => {
 				var rows = tableSection.Count;
 				for(var i = 1;i<rows;i++){
 					tableSection.RemoveAt(1);
@@ -146,7 +148,7 @@ namespace BrewMate
 				Navigation.PopModalAsync();
 			};
 
-			addMoreGrains.Clicked += (object sender, EventArgs e) => {
+			addMoreGrains.Clicked += ( sender, e) => {
 				Navigation.PopModalAsync();
 			};
 
@@ -163,8 +165,6 @@ namespace BrewMate
 				title.TextColor = Color.White;
 				subtitle.TextColor = Color.White;
 			}
-
 		}
 	}
 }
-
