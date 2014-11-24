@@ -1,24 +1,15 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.Michael Watson’s iPhone" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="iOS/CustomRenders.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone4s.8.1" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="BrewMate/Pages/XAML Pages/IBUCalculatorPageXAML.xaml.cs">
     <Files>
-      <File FileName="BrewMate/Pages/MissionControlPage.cs" Line="1" Column="1" />
-      <File FileName="BrewMate/Databases/BeerStyleDatabase.cs" Line="1" Column="1" />
-      <File FileName="Bremate.Shared/Timer.cs" Line="1" Column="1" />
-      <File FileName="BrewMate/Databases/GrainDatabase.cs" Line="1" Column="1" />
-      <File FileName="BrewMate/Models/Grains.cs" Line="1" Column="1" />
-      <File FileName="BrewMate/Models/Hops.cs" Line="1" Column="1" />
-      <File FileName="BrewMate/Models/BeerStyle.cs" Line="1" Column="1" />
-      <File FileName="BrewMate/Pages/BeerStylePage.cs" Line="1" Column="1" />
-      <File FileName="BrewMate/Pages/BeerStyleDetailScrollPage.cs" Line="1" Column="1" />
-      <File FileName="BrewMate/Pages/CommercialBeersDetailPage.cs" Line="1" Column="1" />
-      <File FileName="iOS/CustomRenders.cs" Line="3" Column="3" />
+      <File FileName="Android/MainActivity.cs" Line="1" Column="1" />
+      <File FileName="BrewMate/App.cs" Line="1" Column="1" />
+      <File FileName="BrewMate/Pages/StartPage.cs" Line="1" Column="1" />
+      <File FileName="BrewMate/Pages/XAML Pages/IBUCalculatorPageXAML.xaml.cs" Line="6" Column="6" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/michaelwatson/Projects/BrewMate/BrewMate/Databases/HopBoilDatabase.cs" line="80" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

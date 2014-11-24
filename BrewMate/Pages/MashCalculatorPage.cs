@@ -71,12 +71,6 @@ namespace BrewMate
 			GrainThemedNumberEntry mashEfficiencyEntry = new GrainThemedNumberEntry { Text = "150" };
 			GrainThemedNumberEntry mashVolumeEntry = new GrainThemedNumberEntry { Text = "0" };
 
-			BrownStepper efficiencyStepper = new BrownStepper {
-				Minimum = 0,
-				Maximum = 1,
-				Increment = .01,
-				Value = Convert.ToDouble(mashEfficiencyEntry.Text),
-			};
 			BrownStepper volumeStepper = new BrownStepper {
 				Minimum = 0,
 				Maximum = 1000,
@@ -122,18 +116,6 @@ namespace BrewMate
 
 			ScrollView scrollContent = new ScrollView { Content = pageContents };
 			Content = scrollContent;
-
-			efficiencyStepper.ValueChanged += ( sender, e) => {
-				mashEfficiencyEntry.Text = efficiencyStepper.Value.ToString ();
-			};
-
-			mashEfficiencyEntry.TextChanged += ( sender, e) => {
-				if(Convert.ToDouble(mashEfficiencyEntry.Text)>1)
-					mashEfficiencyEntry.Text = "1.00";
-				if (mashEfficiencyEntry.Text != ""){
-					efficiencyStepper.Value = Convert.ToDouble (mashEfficiencyEntry.Text);
-				}
-			};
 
 			volumeStepper.ValueChanged += ( sender, e) => {
 				mashVolumeEntry.Text = volumeStepper.Value.ToString ();

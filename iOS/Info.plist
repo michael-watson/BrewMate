@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDisplayName</key>
-	<string>BrewMate.iOS</string>
+	<string>BrewMate</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.your-company.BrewMate.iOS</string>
+	<string>com.EpicOnlineConsulting.BrewMate.iOS</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>

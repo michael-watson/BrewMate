@@ -26,3 +26,6 @@ System.Linq.dll
 System.Net.Http.dll
 Calabash.dll
 BrewMate.dll
+Xamarin.Forms.Xaml.dll
+System.Xml.ReaderWriter.dll
+System.Text.RegularExpressions.dll

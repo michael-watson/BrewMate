@@ -1661,7 +1661,7 @@ image_table:
 
 	.long 0,1,2,3,0
 	.asciz "BrewMateiOS"
-	.asciz "AA965AD3-C5FB-48DB-808D-09DCC6B4C0F4"
+	.asciz "291D4E11-C262-4C11-B8CE-7AB00470B7E1"
 	.asciz ""
 	.asciz ""
 	.align 3
@@ -1689,12 +1689,12 @@ image_table:
 
 	.long 0,1,0,0,0
 	.asciz "BrewMate"
-	.asciz "E48CDF1C-5C05-45F9-9573-8837EAE33382"
+	.asciz "04FD0BC4-784D-4AF0-A17A-05FD2EEEB588"
 	.asciz ""
 	.asciz ""
 	.align 3
 
-	.long 0,1,0,5434,27602
+	.long 0,1,0,5434,29624
 .data
 	.align 3
 _mono_aot_BrewMateiOS_got:
@@ -1703,7 +1703,7 @@ got_end:
 .section __TEXT, __const
 	.align 2
 assembly_guid:
-	.asciz "AA965AD3-C5FB-48DB-808D-09DCC6B4C0F4"
+	.asciz "291D4E11-C262-4C11-B8CE-7AB00470B7E1"
 .section __TEXT, __const
 	.align 2
 runtime_version:
@@ -7841,81 +7841,81 @@ Ldebug_line_header_end:
 	.byte 0,5,2
 	.long _BrewMate_iOS_Application_Main_string__
 
-	.byte 3,13,4,2,1,3,13,2,196,0,1,8,119,3,1,2,60,1,3,1,2,236,0,1,3,1,2,208,0,1,2,44
+	.byte 3,14,4,2,1,3,14,2,196,0,1,8,117,3,1,2,60,1,3,1,2,236,0,1,3,1,2,208,0,1,2,44
 	.byte 1,0,1,1
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,5,2
 	.long _BrewMate_iOS_AppDelegate_FinishedLaunching_MonoTouch_UIKit_UIApplication_MonoTouch_Foundation_NSDictionary
 
-	.byte 3,17,4,3,1,3,17,2,216,0,1,8,117,8,62,8,62,3,2,2,160,1,1,3,1,2,248,0,1,3,2,2
+	.byte 3,18,4,3,1,3,18,2,216,0,1,8,117,8,62,8,62,3,2,2,160,1,1,3,1,2,248,0,1,3,2,2
 	.byte 192,0,1,8,117,2,48,1,0,1,1
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,5,2
 	.long _BrewMate_iOS_HopThemedNumberEntryRenderer_OnElementChanged_Xamarin_Forms_Platform_iOS_ElementChangedEventArgs_1_Xamarin_Forms_Entry
 
-	.byte 3,27,4,4,1,3,27,2,204,0,1,8,117,3,1,2,60,1,3,2,2,232,0,1,3,2,2,208,0,1,3,1
+	.byte 3,29,4,4,1,3,29,2,204,0,1,8,117,3,1,2,60,1,3,1,2,232,0,1,3,1,2,208,0,1,3,1
 	.byte 2,196,0,1,3,1,2,240,0,1,243,2,52,1,0,1,1
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,5,2
 	.long _BrewMate_iOS_GrainThemedNumberEntryRenderer_OnElementChanged_Xamarin_Forms_Platform_iOS_ElementChangedEventArgs_1_Xamarin_Forms_Entry
 
-	.byte 3,43,4,4,1,3,43,2,204,0,1,8,117,3,1,2,60,1,3,2,2,232,0,1,3,2,2,208,0,1,3,1
+	.byte 3,42,4,4,1,3,42,2,204,0,1,8,117,3,1,2,60,1,3,1,2,232,0,1,3,1,2,208,0,1,3,1
 	.byte 2,196,0,1,3,1,2,240,0,1,243,2,52,1,0,1,1
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,5,2
 	.long _BrewMate_iOS_GreenGradientRenderer_OnElementChanged_Xamarin_Forms_Platform_iOS_VisualElementChangedEventArgs
 
-	.byte 3,58,4,4,1,3,58,2,212,0,1,8,117,3,1,2,60,1,3,1,2,232,0,1,3,2,2,204,0,1,3,1
+	.byte 3,55,4,4,1,3,55,2,212,0,1,8,117,3,1,2,60,1,3,1,2,232,0,1,3,1,2,204,0,1,3,1
 	.byte 2,52,1,3,1,2,140,1,1,3,1,2,140,3,1,3,1,2,136,1,1,243,2,52,1,0,1,1
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,5,2
 	.long _BrewMate_iOS_BrownGradientRenderer_OnElementChanged_Xamarin_Forms_Platform_iOS_VisualElementChangedEventArgs
 
-	.byte 3,202,0,4,4,1,3,202,0,2,212,0,1,8,117,3,1,2,60,1,3,1,2,232,0,1,3,2,2,204,0,1
+	.byte 3,198,0,4,4,1,3,198,0,2,212,0,1,8,117,3,1,2,60,1,3,1,2,232,0,1,3,1,2,204,0,1
 	.byte 3,1,2,52,1,3,1,2,140,1,1,3,1,2,140,3,1,3,1,2,136,1,1,243,2,52,1,0,1,1
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,5,2
 	.long _BrewMate_iOS_HopViewCellRenderer_GetCell_Xamarin_Forms_Cell_MonoTouch_UIKit_UITableView
 
-	.byte 3,218,0,4,4,1,3,218,0,2,228,0,1,8,117,3,1,2,228,0,1,3,1,2,52,1,3,1,2,140,1,1
+	.byte 3,213,0,4,4,1,3,213,0,2,228,0,1,8,117,3,1,2,228,0,1,3,1,2,52,1,3,1,2,140,1,1
 	.byte 3,1,2,220,2,1,3,2,2,136,1,1,8,117,2,48,1,0,1,1
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,5,2
 	.long _BrewMate_iOS_GreenStepperRenderer_OnElementChanged_Xamarin_Forms_Platform_iOS_ElementChangedEventArgs_1_Xamarin_Forms_Stepper
 
-	.byte 3,232,0,4,4,1,3,232,0,2,200,0,1,8,117,3,1,2,60,1,3,1,2,216,0,1,2,44,1,0,1,1
+	.byte 3,227,0,4,4,1,3,227,0,2,200,0,1,8,117,3,1,2,60,1,3,1,2,216,0,1,2,44,1,0,1,1
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,5,2
 	.long _BrewMate_iOS_BrownStepperRenderer_OnElementChanged_Xamarin_Forms_Platform_iOS_ElementChangedEventArgs_1_Xamarin_Forms_Stepper
 
-	.byte 3,240,0,4,4,1,3,240,0,2,200,0,1,8,117,3,1,2,60,1,3,1,2,216,0,1,2,44,1,0,1,1
+	.byte 3,235,0,4,4,1,3,235,0,2,200,0,1,8,117,3,1,2,60,1,3,1,2,216,0,1,2,44,1,0,1,1
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,5,2
 	.long _BrewMate_iOS_GreenNavigationRenderer__ctor
 
-	.byte 3,247,0,4,4,1,3,247,0,2,196,0,1,8,229,243,2,44,1,0,1,1
+	.byte 3,243,0,4,4,1,3,243,0,2,196,0,1,8,229,243,2,44,1,0,1,1
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,5,2
 	.long _BrewMate_iOS_GreenNavigationRenderer_ViewDidLoad
 
-	.byte 3,252,0,4,4,1,3,252,0,2,200,0,1,8,117,3,1,2,44,1,3,3,2,248,0,1,3,1,2,160,1,1
+	.byte 3,248,0,4,4,1,3,248,0,2,200,0,1,8,117,3,1,2,44,1,3,1,2,248,0,1,3,1,2,160,1,1
 	.byte 3,1,2,132,2,1,2,44,1,0,1,1
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,5,2
 	.long _BrewMate_iOS_IBUCalcPage_TableViewHeader_LabelRenderer_OnElementChanged_Xamarin_Forms_Platform_iOS_ElementChangedEventArgs_1_Xamarin_Forms_Label
 
-	.byte 3,137,1,4,4,1,3,137,1,2,204,0,1,8,117,3,1,2,60,1,3,1,2,232,0,1,3,1,2,208,0,1
+	.byte 3,131,1,4,4,1,3,131,1,2,204,0,1,8,117,3,1,2,60,1,3,1,2,232,0,1,3,1,2,208,0,1
 	.byte 3,1,2,196,0,1,243,2,52,1,0,1,1
 .section __DWARF, __debug_line,regular,debug
 

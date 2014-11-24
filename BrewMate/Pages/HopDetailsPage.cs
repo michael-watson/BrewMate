@@ -30,7 +30,7 @@ namespace BrewMate
 					
 			TableView hopSubs = new TableView ();
 			hopSubs.BackgroundColor = Color.Transparent;
-			string[] substitutes = selectedHop.Substitues.Split (',');
+			string[] substitutes = selectedHop.Substitutes.Split (',');
 
 			TableRoot list = new TableRoot ();
 			TableSection section = new TableSection ();

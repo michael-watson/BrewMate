@@ -11,7 +11,6 @@ using Android.OS;
 using Xamarin;
 using Xamarin.Forms.Platform.Android;
 
-
 namespace BrewMate.Android
 {
 	[Activity (Label = "BrewMate.Android.Android", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]

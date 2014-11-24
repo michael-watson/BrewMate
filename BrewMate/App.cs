@@ -12,7 +12,7 @@ namespace BrewMate
 	{
 		public static Page GetMainPage ()
 		{	
-			return new NavigationPage(new MissionControlPage ());
+			return new NavigationPage(new StartPage ());
 		}
 	}
 }

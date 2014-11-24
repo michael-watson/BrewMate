@@ -1,6 +1,6 @@
-# Version: 8.4.0.38 (9e57461)
+# Version: 8.4.0.43 (840a925)
 # [first argument, ignore] # /Users/michaelwatson/Projects/BrewMate/iOS/bin/iPhoneSimulator/Debug/mtouch.exe
-/Library/Frameworks/Xamarin.iOS.framework/Versions/8.4.0.38/bin/mtouch \
+/Library/Frameworks/Xamarin.iOS.framework/Versions/8.4.0.43/bin/mtouch \
 	-sdkroot \
 	/Applications/Xcode.app/Contents/Developer \
 	--cache \

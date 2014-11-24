@@ -30,7 +30,6 @@ namespace BrewMate
 				Navigation.PushAsync(new HopDetails(selected));
 				((ListView)sender).SelectedItem = null;
 			};
-
 		}
 		protected override void OnAppearing ()
 		{

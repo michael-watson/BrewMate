@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GreenGradientPage xmlns="http://xamarin.com/schemas/2014/forms" 
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+		xmlns:local="clr-namespace:BrewMate;assembly=BrewMate" 
+		x:Class="BrewMate.BeerStyleDetailScrollPageXAML">
+	<ScrollView>
+		<StackLayout>
+			<StackLayout.Padding>
+				<OnPlatform x:TypeArguments="Thickness" iOS="10,5,10,5" Android="10,0,10,0" WinPhone="10,0,10,0" />
+			</StackLayout.Padding>
+
+			<local:ThemedButton Clicked="CommercialBeers" 
+				Text="Commercial Beers of this style" 
+				WidthRequest="250"/>
+
+			<local:CenteredBoldWhiteTextColorLabel Text="Aroma"/>
+			<local:WhiteTextColorLabel Text="{Binding Aroma}"/>
+
+			<local:CenteredBoldWhiteTextColorLabel Text="Appearance"/>
+			<local:WhiteTextColorLabel Text="{Binding Appearance}"/>
+
+			<local:CenteredBoldWhiteTextColorLabel Text="Flavor"/>
+			<local:WhiteTextColorLabel Text="{Binding Flavor}"/>
+
+			<local:CenteredBoldWhiteTextColorLabel Text="Ingredients"/>
+			<local:WhiteTextColorLabel Text="{Binding Ingredients}"/>
+
+			<local:CenteredBoldWhiteTextColorLabel Text="Comments"/>
+			<local:WhiteTextColorLabel Text="{Binding Comments}"/>
+
+			<local:CenteredBoldWhiteTextColorLabel Text="Beer Color Range"/>
+
+			<StackLayout Orientation="Horizontal">
+				<local:WhiteTextColorLabel 
+					x:Name="srmLow" 
+					HorizontalOptions="CenterAndExpand" 
+					HeightRequest="30" 
+					WidthRequest="150" 
+					YAlign="Center" 
+					XAlign="Center"/>
+				<local:WhiteTextColorLabel 
+					x:Name="srmHigh"
+					HorizontalOptions="CenterAndExpand" 
+					HeightRequest="30" 
+					WidthRequest="150" 
+					YAlign="Center" 
+					XAlign="Center"/> 
+			</StackLayout>
+
+			<StackLayout Orientation="Horizontal">
+				<StackLayout Orientation="Vertical">
+					<local:WhiteTextColorLabel Text="IBU:"
+						HorizontalOptions="End"/>
+					<local:WhiteTextColorLabel Text="Original Gravity:"
+						HorizontalOptions="End"/>
+					<local:WhiteTextColorLabel Text="Final Gravity:"
+						HorizontalOptions="End"/>
+					<local:WhiteTextColorLabel Text="Alcohol Percent:"
+						HorizontalOptions="End"/>
+				</StackLayout>
+
+				<StackLayout Orientation="Vertical">
+					<local:WhiteTextColorLabel Text="{Binding IBUs}"/>
+					<local:WhiteTextColorLabel Text="{Binding OG}"/>
+					<local:WhiteTextColorLabel Text="{Binding FG}"/>
+					<local:WhiteTextColorLabel Text="{Binding ABV}"/>
+				</StackLayout>
+			</StackLayout>
+		</StackLayout>
+	</ScrollView>
+</GreenGradientPage>

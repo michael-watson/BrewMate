@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GreenGradientPage xmlns="http://xamarin.com/schemas/2014/forms" 
+		 		   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+				   xmlns:local="clr-namespace:BrewMate;assembly=BrewMate"
+				   x:Class="BrewMate.MissionControlPageXAML">
+	<StackLayout x:Name="buttonCollection" Opacity="0">
+		<StackLayout.Padding>
+			<OnPlatform x:TypeArguments="Thickness" iOS="10,20,10,5" Android="5,0,5,5" WinPhone="5,0,5,5" />
+		</StackLayout.Padding>
+
+		<local:ThemedButton Clicked="BeerStyles" Text="Beer Styles" WidthRequest="250">
+			<local:ThemedButton.HeightRequest>
+				<OnPlatform x:TypeArguments="x:Double" iOS="50" Android="50" WinPhone="50" />
+			</local:ThemedButton.HeightRequest>
+		</local:ThemedButton>
+
+		<local:ThemedButton Clicked="IBUCalculator" Text="IBU Calculator" WidthRequest="250">
+			<local:ThemedButton.HeightRequest>
+				<OnPlatform x:TypeArguments="x:Double" iOS="50" Android="50" WinPhone="50" />
+			</local:ThemedButton.HeightRequest>
+		</local:ThemedButton>
+
+		<local:ThemedButton Clicked="MashCalculator" Text="Mash Calculator" WidthRequest="250">
+			<local:ThemedButton.HeightRequest>
+				<OnPlatform x:TypeArguments="x:Double" iOS="50" Android="50" WinPhone="50" />
+			</local:ThemedButton.HeightRequest>
+		</local:ThemedButton>
+
+		<local:ThemedButton Clicked="ABVCalculator" Text="Alcohol Percentage Calculator" WidthRequest="250">
+			<local:ThemedButton.HeightRequest>
+				<OnPlatform x:TypeArguments="x:Double" iOS="50" Android="50" WinPhone="50" />
+			</local:ThemedButton.HeightRequest>
+		</local:ThemedButton>
+
+		<local:ThemedButton Clicked="GrainDescriptions" Text="Grain Descriptions" WidthRequest="250">
+		<local:ThemedButton.HeightRequest>
+				<OnPlatform x:TypeArguments="x:Double" iOS="50" Android="50" WinPhone="50" />
+			</local:ThemedButton.HeightRequest>
+		</local:ThemedButton>
+
+		<local:ThemedButton Clicked="HopGuide" Text="Hop Guide" WidthRequest="250">
+			<local:ThemedButton.HeightRequest>
+				<OnPlatform x:TypeArguments="x:Double" iOS="50" Android="50" WinPhone="50" />
+			</local:ThemedButton.HeightRequest>
+		</local:ThemedButton>
+	</StackLayout>
+</GreenGradientPage>

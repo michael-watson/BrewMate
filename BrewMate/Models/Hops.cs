@@ -8,7 +8,7 @@ namespace BrewMate
 		public double AALow { get; set; }
 		public double AAHigh { get; set; }
 		public string Type { get; set;}
-		public string Substitues { get; set; }
+		public string Substitutes { get; set; }
 		public string Description { get; set; }
 	}
 }
