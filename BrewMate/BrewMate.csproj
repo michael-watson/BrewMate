@@ -35,15 +35,7 @@
     <Compile Include="Databases\HopDatabase.cs" />
     <Compile Include="Databases\HopBoilDatabase.cs" />
     <Compile Include="Calculators\CalculateIBU.cs" />
-    <Compile Include="Pages\HopDetailsPage.cs" />
-    <Compile Include="Pages\HopsGuidePage.cs" />
-    <Compile Include="Pages\IBUAddHopPage.cs" />
-    <Compile Include="Pages\IBUCalculatorPage.cs" />
-    <Compile Include="Pages\MissionControlPage.cs" />
-    <Compile Include="Pages\CalculateAlcoholPercentPage.cs" />
     <Compile Include="Databases\GrainDatabase.cs" />
-    <Compile Include="Pages\GrainsGuidePage.cs" />
-    <Compile Include="Pages\GrainDetailsPage.cs" />
     <Compile Include="Databases\BeerStyleDatabase.cs" />
     <Compile Include="Models\Grains.cs" />
     <Compile Include="Models\Hops.cs" />
@@ -54,16 +46,10 @@
     <Compile Include="Views\GrainListHeader.cs" />
     <Compile Include="Views\GrainListView.cs" />
     <Compile Include="Views\BeerStylesListView.cs" />
-    <Compile Include="Pages\BeerStylePage.cs" />
-    <Compile Include="Pages\BeerStyleDetailScrollPage.cs" />
-    <Compile Include="Pages\CommercialBeersDetailPage.cs" />
     <Compile Include="Calculators\SRMColorCalculator.cs" />
     <Compile Include="Models\MashCalculatedModel.cs" />
     <Compile Include="Calculators\CaculateGravity.cs" />
     <Compile Include="Models\ExtractAndPPGModel.cs" />
-    <Compile Include="Pages\MashCalculatorPage.cs" />
-    <Compile Include="Pages\MashCalcAddGrainPage.cs" />
-    <Compile Include="Pages\MashCalculatedResultsPage.cs" />
     <Compile Include="Views\CalcPages_TableViewHeader_Label.cs" />
     <Compile Include="Views\CenteredBoldWhiteTextColorLabel.cs" />
     <Compile Include="Views\GrainThemedButton.cs" />
@@ -76,7 +62,6 @@
     <Compile Include="Pages\XAML Pages\HopDetailsPageXAML.xaml.cs">
       <DependentUpon>HopDetailsPageXAML.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\StartPage.cs" />
     <Compile Include="Pages\XAML Pages\MissionControlPageXAML.xaml.cs">
       <DependentUpon>MissionControlPageXAML.xaml</DependentUpon>
     </Compile>
@@ -117,6 +102,21 @@
     <Compile Include="Pages\XAML Pages\CalculateAlcoholPercentPageXAML.xaml.cs">
       <DependentUpon>CalculateAlcoholPercentPageXAML.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Programmatic Pages\BeerStyleDetailScrollPage.cs" />
+    <Compile Include="Pages\Programmatic Pages\BeerStylePage.cs" />
+    <Compile Include="Pages\Programmatic Pages\CalculateAlcoholPercentPage.cs" />
+    <Compile Include="Pages\Programmatic Pages\CommercialBeersDetailPage.cs" />
+    <Compile Include="Pages\Programmatic Pages\GrainDetailsPage.cs" />
+    <Compile Include="Pages\Programmatic Pages\GrainsGuidePage.cs" />
+    <Compile Include="Pages\Programmatic Pages\HopDetailsPage.cs" />
+    <Compile Include="Pages\Programmatic Pages\HopsGuidePage.cs" />
+    <Compile Include="Pages\Programmatic Pages\IBUAddHopPage.cs" />
+    <Compile Include="Pages\Programmatic Pages\IBUCalculatorPage.cs" />
+    <Compile Include="Pages\Programmatic Pages\MashCalcAddGrainPage.cs" />
+    <Compile Include="Pages\Programmatic Pages\MashCalculatedResultsPage.cs" />
+    <Compile Include="Pages\Programmatic Pages\MashCalculatorPage.cs" />
+    <Compile Include="Pages\Programmatic Pages\MissionControlPage.cs" />
+    <Compile Include="Pages\Programmatic Pages\StartPage.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.1.2.3.6257\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.2.3.6257\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10\Xamarin.Forms.targets')" />
@@ -133,6 +133,7 @@
     <Folder Include="Models\" />
     <Folder Include="Views\" />
     <Folder Include="Pages\XAML Pages\" />
+    <Folder Include="Pages\Programmatic Pages\" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Fonts\Mockup-Regular.otf">
