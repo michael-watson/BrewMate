@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="50dp">
+    <TextView
+        android:layout_height="match_parent"
+        android:id="@+id/hopName"
+        android:layout_width="fill_parent"
+        android:gravity="start" />
+    <EditText
+        android:layout_height="match_parent"
+        android:id="@+id/AA"
+        android:layout_width="fill_parent"
+        android:gravity="center"
+        android:editable="true"
+        android:inputType="number" />
+    <EditText
+        android:layout_height="match_parent"
+        android:id="@+id/ounces"
+        android:layout_width="fill_parent"
+        android:gravity="center"
+        android:editable="true"
+        android:inputType="number" />
+    <EditText
+        android:layout_height="match_parent"
+        android:id="@+id/boilTime"
+        android:layout_width="fill_parent"
+        android:gravity="center"
+        android:editable="true"
+        android:inputType="number" />
+</LinearLayout>

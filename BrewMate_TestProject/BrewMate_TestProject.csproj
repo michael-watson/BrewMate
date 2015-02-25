@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C00A12AB-1812-46C6-92E8-CF494239DDFD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>BrewMate_TestProject</RootNamespace>
+    <AssemblyName>BrewMate_TestProject</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="Xamarin.UITest">
+      <HintPath>..\packages\Xamarin.UITest.0.6.9\lib\Xamarin.UITest.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CrossPlatformTests\CrossPlatformBeerStylesTests.cs" />
+    <Compile Include="Android_Setup\AndroidBeerStylesTests.cs" />
+    <Compile Include="iOS_Setup\iOSBeerStylesTests.cs" />
+    <Compile Include="SetupHelper.cs" />
+    <Compile Include="ExtensionMethods.cs" />
+    <Compile Include="CrossPlatformTests\CrossPlatformIBUCalculatorTests.cs" />
+    <Compile Include="iOS_Setup\iOSIBUCalculatorTests.cs" />
+    <Compile Include="CrossPlatformTests\CrossPlatformAlcoholCalculatorTests.cs" />
+    <Compile Include="Android_Setup\AndroidAlcoholCalculatorTests.cs" />
+    <Compile Include="Android_Setup\AndroidIBUCalculatorTests.cs" />
+    <Compile Include="iOS_Setup\iOSAlcoholCalculatorTests.cs" />
+    <Compile Include="iOS_Setup\iOSGrainDescriptionsTests.cs" />
+    <Compile Include="CrossPlatformTests\CrossPlatformGrainDescriptionsTests.cs" />
+    <Compile Include="Android_Setup\AndroidGrainDescriptionsTests.cs" />
+    <Compile Include="iOS_Setup\iOSHopGuideTests.cs" />
+    <Compile Include="CrossPlatformTests\CrossPlatformHopGuideTests.cs" />
+    <Compile Include="iOS_Setup\iOSMashCalculatorTests.cs" />
+    <Compile Include="CrossPlatformTests\CrossPlatformMashCalculatorTests.cs" />
+    <Compile Include="Android_Setup\AndroidMashCalculatorTests.cs" />
+    <Compile Include="Android_Setup\AndroidHopGuideTests.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="iOS_Setup\" />
+    <Folder Include="Android_Setup\" />
+    <Folder Include="CrossPlatformTests\" />
+  </ItemGroup>
+</Project>

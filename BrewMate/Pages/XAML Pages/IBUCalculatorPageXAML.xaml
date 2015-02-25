@@ -3,42 +3,46 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 	xmlns:local="clr-namespace:BrewMate;assembly=BrewMate"
 	x:Class="BrewMate.IBUCalculatorPageXAML">
-	<ScrollView BackgroundColor="Transparent">
-		<StackLayout BackgroundColor="Transparent" Padding="5">
+
+	<ScrollView>
+		<StackLayout Padding="5">
 			<StackLayout VerticalOptions="FillAndExpand">
-				<StackLayout.Padding>
-					<OnPlatform x:TypeArguments="Thickness" iOS="0,-20,0,0" Android="0,0,0,0" WinPhone="0,0,0,0" />
-				</StackLayout.Padding>
-				<TableView Intent = "Form"
+
+				<StackLayout
+					Orientation = "Horizontal">
+
+					<local:WhiteTextColorLabel
+						x:Name = "hopNameLabel"
+						Text = "Hop Name"
+						FontSize = "10"/>
+					<local:WhiteTextColorLabel
+						x:Name = "aaLabel"
+						Text = "AA%"
+						FontSize = "10"/>
+					<local:WhiteTextColorLabel
+						x:Name = "ouncesLabel"
+						Text = "Ounces"
+						FontSize = "10"/>
+					<local:WhiteTextColorLabel
+						x:Name = "boilTimeLabel"
+						Text = "Boil Time"
+						FontSize = "10"/>
+				</StackLayout>
+
+				<local:IBUListView 
 						BackgroundColor = "Transparent"
-						VerticalOptions = "FillAndExpand"
-						RowHeight = "30"
-						x:Name="hopsAddedTableView">
-					<TableView.Root>
-						<TableSection x:Name="headerTableSection">
-							<ViewCell>
-								<ViewCell.View>
-									<StackLayout Orientation="Horizontal" Spacing="2">
-										<local:WhiteTextColorLabel Text="Hop Name"
-										Font="Micro"
-										HorizontalOptions="Start"
-										WidthRequest="120"
-										YAlign="Center"/>
-										<local:CalcPages_TableViewHeader_Label Text="AA%"/>
-										<local:CalcPages_TableViewHeader_Label Text="Ounces"/>
-										<local:CalcPages_TableViewHeader_Label Text="Boil Time"/>
-									</StackLayout>
-								</ViewCell.View>
-							</ViewCell>
-						</TableSection>
-					</TableView.Root>
-				</TableView>
+						x:Name="hopsAddedListView"
+						ItemTapped="HandleRowTapped">
+				</local:IBUListView>
+
 			</StackLayout>
+
 			<local:ThemedButton Text="Add Hop" Clicked="AddHop">
 				<local:ThemedButton.WidthRequest>
 					<OnPlatform x:TypeArguments="x:Double" iOS="200" Android="250" WinPhone="250" />	
 				</local:ThemedButton.WidthRequest>
 			</local:ThemedButton>
+
 			<Grid>
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition Width="120"/>
@@ -73,6 +77,7 @@
 					x:Name="boilVolumeStepper"
 					Grid.Row="1" Grid.Column="2"/>
 			</Grid>
+
 			<StackLayout>
 				<local:ThemedButton Text="Calculate IBU" 
 					Clicked="CalculateIBU">
@@ -86,6 +91,7 @@
 					x:Name="calculatedIBULabel"/>
 				</StackLayout>
 			</StackLayout>
+
 		</StackLayout>
 	</ScrollView>
 </GreenGradientPage>

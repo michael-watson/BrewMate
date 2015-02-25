@@ -1,11 +1,11 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
 using Xamarin;
 
-using MonoTouch.Foundation;
-using MonoTouch.UIKit;
+using Foundation;
+using UIKit;
 
 namespace BrewMate.iOS
 {
@@ -13,8 +13,8 @@ namespace BrewMate.iOS
 	{
 		static void Main (string[] args)
 		{
-			Insights.Initialize ("568d458b62b6686b0c8d27024b01b5a4ea5ee6f1");
-			Insights.Identify("Unique User ID", "Key", "Value");
+//			Insights.Initialize ("Insights API key");
+//			Insights.Identify("Unique User ID", "Key", "Value");
 			UIApplication.Main (args, null, "AppDelegate");
 		}
 	}

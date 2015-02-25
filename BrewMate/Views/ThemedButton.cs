@@ -4,9 +4,10 @@ using Xamarin.Forms;
 
 namespace BrewMate
 {
-	public class ThemedButton : Button { 
-	
-		public ThemedButton (){
+	public class ThemedButton : Button 
+	{
+		public ThemedButton ()
+		{
 			HorizontalOptions = LayoutOptions.Center;
 			HeightRequest = Device.OnPlatform (30, 50, 50);
 			BorderWidth = 2;

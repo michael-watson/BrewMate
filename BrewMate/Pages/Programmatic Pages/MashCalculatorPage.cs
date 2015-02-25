@@ -7,71 +7,55 @@ namespace BrewMate
 {
 	public class MashCalculatorPage : BrownGradientPage
 	{
-		public SRMColorCalculator calculateSRM = new SRMColorCalculator();
+		public SRMCalculator calculateSRM = new SRMCalculator();
 		public CaculateGravity calculateGravity = new CaculateGravity();
 		public ListView grainsAddedListView;
 
+		string placeholder; 
+
 		public MashCalculatorPage ()
 		{
+			//Set the title on the navigation bar to the selected hop
 			Title = "SRM Calculator";
+			//Set the StyleId for Xamarin Test Cloud
+			StyleId = "SRMCalculatorPage";
 
-			WhiteTextColorLabel grainName = new WhiteTextColorLabel {
-				Text = "Grain Name",
-				Font = Font.SystemFontOfSize (NamedSize.Micro),
-				HorizontalOptions = LayoutOptions.StartAndExpand,
-				WidthRequest = 130,
-			};
-			CalcPages_TableViewHeader_Label PPG = new CalcPages_TableViewHeader_Label {
-				Text = "PPG",
-				HorizontalOptions = LayoutOptions.EndAndExpand,
-			};
-			CalcPages_TableViewHeader_Label srm = new CalcPages_TableViewHeader_Label {
-				Text = "SRM",
-				HorizontalOptions = LayoutOptions.EndAndExpand,
-			};
-			CalcPages_TableViewHeader_Label weight = new CalcPages_TableViewHeader_Label {
-				Text = "Pounds",
-				HorizontalOptions = LayoutOptions.EndAndExpand,
-			};
-				
-			StackLayout headerLayout = new StackLayout {
-				Orientation = StackOrientation.Horizontal,
-				Spacing = 2,
-				Padding = new Thickness(10,0,10,0),
-				Children = {
-					grainName,
-					srm,
-					PPG,
-					weight,
-				}
-			};
-
-			ViewCell header = new ViewCell { View = headerLayout, Height = 30 };
-			TableSection headerTableSection = new TableSection ("Grains in the Mash") { header };
-
-			TableView grainsAddedTableView = new TableView {
-				Intent = TableIntent.Form,
+			MashListView grainsAddedTableView = new MashListView {
+				StyleId = "mashListView",
+				VerticalOptions = LayoutOptions.Start,
+				HorizontalOptions = LayoutOptions.FillAndExpand,
 				BackgroundColor = Color.Transparent,
-				VerticalOptions = LayoutOptions.FillAndExpand,
-				HasUnevenRows = true,
-				Root = new TableRoot (){ headerTableSection }
+				HeightRequest = Device.OnPlatform(
+					(double)(App.ScreenHeight * 0.65),
+					(double)(App.ScreenHeight / 2 * 0.61),
+					(double)(App.ScreenHeight * 0.5))
 			};
 
-			StackLayout headerAndTable = new StackLayout {
-				Padding = new Thickness (0, -20, 0, 0),
-				VerticalOptions = LayoutOptions.FillAndExpand,
-				Children = { grainsAddedTableView }
+			grainsAddedTableView.ItemTapped += async (object sender, ItemTappedEventArgs e) => {
+				MashTableRowDataModel selected = e.Item as MashTableRowDataModel;
+				var answer = await DisplayAlert ("Delete Hop", "Would you like to delete this hop?", "Yes", "No");
+				if(answer == true){
+					MessagingCenter.Send<MashCalculatorPage,MashTableRowDataModel>(this,"DeleteGrain",selected);
+				};
+				grainsAddedTableView.SelectedItem = null;
 			};
 
 			GrainThemedButton addEntry = new GrainThemedButton {
+				StyleId = "addGrainButton",
 				Text = "Add Grain",
-				WidthRequest = Device.OnPlatform (200, 250, 250),
+				WidthRequest = Device.OnPlatform(
+					(double)(App.ScreenWidth * 0.5),
+					(double)(App.ScreenWidth / 2 * 0.5),
+					(double)(App.ScreenWidth * 0.5)),
 			};
 
-			GrainThemedNumberEntry mashEfficiencyEntry = new GrainThemedNumberEntry { Text = "150" };
-			GrainThemedNumberEntry mashVolumeEntry = new GrainThemedNumberEntry { Text = "0" };
+			GrainThemedNumberEntry mashVolumeEntry = new GrainThemedNumberEntry {
+				StyleId = "mashVolumeEntry",
+				Text = "0",
+			};
 
 			BrownStepper volumeStepper = new BrownStepper {
+				StyleId = "volumeStepper",
 				Minimum = 0,
 				Maximum = 1000,
 				Increment = 1,
@@ -80,9 +64,15 @@ namespace BrewMate
 
 			Grid VolumeAndGravityGrid = new Grid {
 				ColumnDefinitions = {
-					new ColumnDefinition { Width = 120 },
-					new ColumnDefinition { Width = new GridLength (1, GridUnitType.Star) },
-					new ColumnDefinition { Width = new GridLength (1, GridUnitType.Star) }
+					new ColumnDefinition {
+						Width = 120
+					},
+					new ColumnDefinition {
+						Width = new GridLength (1, GridUnitType.Star)
+					},
+					new ColumnDefinition {
+						Width = new GridLength (1, GridUnitType.Star)
+					}
 				},
 			};
 
@@ -90,9 +80,10 @@ namespace BrewMate
 				new Label {
 					Text = "Mash Volume",
 					TextColor = Color.White,
-					XAlign = TextAlignment.Center
-				}, 
-				0, 
+					XAlign = TextAlignment.Center,
+					YAlign = TextAlignment.Center
+				},
+				0,
 				0
 			);
 			VolumeAndGravityGrid.Children.Add (mashVolumeEntry, 1, 0);
@@ -100,22 +91,29 @@ namespace BrewMate
 			VolumeAndGravityGrid.Padding = new Thickness (0, 0, 10, 0);
 
 			GrainThemedButton calculateSRMButton = new GrainThemedButton {
+				StyleId = "calculateSRMButton",
 				Text = "Calculate SRM",
-				WidthRequest = Device.OnPlatform (200, 250, 250),
+				WidthRequest = Device.OnPlatform(
+					(double)(App.ScreenWidth * 0.5),
+					(double)(App.ScreenWidth / 2 * 0.5),
+					(double)(App.ScreenWidth * 0.5)),
 			};
 
 			StackLayout pageContents = new StackLayout {
 				Padding = new Thickness (5, 5, 5, 5),
+				Spacing = 2,
 				Children = {
-					headerAndTable,
+					new MashViewHeader(),
+					grainsAddedTableView,
 					addEntry,
 					VolumeAndGravityGrid,
 					calculateSRMButton
 				},
 			};
 
-			ScrollView scrollContent = new ScrollView { Content = pageContents };
-			Content = scrollContent;
+			Content = new ScrollView {
+				Content = pageContents
+			};
 
 			volumeStepper.ValueChanged += ( sender, e) => {
 				mashVolumeEntry.Text = volumeStepper.Value.ToString ();
@@ -125,59 +123,34 @@ namespace BrewMate
 				if (mashVolumeEntry.Text != "")
 					volumeStepper.Value = Convert.ToDouble (mashVolumeEntry.Text);
 			};
-
-			addEntry.Clicked += ( sender, e) => {
-				Navigation.PushAsync (new MashCalcAddGrainPage (headerTableSection));
+			mashVolumeEntry.Focused += (object sender, FocusEventArgs e) => {
+				placeholder = mashVolumeEntry.Text;
+				mashVolumeEntry.Text = "";
 			};
-
+			mashVolumeEntry.Unfocused += (object sender, FocusEventArgs e) => {
+				if(mashVolumeEntry.Text=="")
+					mashVolumeEntry.Text = placeholder;
+			};
+				
+			addEntry.Clicked += ( sender, e) => {
+				Navigation.PushAsync (new MashCalcAddGrainPage ());
+			};
+				
 			calculateSRMButton.Clicked += ( sender, e) => {
-				if(mashVolumeEntry.Text != "0" || mashVolumeEntry.Text != ""){
-					MashCalculatedModel calculations = calculateSRM.CalculateSRM (grainsAddedTableView, mashVolumeEntry);
-					ExtractAndPPGModel ppgSplit = calculateGravity.CalculatePPG(grainsAddedTableView, mashVolumeEntry);
-					calculations.grainPPG = ppgSplit.grain;
-					calculations.extractPPG = ppgSplit.extract;
-					Navigation.PushModalAsync(new MashCalculatedResultsPage(calculations, headerTableSection));
+				if(mashVolumeEntry.Text != "0") {
+					GrainsToBeCalculated calculate = new GrainsToBeCalculated {
+						MashVolume = mashVolumeEntry.Text,
+						ListViewOfGrains = grainsAddedTableView.ItemsSource
+					};
+					MashCalculatedModel results = new MashCalculatedModel {
+						PPGModel = calculateGravity.CalculatePPG(calculate,mashVolumeEntry.Text),
+					};
+					calculateSRM.MashCalculatedModelCalculator(results,calculate,mashVolumeEntry.Text);
+					Navigation.PushModalAsync(new MashCalculatedResultsPage(results));
 				} else{
 					DisplayAlert("Volume Error","You must enter a mash volume.","OK");
 				}
 			};
-
-			MessagingCenter.Subscribe<MashCalcAddGrainPage,Grains> (this, "AddGrain", (sender, arg) => {
-				ViewCell grainCell = new ViewCell {
-					View = new StackLayout {
-						Spacing = 2,
-						Orientation = StackOrientation.Horizontal,
-						Children = {
-							new WhiteTextColorLabel {
-								Text = arg.GrainName,
-								HorizontalOptions = LayoutOptions.StartAndExpand,
-								WidthRequest = 120,
-								Font = Font.SystemFontOfSize(NamedSize.Small),
-								XAlign = TextAlignment.Center,
-								YAlign = TextAlignment.Center
-							},
-							new WhiteTextColorLabel {
-								HorizontalOptions = LayoutOptions.StartAndExpand,
-								Text = arg.srmColor.ToString(),
-								WidthRequest = 60,
-								XAlign = TextAlignment.Center,
-								YAlign = TextAlignment.Center
-							},
-							new WhiteTextColorLabel {
-								HorizontalOptions = LayoutOptions.Fill,
-								Text = arg.PPG.ToString (),
-								WidthRequest = 60,
-								YAlign = TextAlignment.Center
-							},
-							new GrainThemedNumberEntry {
-								HorizontalOptions = LayoutOptions.Fill,
-								WidthRequest = 60,
-							}
-						}
-					}
-				};
-				headerTableSection.Add (grainCell);
-			});
 		}
 	}
 }

@@ -1,9 +1,9 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
-using MonoTouch.Foundation;
-using MonoTouch.UIKit;
+using Foundation;
+using UIKit;
 
 using Xamarin;
 using Xamarin.Forms;
@@ -18,14 +18,25 @@ namespace BrewMate.iOS
 		public override bool FinishedLaunching (UIApplication app, NSDictionary options)
 		{
 			Forms.Init ();
+
 			#if DEBUG
-			Xamarin.Calabash.Start();
+				Xamarin.Calabash.Start();
 			#endif
+
+			Forms.ViewInitialized += (object sender, ViewInitializedEventArgs e) => {
+				if (null != e.View.StyleId) {
+					e.NativeView.AccessibilityIdentifier = e.View.StyleId;
+				}
+			};
+
+			App.ScreenWidth = (int)UIScreen.MainScreen.Bounds.Width;
+			App.ScreenHeight = (int)UIScreen.MainScreen.Bounds.Height;
+
 			window = new UIWindow (UIScreen.MainScreen.Bounds);
-			
+
 			window.RootViewController = App.GetMainPage ().CreateViewController ();
 			window.MakeKeyAndVisible ();
-			
+
 			return true;
 		}
 	}

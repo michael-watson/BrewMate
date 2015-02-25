@@ -13,15 +13,17 @@ namespace CalabashSample.iOS
 {
 	public partial class BonjourBrowser : NSNetServiceBrowserDelegate
 	{
-		public Action successCallback { get; set; }
+		public Action successCallback {
+			get; set;
+		}
 
 		public override void FoundService (NSNetServiceBrowser sender, NSNetService service, bool moreComing)
 		{
 			Debug.WriteLine (String.Format("Found {0}", service.Name));
 
 			if (service.Name.Equals ("Calabash Server"))
-			if (successCallback != null)
-				successCallback ();
+				if (successCallback != null)
+					successCallback ();
 		}
 	}
 
@@ -30,12 +32,13 @@ namespace CalabashSample.iOS
 		BonjourBrowser _browserDelegate;
 		NSNetServiceBrowser _browser;
 
-		public MainViewController () : base ("MainViewController", null) { }
+		public MainViewController () : base ("MainViewController", null) {
+		}
 
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
-			
+
 			_browserDelegate = new BonjourBrowser ();
 			_browserDelegate.successCallback += ()=> {
 				statusLabel.Text = "Calabash is running!";
@@ -48,4 +51,3 @@ namespace CalabashSample.iOS
 		}
 	}
 }
-

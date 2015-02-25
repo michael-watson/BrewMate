@@ -4,45 +4,37 @@ using System.Collections.Generic;
 using Xamarin.Forms;
 
 namespace BrewMate
-{	
+{
 	public partial class IBUCalculatorPageXAML : GreenGradientPage
-	{	
-		public CalculateIBU calculateIBU = new CalculateIBU();
+	{
+		IBUCalculator calculateIBU = new IBUCalculator();
 
 		public IBUCalculatorPageXAML ()
 		{
 			InitializeComponent ();
 
-			MessagingCenter.Subscribe<IBUAddHopPageXAML,Hops> (this, "Add", (sender, arg) => {
-				ViewCell addViewCell = new ViewCell {
-					View = new StackLayout {
-						Spacing = 2,
-						Orientation = StackOrientation.Horizontal,
-						BackgroundColor=Color.Transparent,
-						Children = {
-							new ThemedLabel {
-								Text = arg.HopName,
-								HorizontalOptions = LayoutOptions.Start,
-								WidthRequest = 120,
-							},
-							new HopThemedNumberEntry {
-								HorizontalOptions = LayoutOptions.Fill,
-								Text = arg.AALow.ToString(),
-								WidthRequest = 60
-							},
-							new HopThemedNumberEntry {
-								HorizontalOptions = LayoutOptions.Fill,
-								WidthRequest = 60
-							},
-							new HopThemedNumberEntry {
-								HorizontalOptions = LayoutOptions.Fill,
-								WidthRequest = 60
-							}
-						}
-					}
-				};
-				headerTableSection.Add(addViewCell);
-			});
+			int pageWidth = App.ScreenWidth;
+
+			hopsAddedListView.HeightRequest = Device.OnPlatform (
+				(double)(App.ScreenHeight * 0.5),
+				(double)(App.ScreenHeight / 2 * 0.22),
+				(double)(App.ScreenHeight * 0.22));
+			hopNameLabel.WidthRequest = Device.OnPlatform (
+				(double)(App.ScreenWidth * 0.55),
+				(double)(App.ScreenWidth / 2 * 0.55),
+				(double)(App.ScreenWidth * 0.55));
+			aaLabel.WidthRequest = Device.OnPlatform (
+				(double)(App.ScreenWidth * 0.13),
+				(double)(App.ScreenWidth / 2 * 0.13),
+				(double)(App.ScreenWidth * 0.13));
+			ouncesLabel.WidthRequest = Device.OnPlatform (
+				(double)(App.ScreenWidth * 0.15),
+				(double)(App.ScreenWidth / 2 * 0.15),
+				(double)(App.ScreenWidth * 0.15));
+			boilTimeLabel.WidthRequest = Device.OnPlatform (
+				(double)(App.ScreenWidth * 0.15),
+				(double)(App.ScreenWidth / 2 * 0.15),
+				(double)(App.ScreenWidth * 0.15));
 		}
 
 		public void AddHop( object sender, EventArgs e )
@@ -52,7 +44,13 @@ namespace BrewMate
 
 		public void CalculateIBU( object sender, EventArgs e )
 		{
-			calculateIBU.CalculateIBUs(hopsAddedTableView, boilGravityEntry, boilVolumeEntry, calculatedIBULabel);
+			HopsToBeCalculated calculate = new HopsToBeCalculated {
+				ListViewOfHops = hopsAddedListView.ItemsSource,
+				CalculatedIBU = calculatedIBULabel,
+				BoilGravity = boilGravityEntry,
+				BoilVolume = boilVolumeEntry
+			};
+			calculatedIBULabel.Text = calculateIBU.CalculateIBU(calculate);
 		}
 
 		public void GravityEntryChanged( object sender, TextChangedEventArgs e )
@@ -75,6 +73,15 @@ namespace BrewMate
 		public void VolumeStepperChanged ( object sender, ValueChangedEventArgs e )
 		{
 			boilVolumeEntry.Text = boilVolumeStepper.Value.ToString();
+		}
+
+		public async void HandleRowTapped (object sender, ItemTappedEventArgs e)
+		{
+			IBUTableRowDataModel selected = e.Item as IBUTableRowDataModel;
+			var answer = await DisplayAlert (selected.SelectedHop.HopName, "Would you like to delete this hop?", "Yes", "No");
+			if(answer == true){
+				MessagingCenter.Send<IBUCalculatorPageXAML,IBUTableRowDataModel>(this,"DeleteHopXAML",selected);
+			};
 		}
 	}
 }

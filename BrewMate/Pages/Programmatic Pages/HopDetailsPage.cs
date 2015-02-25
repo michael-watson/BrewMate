@@ -10,6 +10,12 @@ namespace BrewMate
 	{
 		public HopDetails (Hops selectedHop)
 		{
+			//Set the title on the navigation bar to the selected hop
+			Title = "Hop Details";
+			//Set the StyleId for Xamarin Test Cloud
+			StyleId = "HopDetailsPage";
+
+			//Create items for Hop specifications
 			ThemedLabel hopName = new ThemedLabel {
 				Text = selectedHop.HopName,
 				Font = Font.SystemFontOfSize(NamedSize.Large)
@@ -27,28 +33,38 @@ namespace BrewMate
 				Text = selectedHop.Description,
 				VerticalOptions = LayoutOptions.FillAndExpand
 			};
-					
+
+			//Create tableview for list of hop substitutes
 			TableView hopSubs = new TableView ();
 			hopSubs.BackgroundColor = Color.Transparent;
+
+			//Split hop substitute string into array for tableview
 			string[] substitutes = selectedHop.Substitutes.Split (',');
 
+			//Create TableRoot and TableSection
 			TableRoot list = new TableRoot ();
 			TableSection section = new TableSection ();
 
+			//Create a label for each hop substitute in string array of hop substitutes
 			foreach (string sub in substitutes)
 			{
-				WhiteTextColorLabel beerName = new WhiteTextColorLabel { 
-					Text = sub, 
+				WhiteTextColorLabel beerName = new WhiteTextColorLabel {
+					Text = sub,
 					Font = Font.SystemFontOfSize (NamedSize.Small),
 					YAlign = TextAlignment.Center,
 					XAlign = TextAlignment.Center
 				};
-
-				section.Add (new ViewCell{View = beerName});
+				//Add ViewCell containing label to TableSection
+				section.Add (new ViewCell {
+				                     View = beerName
+					     });
 			}
+			//Add Tablesection to TableRoot
 			list.Add (section);
+			//Set TableRoot to TableView
 			hopSubs.Root = list;
 
+			//Create Stacklayout for content page
 			StackLayout detailsLayout = new StackLayout {
 				VerticalOptions = LayoutOptions.FillAndExpand,
 				Spacing = 20,
@@ -63,10 +79,10 @@ namespace BrewMate
 				}
 			};
 
+			//Wrap content in scrollview
 			var scrollLayer = new ScrollView ();
 			scrollLayer.Content = detailsLayout;
-
-			Title = "Hop Details";
+		
 			Content = scrollLayer;
 		}
 	}

@@ -5,8 +5,9 @@ namespace BrewMate
 {
 	public class HopBoilDatabase
 	{
+		//This is the database of Utilization formulas based off the BiolTime of each hop
 		public double y;
-			
+
 		public double GetUtilization (Int32 boilTime, double boilGravity)
 		{
 			//x = Gravity

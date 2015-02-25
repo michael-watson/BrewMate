@@ -3,21 +3,20 @@ using System.Collections.Generic;
 using Xamarin.Forms;
 
 namespace BrewMate
-{	
+{
 	public partial class MashCalculatedResultsPageXAML : ContentPage
-	{	
+	{
 		double ogValue;
 
-		public MashCalculatedResultsPageXAML ( MashCalculatedModel calculations, TableSection tableSection )
+		public MashCalculatedResultsPageXAML ( MashCalculatedModel calculations)
 		{
 			InitializeComponent ();
 
 			BindingContext = calculations;
 			BackgroundColor = calculations.srmColor;
 
-			ogValue = (calculations.extractPPG + (calculations.grainPPG*.8))/1000 + 1;
+			ogValue = (calculations.PPGModel.extract + (calculations.PPGModel.grain*.8))/1000 + 1;
 			estimatedOG.Text = ogValue.ToString ();
-
 
 			if (calculations.srmInt > 20) {
 				srmLabel.TextColor = Color.White;
@@ -32,14 +31,32 @@ namespace BrewMate
 				title.TextColor = Color.White;
 				subtitle.TextColor = Color.White;
 			}
+
+			newBeerButton.HeightRequest = Device.OnPlatform (
+				(double)(App.ScreenHeight * 0.1),
+				(double)(App.ScreenHeight / 2 * 0.1),
+				(double)(App.ScreenHeight * 0.1));
+			addMoreGrainsButton.HeightRequest = Device.OnPlatform (
+				(double)(App.ScreenHeight * 0.1),
+				(double)(App.ScreenHeight / 2 * 0.1),
+				(double)(App.ScreenHeight * 0.1));
+
+			newBeerButton.WidthRequest = Device.OnPlatform (
+				(double)(App.ScreenWidth * 0.45),
+				(double)(App.ScreenWidth / 2 * 0.45),
+				(double)(App.ScreenWidth * 0.45));
+			addMoreGrainsButton.WidthRequest = Device.OnPlatform (
+				(double)(App.ScreenWidth * 0.45),
+				(double)(App.ScreenWidth / 2 * 0.45),
+				(double)(App.ScreenWidth * 0.45));
 		}
 
 		public void EfficiencyEntryChanged( object sender, TextChangedEventArgs e )
 		{
-			if(efficiencyEntry.Text != "" && efficiencyEntry.Text != "." ){
+			if(efficiencyEntry.Text != "" && efficiencyEntry.Text != "." ) {
 				efficiencyStepper.Value = Convert.ToDouble (efficiencyEntry.Text);
 				ogValue = (Convert.ToDouble (extractPPG.Text) + Convert.ToDouble (grainPPG.Text) * Convert.ToDouble (efficiencyEntry.Text)) / 1000 + 1;
-				estimatedOG.Text = ogValue.ToString();
+				estimatedOG.Text = Math.Round(ogValue,3).ToString();
 			}
 		}
 
@@ -47,12 +64,12 @@ namespace BrewMate
 		{
 			efficiencyEntry.Text = efficiencyStepper.Value.ToString ();
 			ogValue = (Convert.ToDouble (extractPPG.Text) + Convert.ToDouble (grainPPG.Text) * Convert.ToDouble (efficiencyEntry.Text)) / 1000 + 1;
-			estimatedOG.Text = ogValue.ToString ();
+			estimatedOG.Text = Math.Round(ogValue,3).ToString();
 		}
 
 		public void NewBeer ( object sender, EventArgs e )
 		{
-			MessagingCenter.Send<MashCalculatedResultsPageXAML> (this, "ClearGrains");
+			MessagingCenter.Send<MashCalculatedResultsPageXAML> (this, "ClearTableXAML");
 			Navigation.PopModalAsync();
 		}
 
@@ -62,4 +79,3 @@ namespace BrewMate
 		}
 	}
 }
-

@@ -3,16 +3,13 @@
 			xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 			xmlns:local="clr-namespace:BrewMate;assembly=BrewMate" 
 			x:Class="BrewMate.BeerStylePageXAML">
-
+	
+	<!--This page correlates to the "Beer Styles" button on the mission control page-->
 	<StackLayout>
 		<StackLayout.Padding>
 			<OnPlatform x:TypeArguments="Thickness" iOS="10,0,10,0" Android="10,0,10,0" WinPhone="10,0,10,0" />
 		</StackLayout.Padding>
-
-		<local:BeerStylesListView x:Name="beerStylesList" ItemSelected="OnItemSelected">
-			<local:BeerStylesListView.Padding>
-				
-			</local:BeerStylesListView.Padding>
-		</local:BeerStylesListView>
+		<!--Create list of beer styles-->
+		<local:BeerStylesListView x:Name="beerStylesList" ItemSelected="OnItemSelected"/>
 	</StackLayout>
 </GreenGradientPage>

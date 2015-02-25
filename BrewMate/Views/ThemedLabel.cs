@@ -8,7 +8,7 @@ namespace BrewMate
 	{
 		public ThemedLabel ()
 		{
-			Font = Font.SystemFontOfSize (NamedSize.Medium);
+			FontSize = Device.GetNamedSize (NamedSize.Medium, this);
 			VerticalOptions = LayoutOptions.Center;
 			HorizontalOptions = LayoutOptions.CenterAndExpand;
 			TextColor = Color.White;

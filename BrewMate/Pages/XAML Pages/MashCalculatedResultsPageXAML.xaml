@@ -4,18 +4,22 @@
 	xmlns:local="clr-namespace:BrewMate;assembly=BrewMate"
 	x:Class="BrewMate.MashCalculatedResultsPageXAML">
 
-	<StackLayout Orientation = "Vertical"
+	<StackLayout 
+		Orientation = "Vertical"
 		VerticalOptions = "Center"
 		Spacing = "20">
-		<StackLayout Orientation="Vertical"
+		<StackLayout 
+			Orientation="Vertical"
 			Spacing = "0">
-			<Label Text = "The background is the color of your beer"
-				XAlign = "Center"
+			<Label 
 				x:Name = "title"
-				Font = "Large"/>
-			<Label Text = "Your Beer Estimates"
+				Text = "The background is the color of your beer"
 				XAlign = "Center"
+				Font = "Large"/>
+			<Label 
 				x:Name = "subtitle"
+				Text = "Your Beer Estimates"
+				XAlign = "Center"
 				Font = "Micros"/>
 		</StackLayout>
 
@@ -26,63 +30,77 @@
 				<ColumnDefinition Width = "2*"/>
 			</Grid.ColumnDefinitions>
 
-			<Label Text = "SRM Color:"
+			<Label 
 				x:Name = "srmLabel"
+				Text = "SRM Color:"
 				HorizontalOptions = "EndAndExpand"
 				Grid.Row = "0" Grid.Column = "0"/>
-			<Label Text = "Extract PPG:"
+			<Label 
 				x:Name = "extractPPGLabel"
+				Text = "Extract PPG:"
 				HorizontalOptions = "EndAndExpand"
 				Grid.Row = "1" Grid.Column = "0"/>
-			<Label Text = "Grain Malt PPG:"
+			<Label 
 				x:Name = "grainPPGLabel"
+				Text = "Grain Malt PPG:"
 				HorizontalOptions = "EndAndExpand"
 				Grid.Row = "2" Grid.Column = "0"/>
-			<Label Text = "Estimated OG:"
+			<Label 
 				x:Name = "ogLabel"
+				Text = "Estimated OG:"
 				HorizontalOptions = "EndAndExpand"
 				Grid.Row = "3" Grid.Column = "0"/>
-			<Label Text = "Efficiency:"
+			<Label 
 				x:Name = "efficiencyLabel"
+				Text = "Efficiency:"
 				HorizontalOptions = "EndAndExpand"
 				Grid.Row = "4" Grid.Column = "0"/>
 
-			<Label Text = "{Binding srmInt}"
+			<Label 
 				x:Name = "srmIntLabel"
+				Text = "{Binding srmInt}"
 				HorizontalOptions = "EndAndExpand"
 				Grid.Row = "0" Grid.Column = "1"/>
-			<Label Text = "{Binding extractPPG}"
+			<Label 
 				x:Name = "extractPPG"
+				Text = "{Binding PPGModel.extract}"
 				HorizontalOptions = "EndAndExpand"
 				Grid.Row = "1" Grid.Column = "1"/>
-			<Label Text = "{Binding grainPPG}"
+			<Label 
 				x:Name = "grainPPG"
+				Text = "{Binding PPGModel.grain}"
 				HorizontalOptions = "EndAndExpand"
 				Grid.Row = "2" Grid.Column = "1"/>
-			<Label x:Name = "estimatedOG"
+			<Label 
+				x:Name = "estimatedOG"
 				HorizontalOptions = "EndAndExpand"
 				Grid.Row = "3" Grid.Column = "1"/>
-			<local:GrainThemedNumberEntry Text = "0.80"
-				TextChanged = "EfficiencyEntryChanged"
+			<local:GrainThemedNumberEntry 
 				x:Name = "efficiencyEntry"
+				Text = "0.80"
+				TextChanged = "EfficiencyEntryChanged"
 				Grid.Row = "4" Grid.Column = "1"/>
-			<local:BrownStepper Minimum = "0"
+			<local:BrownStepper 
+				x:Name = "efficiencyStepper"
+				Minimum = "0"
 				Maximum = "1"
 				Increment = "0.01"
 				Value = "0.8"
 				HorizontalOptions = "Center"
 				ValueChanged = "EfficiencyStepperChanged"
-				x:Name = "efficiencyStepper"
 				Grid.Row = "4" Grid.Column = "2"/>
 		</Grid>
 
-		<StackLayout Orientation = "Horizontal"
+		<StackLayout 
+			Orientation = "Horizontal"
 			HorizontalOptions = "Center">
-			<local:GrainThemedButton Text = "New Beer"
-				WidthRequest = "150"
+			<local:GrainThemedButton 
+				x:Name="newBeerButton"
+				Text = "New Beer"
 				Clicked = "NewBeer"/>
-			<local:GrainThemedButton Text = "Add more grains"
-				WidthRequest = "150"
+			<local:GrainThemedButton 
+				x:Name="addMoreGrainsButton"
+				Text = "Add more grains"
 				Clicked = "AddMoreGrains"/>
 		</StackLayout>
 	</StackLayout>

@@ -1,43 +1,55 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 using Xamarin.Forms;
 
-namespace BrewMate 
+namespace BrewMate
 {
 	public class GrainListView : ListView
 	{
+		//Get grainDatabase to create a list
 		public GrainDatabase grainDatabase = new GrainDatabase();
 
 		public GrainListView ()
 		{
+			//Create list of grains
 			List<Grains> grainsAvailable = grainDatabase.GetGrains();
 
+			//Set properties and source for table
 			VerticalOptions = LayoutOptions.FillAndExpand;
 			HorizontalOptions = LayoutOptions.FillAndExpand;
 			BackgroundColor = Color.Transparent;
-			ItemsSource = grainsAvailable;
+			ItemsSource = grainsAvailable.OrderBy (x => x.GrainName);
 
+			//Create ItemTemplate for rows
 			ItemTemplate = new DataTemplate (() => {
-				WhiteTextColorLabel grainLabel = new WhiteTextColorLabel ();
-				grainLabel.SetBinding(Label.TextProperty,
-					new Binding("GrainName", BindingMode.OneWay,null,null,"{0}"));
-				grainLabel.HorizontalOptions = LayoutOptions.StartAndExpand;
-				grainLabel.VerticalOptions = LayoutOptions.CenterAndExpand;
+				//Create label for grain name and bind it to "GrainName"
+				WhiteTextColorLabel grainLabel = new WhiteTextColorLabel {
+					HorizontalOptions = LayoutOptions.StartAndExpand,
+					VerticalOptions = LayoutOptions.CenterAndExpand
+				};
+				grainLabel.SetBinding (Label.TextProperty,
+					new Binding ("GrainName", BindingMode.OneWay, null, null, "{0}"));
 
-				WhiteTextColorLabel srmLabel = new WhiteTextColorLabel ();
+				//Create label for SRM color and bind it to "srmColor"
+				WhiteTextColorLabel srmLabel = new WhiteTextColorLabel {
+					VerticalOptions = LayoutOptions.CenterAndExpand,
+					WidthRequest = 40,
+					XAlign = TextAlignment.Start
+				};
 				srmLabel.SetBinding (Label.TextProperty,
 					new Binding ("srmColor", BindingMode.OneWay, null, null, "{0}"));
-				srmLabel.VerticalOptions = LayoutOptions.CenterAndExpand;
-				srmLabel.WidthRequest = 40;
-				srmLabel.XAlign = TextAlignment.Start;
 
-				WhiteTextColorLabel ppgLabel = new WhiteTextColorLabel ();
+				//Create label for PPG and bind it to "PPG"
+				WhiteTextColorLabel ppgLabel = new WhiteTextColorLabel {
+					VerticalOptions = LayoutOptions.CenterAndExpand,
+					WidthRequest = 50
+				};
 				ppgLabel.SetBinding (Label.TextProperty,
 					new Binding ("PPG", BindingMode.OneWay, null, null, "{0}"));
-				ppgLabel.VerticalOptions = LayoutOptions.CenterAndExpand;
-				ppgLabel.WidthRequest = 50;
 
+				//Return those items to a ViewCell for the ListView
 				return new ViewCell {
 					View = new StackLayout {
 						Orientation = StackOrientation.Horizontal,

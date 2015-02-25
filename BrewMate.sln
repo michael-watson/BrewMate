@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrewMate.iOS", "iOS\BrewMat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrewMate.Android", "Android\BrewMate.Android.csproj", "{B293304B-BD9B-4EA7-841A-9965B8952AB9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrewMate_TestProject", "BrewMate_TestProject\BrewMate_TestProject.csproj", "{C00A12AB-1812-46C6-92E8-CF494239DDFD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,6 +19,7 @@ Global
 		Release|iPhone = Release|iPhone
 		Ad-Hoc|iPhone = Ad-Hoc|iPhone
 		AppStore|iPhone = AppStore|iPhone
+		Android|Mixed Platforms = Android|Mixed Platforms
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{0513F194-E81F-4998-ACF9-26D0AE5CC043}.Ad-Hoc|iPhone.ActiveCfg = Debug|Any CPU
@@ -51,6 +54,22 @@ Global
 		{B293304B-BD9B-4EA7-841A-9965B8952AB9}.Release|iPhone.Build.0 = Release|Any CPU
 		{B293304B-BD9B-4EA7-841A-9965B8952AB9}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{B293304B-BD9B-4EA7-841A-9965B8952AB9}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{C00A12AB-1812-46C6-92E8-CF494239DDFD}.Ad-Hoc|iPhone.ActiveCfg = Release|Any CPU
+		{C00A12AB-1812-46C6-92E8-CF494239DDFD}.Ad-Hoc|iPhone.Build.0 = Release|Any CPU
+		{C00A12AB-1812-46C6-92E8-CF494239DDFD}.AppStore|iPhone.ActiveCfg = Release|Any CPU
+		{C00A12AB-1812-46C6-92E8-CF494239DDFD}.AppStore|iPhone.Build.0 = Release|Any CPU
+		{C00A12AB-1812-46C6-92E8-CF494239DDFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C00A12AB-1812-46C6-92E8-CF494239DDFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C00A12AB-1812-46C6-92E8-CF494239DDFD}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{C00A12AB-1812-46C6-92E8-CF494239DDFD}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{C00A12AB-1812-46C6-92E8-CF494239DDFD}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{C00A12AB-1812-46C6-92E8-CF494239DDFD}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{C00A12AB-1812-46C6-92E8-CF494239DDFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C00A12AB-1812-46C6-92E8-CF494239DDFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C00A12AB-1812-46C6-92E8-CF494239DDFD}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{C00A12AB-1812-46C6-92E8-CF494239DDFD}.Release|iPhone.Build.0 = Release|Any CPU
+		{C00A12AB-1812-46C6-92E8-CF494239DDFD}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{C00A12AB-1812-46C6-92E8-CF494239DDFD}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{C79CA2A4-C1F6-450E-825A-F7AF00781356}.Ad-Hoc|iPhone.ActiveCfg = Ad-Hoc|iPhone
 		{C79CA2A4-C1F6-450E-825A-F7AF00781356}.Ad-Hoc|iPhone.Build.0 = Ad-Hoc|iPhone
 		{C79CA2A4-C1F6-450E-825A-F7AF00781356}.AppStore|iPhone.ActiveCfg = AppStore|iPhone
@@ -67,8 +86,5 @@ Global
 		{C79CA2A4-C1F6-450E-825A-F7AF00781356}.Release|iPhone.Build.0 = Release|iPhone
 		{C79CA2A4-C1F6-450E-825A-F7AF00781356}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
 		{C79CA2A4-C1F6-450E-825A-F7AF00781356}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
-	EndGlobalSection
-	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = iOS\BrewMate.iOS.csproj
 	EndGlobalSection
 EndGlobal

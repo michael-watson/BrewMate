@@ -9,9 +9,9 @@ namespace BrewMate
 		public CenteredBoldWhiteTextColorLabel ()
 		{
 			HorizontalOptions = LayoutOptions.CenterAndExpand;
-			Font = Font.SystemFontOfSize (NamedSize.Medium).WithAttributes (FontAttributes.Bold);
+			FontSize = Device.GetNamedSize (NamedSize.Medium, this);
+			FontAttributes = FontAttributes.Bold;
 			TextColor = Color.White;
 		}
 	}
 }
-
