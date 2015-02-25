@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using Xamarin.Forms;
 
 namespace BrewMate
-{	
+{
 	public partial class MashCalcAddGrainPageXAML : BrownGradientPage
-	{	
+	{
 		public MashCalcAddGrainPageXAML ()
 		{
 			InitializeComponent ();
@@ -15,7 +15,7 @@ namespace BrewMate
 		{
 			if (e.SelectedItem != null) {
 				Grains selected = e.SelectedItem as Grains;
-				MessagingCenter.Send<MashCalcAddGrainPageXAML,Grains> (this,"AddGrain",selected);
+				MessagingCenter.Send<MashCalcAddGrainPageXAML,Grains> (this,"AddGrainXAML",selected);
 				Navigation.PopModalAsync();
 			}
 		}
@@ -26,10 +26,9 @@ namespace BrewMate
 			GrainList.SelectedItem = null;
 		}
 
-		public void Cancel ( object sender, EventArgs e ) 
+		public void Cancel ( object sender, EventArgs e )
 		{
 			Navigation.PopModalAsync ();
 		}
 	}
 }
-

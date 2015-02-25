@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using Xamarin.Forms;
 
 namespace BrewMate
-{	
+{
 	public partial class GrainsGuidePageXAML : BrownGradientPage
-	{	
+	{
 		public GrainsGuidePageXAML ()
 		{
 			Title = "Grains Grains Grains";

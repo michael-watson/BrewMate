@@ -3,11 +3,13 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	xmlns:local="clr-namespace:BrewMate;assembly=BrewMate"  
 	x:Class="BrewMate.GrainDetailsPageXAML">
+
+	<!--Create StackLayout to hold all of details for grains-->
 	<StackLayout Spacing="10">
 		<StackLayout.Padding>
 			<OnPlatform x:TypeArguments="Thickness" iOS="10,10,10,5" Android="5,0,5,5" WinPhone="5,0,5,5" />
 		</StackLayout.Padding>
-			
+		<!--Create grain name as a title at top of page-->
 		<StackLayout>
 			<Frame BackgroundColor="Transparent">
 				<StackLayout>
@@ -17,6 +19,7 @@
 			</Frame>
 		</StackLayout>
 
+		<!--Create Grid to hold all of the grain details-->
 		<Grid>
 		    <Grid.RowDefinitions>
 		      <RowDefinition Height="50" />

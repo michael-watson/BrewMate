@@ -6,6 +6,7 @@ namespace BrewMate
 {
 	public class HopDatabases
 	{
+		//This is the database of available Hops
 		private List<Hops> hops;
 
 		public List<Hops> GetHops()
@@ -204,7 +205,7 @@ namespace BrewMate
 					HopName = "First Gold",
 					AALow = 6,
 					AAHigh = 9,
-					Type = "All Purpose" ,
+					Type = "All Purpose",
 					Substitutes = "any Golding variety",
 					Description = "Pleasant citrus/apricot nose that is outstanding in ESB's, IPA's, or fruit beers.  Dwarf hop with fine English Golding character with Higher alpha."
 				},
@@ -735,6 +736,14 @@ namespace BrewMate
 					Type = "Bittering",
 					Substitutes = "AKA Columbus, Tomahawk",
 					Description = "Earthy, spicy, pungent, with some citrus overtones.  Not overwhelmingly citrus like Cascade.  High on the bittering scale yet also valued for its oil content creates a hop that is an interesting dichotomy of sharp and herbal."
+				},
+				new Hops {
+					HopName = "Zythos",
+					AALow = 10,
+					AAHigh = 12.5,
+					Type = "Dual Purpose",
+					Substitutes = "Unique",
+					Description = "Designed to complement existing IPA and Pale Ale hop varieties. An excellent blend for any hop forward beer"
 				},
 			};
 		}

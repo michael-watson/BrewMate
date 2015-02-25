@@ -17,11 +17,11 @@ namespace CalabashSample.iOS
 		public override bool FinishedLaunching (UIApplication app, NSDictionary options)
 		{
 			window = new UIWindow (UIScreen.MainScreen.Bounds);
-			
+
 			mainViewController = new MainViewController ();
 			window.RootViewController = mainViewController;
 			window.MakeKeyAndVisible ();
-			
+
 			#if DEBUG
 			// This is all you need to do.
 			// If you are in release mode, this
@@ -35,4 +35,3 @@ namespace CalabashSample.iOS
 		}
 	}
 }
-

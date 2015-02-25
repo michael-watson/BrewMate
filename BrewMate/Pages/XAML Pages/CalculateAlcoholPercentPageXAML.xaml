@@ -3,15 +3,19 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 	xmlns:local="clr-namespace:BrewMate;assembly=BrewMate"
 	x:Class="BrewMate.CalculateAlcoholPercentPageXAML">
+
+	<!--Create a StackLayout to center all contents on page-->
 	<StackLayout HorizontalOptions = "Center"
 		VerticalOptions = "Center"
 		Spacing = "25"
 		Padding = "5">
+		<!--Wrap Original Gravity elements into single line-->
 		<StackLayout Orientation = "Horizontal"
 			HorizontalOptions = "FillAndExpand">
 			<local:ThemedLabel Text = "Original Gravity"
 				WidthRequest = "120"
 				HorizontalOptions = "Start"/>
+			<!--Stepper and Entry are linked through TextChanged and ValueChanged properties-->
 			<local:HopThemedNumberEntry Text = "1.050"
 				HorizontalOptions = "FillAndExpand"
 				TextChanged = "OGTextChanged"
@@ -26,11 +30,14 @@
 				x:Name = "ogStepper"
 				ValueChanged = "OGStepperChanged"/>
 		</StackLayout>
+
+		<!--Wrap Final Gravity elements into single line-->
 		<StackLayout Orientation = "Horizontal"
 			HorizontalOptions = "FillAndExpand">
 			<local:ThemedLabel Text = "Final Gravity"
 				WidthRequest = "120"
 				HorizontalOptions = "Start"/>
+			<!--Stepper and Entry are linked through TextChanged and ValueChanged properties-->
 			<local:HopThemedNumberEntry Text = "1.012"
 				HorizontalOptions = "FillAndExpand"
 				TextChanged = "FGTextChanged"
@@ -45,13 +52,18 @@
 				x:Name = "fgStepper"
 				ValueChanged = "FGStepperChanged"/>
 		</StackLayout>
+
+		<!--Create label to show calculated alcohol %-->
 		<StackLayout Orientation = "Horizontal">
 			<local:ThemedLabel Text = "Calculated Alcohol %:"
 				HorizontalOptions = "FillAndExpand"/>
+			<!--Give name to Label to enable changing the text to calculated alcohol percent-->
 			<local:ThemedLabel Text = "0.0%"
 				HorizontalOptions = "FillAndExpand"
 				x:Name = "AlcoholPercentCalculated"/>
 		</StackLayout>
+
+		<!--Passes the values from OG/FG entries into Alcohol Percent calculator-->
 		<local:ThemedButton Text = "Calculate Alcohol Percent"
 			BorderWidth = "1"
 			TextColor = "Green"

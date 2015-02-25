@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using Xamarin.Forms;
 
 namespace BrewMate
-{	
+{
 	public partial class HopsGuidePageXAML : GreenGradientPage
-	{	
+	{
 		public HopsGuidePageXAML ()
 		{
 			Title = "Hops Hops Hops";
@@ -29,4 +29,3 @@ namespace BrewMate
 		}
 	}
 }
-

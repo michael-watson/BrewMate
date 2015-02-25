@@ -20,10 +20,19 @@ namespace BrewMate.Android
 		{
 			base.OnCreate (bundle);
 
-			Insights.Initialize ("568d458b62b6686b0c8d27024b01b5a4ea5ee6f1", ApplicationContext);
-			Insights.Identify("Unique User ID", "Key", "Value");
+//			Insights.Initialize ("Insights Key", ApplicationContext);
+//			Insights.Identify("Unique User ID", "Key", "Value");
 
 			Xamarin.Forms.Forms.Init (this, bundle);
+
+			Xamarin.Forms.Forms.ViewInitialized += (object sender, Xamarin.Forms.ViewInitializedEventArgs e) => {
+				if (!string.IsNullOrWhiteSpace(e.View.StyleId)) {
+					e.NativeView.ContentDescription = e.View.StyleId;
+				}
+			};
+
+			App.ScreenWidth = (int)Resources.DisplayMetrics.WidthPixels; // real pixels
+			App.ScreenHeight = (int)Resources.DisplayMetrics.HeightPixels; // real pixels
 
 			SetPage (App.GetMainPage ());
 		}

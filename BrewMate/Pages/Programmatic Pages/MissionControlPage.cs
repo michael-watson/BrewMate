@@ -14,40 +14,84 @@ namespace BrewMate
 
 		public MissionControlPage ()
 		{
+			//Set the title on the navigation bar to the selected hop
+			Title = "BrewMate Toolbelt";
+			//Set the StyleId for Xamarin Test Cloud
+			StyleId = "BrewMateToolbelt";
+
+			double buttonWidth = (double)(App.ScreenWidth * 0.8);
+			//Create the buttons to navigate to application functions
 			ThemedButton ibuCalculator = new ThemedButton {
+				StyleId = "ibuCalculatorButton",
 				Text = "IBU Caluclator",
-				HeightRequest = Device.OnPlatform(50,50,50),
-				WidthRequest = 250
+				HeightRequest = Device.OnPlatform(
+					(double)(App.ScreenHeight * 0.1),
+					(double)(App.ScreenHeight / 2 * 0.1),
+					(double)(App.ScreenHeight * 0.1)),
+				WidthRequest = Device.OnPlatform(
+					(double)(App.ScreenWidth * 0.8),
+					(double)(App.ScreenWidth / 2 * 0.8),
+					(double)(App.ScreenWidth * 0.8))
 			};
-
 			ThemedButton SRMCalculator = new ThemedButton {
+				StyleId = "mashCalculatorButton",
 				Text = "Mash Calculator",
-				HeightRequest = Device.OnPlatform (50, 50, 50),
-				WidthRequest = 250
+				HeightRequest = Device.OnPlatform(
+					(double)(App.ScreenHeight * 0.1),
+					(double)(App.ScreenHeight / 2 * 0.1),
+					(double)(App.ScreenHeight * 0.1)),
+				WidthRequest = Device.OnPlatform(
+					(double)(App.ScreenWidth * 0.8),
+					(double)(App.ScreenWidth / 2 * 0.8),
+					(double)(App.ScreenWidth * 0.8))
 			};
-
 			ThemedButton aaPercentageCalculator = new ThemedButton {
+				StyleId = "alcoholPercentageCalculatorButton",
 				Text = "Alcohol Percentage Calculator",
-				HeightRequest = Device.OnPlatform(50,50,50),
-				WidthRequest = 250
+				HeightRequest = Device.OnPlatform(
+					(double)(App.ScreenHeight * 0.1),
+					(double)(App.ScreenHeight / 2 * 0.1),
+					(double)(App.ScreenHeight * 0.1)),
+				WidthRequest = Device.OnPlatform(
+					(double)(App.ScreenWidth * 0.8),
+					(double)(App.ScreenWidth / 2 * 0.8),
+					(double)(App.ScreenWidth * 0.8))
 			};
-
 			ThemedButton grainDescriptions = new ThemedButton {
+				StyleId = "grainDescriptionsButton",
 				Text = "Grain Descriptions",
-				HeightRequest = Device.OnPlatform(50,50,50),
-				WidthRequest = 250
+				HeightRequest = Device.OnPlatform(
+					(double)(App.ScreenHeight * 0.1),
+					(double)(App.ScreenHeight / 2 * 0.1),
+					(double)(App.ScreenHeight * 0.1)),
+				WidthRequest = Device.OnPlatform(
+					(double)(App.ScreenWidth * 0.8),
+					(double)(App.ScreenWidth / 2 * 0.8),
+					(double)(App.ScreenWidth * 0.8))
 			};
-
 			ThemedButton hopDescriptions = new ThemedButton {
+				StyleId = "hopGuideButton",
 				Text = "Hop Guide",
-				HeightRequest = Device.OnPlatform(50,50,50),
-				WidthRequest = 250
+				HeightRequest = Device.OnPlatform(
+					(double)(App.ScreenHeight * 0.1),
+					(double)(App.ScreenHeight / 2 * 0.1),
+					(double)(App.ScreenHeight * 0.1)),
+				WidthRequest = Device.OnPlatform(
+					(double)(App.ScreenWidth * 0.8),
+					(double)(App.ScreenWidth / 2 * 0.8),
+					(double)(App.ScreenWidth * 0.8))
 			};
-
 			ThemedButton beerStyles = new ThemedButton {
+				StyleId = "beerStylesButton",
 				Text = "Beer Styles",
-				HeightRequest = Device.OnPlatform(50,50,50),
-				WidthRequest = 250
+				HeightRequest = Device.OnPlatform(
+					(double)(App.ScreenHeight * 0.1),
+					(double)(App.ScreenHeight / 2 * 0.1),
+					(double)(App.ScreenHeight * 0.1)),
+				WidthRequest = Device.OnPlatform(
+					(double)(App.ScreenWidth * 0.8),
+					(double)(App.ScreenWidth / 2 * 0.8),
+					(double)(App.ScreenWidth * 0.8))
 			};
 
 			haveBeer = new WhiteTextColorLabel {
@@ -56,6 +100,7 @@ namespace BrewMate
 				VerticalOptions = LayoutOptions.End,
 			};
 
+			//Add all buttons to a stacklayout
 			buttonCollection = new StackLayout {
 				HorizontalOptions = LayoutOptions.CenterAndExpand,
 				VerticalOptions = LayoutOptions.Center,
@@ -71,8 +116,8 @@ namespace BrewMate
 				}
 			};
 
-			//Button Controls
-			hopDescriptions.Clicked += ( sender, e) => 
+			//Button Controls to navigate to app functions
+			hopDescriptions.Clicked += ( sender, e) =>
 			{
 				Navigation.PushAsync(new HopsGuidePage());
 			};
@@ -93,13 +138,14 @@ namespace BrewMate
 				Navigation.PushAsync(new GrainsGuidePage());
 			};
 			beerStyles.Clicked += ( sender, e) => {
-				Navigation.PushAsync(new BeerStylePage());
+				Navigation.PushAsync(new BeerStylesPage());
 			};
 		}
 
 		async protected override void OnAppearing ()
 		{
 			base.OnAppearing ();
+			//set content, use counter to make sure this happens only once to save memory
 			if (counter == 1) {
 				Content = new StackLayout {
 					Orientation = StackOrientation.Vertical,
@@ -110,9 +156,9 @@ namespace BrewMate
 						haveBeer
 					}
 				};
-
+				//Fade in content to create cool look
 				await buttonCollection.FadeTo (1, 1000);
-				Title = "BrewMate Toolbelt";
+				//Add one to the counter to ensure no memory leaks
 				counter++;
 			}
 		}

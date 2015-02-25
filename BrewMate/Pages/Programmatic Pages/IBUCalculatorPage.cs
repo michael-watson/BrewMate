@@ -8,93 +8,91 @@ namespace BrewMate
 {
 	public class IBUCalculatorPage : GreenGradientPage
 	{
-		public CalculateIBU calculateIBU = new CalculateIBU();
-		public ListView hopsAddedListView;
+		//Create calculators and databases
 		public HopBoilDatabase hopBoilDatabase = new HopBoilDatabase();
+		public IBUCalculator calculateIBU = new IBUCalculator();
+
+		string placeholder;
 
 		public IBUCalculatorPage ()
 		{
+			//Set the title on the navigation bar to the selected hop
 			Title = "IBU Calculator";
+			//Set the StyleId for Xamarin Test Cloud
+			StyleId = "IBUCalculatorPage";
 
-			Label hopName = new Label {
-				Text = "Hop Name",
-				Font = Font.SystemFontOfSize(NamedSize.Micro),
-				HorizontalOptions = LayoutOptions.Start,
-				WidthRequest = 120,
-				TextColor = Color.White
-			};
-			CalcPages_TableViewHeader_Label aaPercent = new CalcPages_TableViewHeader_Label {
-				Text = " AA%",
-			};
-			CalcPages_TableViewHeader_Label ounces = new CalcPages_TableViewHeader_Label {
-				Text = "Ounces",
-			};
-			CalcPages_TableViewHeader_Label boilTime = new CalcPages_TableViewHeader_Label {
-				Text = "Boil Time",
-			};
-
-			StackLayout headerLayout = new StackLayout {
-				Orientation = StackOrientation.Horizontal,
-				Spacing = 2,
-				Children = {
-					hopName,
-					aaPercent,
-					ounces,
-					boilTime
-				}
-			};
-
-			ViewCell header = new ViewCell {View = headerLayout};
-			TableSection headerTableSection = new TableSection ("Hops in the Boil") {header};
-
-			TableView hopsAddedTableView = new TableView {
-				Intent = TableIntent.Form,
+			IBUListView table = new IBUListView {
+				StyleId = "ibuListView",
 				BackgroundColor = Color.Transparent,
-				VerticalOptions = LayoutOptions.FillAndExpand,
-				RowHeight = 30,
-				Root = new TableRoot(){headerTableSection}
 			};
 
-			StackLayout headerAndTable = new StackLayout {
-				Padding = new Thickness(0,-20,0,0),
-				VerticalOptions = LayoutOptions.FillAndExpand,
-				Children = {hopsAddedTableView}
+			table.ItemTapped += async (object sender, ItemTappedEventArgs e) => {
+				IBUTableRowDataModel selected = e.Item as IBUTableRowDataModel;
+				var answer = await DisplayAlert (selected.SelectedHop.HopName, "Would you like to delete this hop?", "Yes", "No");
+				if(answer == true){
+					MessagingCenter.Send<IBUCalculatorPage,IBUTableRowDataModel>(this,"DeleteHop",selected);
+				};
+				table.SelectedItem = null;
 			};
 
-			ThemedButton addEntry = new ThemedButton {
+			//Add hop button
+			ThemedButton addButton = new ThemedButton {
+				StyleId = "addHopButton",
 				Text = "Add Hop",
-				WidthRequest = Device.OnPlatform(200,250,250),
+				WidthRequest = Device.OnPlatform(
+					(double)(App.ScreenWidth * 0.5),
+					(double)(App.ScreenWidth / 2 * 0.5),
+					(double)(App.ScreenWidth * 0.5)),
 			};
 
-			HopThemedNumberEntry boilGravityEntry = new HopThemedNumberEntry {Text = "1.050"};
-			HopThemedNumberEntry boilVolumeEntry = new HopThemedNumberEntry {Text = "0"};
+			//Create hop gravity and volume controls
+			HopThemedNumberEntry boilGravityEntry = new HopThemedNumberEntry {
+				StyleId = "boilGravityEntry",
+				Text = "1.050"
+			};
+			HopThemedNumberEntry boilVolumeEntry = new HopThemedNumberEntry {
+				StyleId = "boilVolumeEntry",
+				Text = "0"
+			};
 
+			//Create gravity and volume steppers
 			GreenStepper gravityStepper = new GreenStepper {
+				StyleId = "gravityStepper",
 				Minimum = 1.000,
 				Maximum = 1.120,
 				Increment = .001,
 				Value = Convert.ToDouble (boilGravityEntry.Text),
 			};
 			GreenStepper volumeStepper = new GreenStepper {
+				StyleId = "volumeStepper",
 				Minimum = 0,
 				Maximum = 1000,
 				Increment = 1,
 				Value = Convert.ToDouble (boilVolumeEntry.Text),
 			};
 
+			//Create grid to add all of the hop gravity and volume controls
 			Grid VolumeAndGravityGrid = new Grid {
 				ColumnDefinitions = {
-					new ColumnDefinition { Width = 120 },
-					new ColumnDefinition { Width = new GridLength(1,GridUnitType.Star) },
-					new ColumnDefinition { Width = new GridLength(1,GridUnitType.Star) }
+					new ColumnDefinition {
+						Width = 120
+					},
+					new ColumnDefinition {
+						Width = new GridLength (1, GridUnitType.Star)
+					},
+					new ColumnDefinition {
+						Width = new GridLength (1, GridUnitType.Star)
+					}
 				},
+				Padding = new Thickness (0, 0, 10, 0)
 			};
 
 			//Boil Gravity Grid Row
 			VolumeAndGravityGrid.Children.Add (
 				new Label () {
 					Text = "Boil Gravity",
-					TextColor = Color.White
+					TextColor = Color.White,
+					YAlign = TextAlignment.Center
 				},
 				0,
 				0
@@ -106,24 +104,30 @@ namespace BrewMate
 			VolumeAndGravityGrid.Children.Add (
 				new Label () {
 					Text = "Boil Volume",
-					TextColor = Color.White
+					TextColor = Color.White,
+					YAlign = TextAlignment.Center
 				},
 				0,
 				1
 			);
 			VolumeAndGravityGrid.Children.Add (boilVolumeEntry, 1, 1);
 			VolumeAndGravityGrid.Children.Add (volumeStepper, 2, 1);
-			VolumeAndGravityGrid.Padding = new Thickness (0, 0, 10, 0);
 
-
+			//Create calculated IBU stack
 			ThemedButton calculateIBUButton = new ThemedButton {
+				StyleId = "calculateIBUButton",
 				Text = "Calculate IBU",
-				WidthRequest = Device.OnPlatform(200,250,250),
+				WidthRequest = Device.OnPlatform(
+					(double)(App.ScreenWidth * 0.5),
+					(double)(App.ScreenWidth / 2 * 0.5),
+					(double)(App.ScreenWidth * 0.5)),
 			};
-			ThemedLabel IBU = new ThemedLabel {Text = "Calculated IBU:",};
-			ThemedLabel calculatedIBULabel = new ThemedLabel {Text = "0",};
-
-
+			ThemedLabel IBU = new ThemedLabel {
+				Text = "Calculated IBU:",
+			};
+			ThemedLabel calculatedIBULabel = new ThemedLabel {
+				Text = "0",
+			};
 			StackLayout IBULabels = new StackLayout {
 				Orientation = StackOrientation.Horizontal,
 				Children = {
@@ -132,33 +136,67 @@ namespace BrewMate
 				}
 			};
 
+			//Create calculated stacklayout
 			StackLayout calculatedStackLayout = new StackLayout {
-				BackgroundColor = Device.OnPlatform<Color>(Color.Default,Color.Black,Color.Default),
-				VerticalOptions = LayoutOptions.End,
 				Children = {
 					calculateIBUButton,
 					IBULabels
 				},
+				Spacing = Device.OnPlatform(
+					5,
+					0,
+					5
+				)
 			};
-
-			StackLayout pageContents = new StackLayout {
-				Padding = new Thickness(5,5,5,0),
-				Children = {
-					headerAndTable,
-					addEntry,
-					VolumeAndGravityGrid,
-					calculatedStackLayout
+			Grid contentGrid = new Grid {
+				ColumnDefinitions = {
+					new ColumnDefinition {
+						Width = new GridLength (1, GridUnitType.Star)
+					},
 				},
+				RowDefinitions = {
+					new RowDefinition {
+						Height = new GridLength (1, GridUnitType.Auto)
+					},
+					new RowDefinition {
+						Height = new GridLength (4, GridUnitType.Star)
+					},
+					new RowDefinition {
+						Height = new GridLength (1, GridUnitType.Auto)
+					},
+					new RowDefinition {
+						Height = new GridLength (1, GridUnitType.Auto)
+					},
+					new RowDefinition {
+						Height = new GridLength (1, GridUnitType.Star)
+					},
+				},
+				RowSpacing = 5,
+				HeightRequest = Device.OnPlatform(
+					(double)(App.ScreenHeight -70),
+					(double)(App.ScreenHeight / 2 - 80),
+					(double)(App.ScreenHeight)
+				),
+				MinimumHeightRequest = 200,
+				WidthRequest = App.ScreenWidth,
 			};
 
-			Content = new ScrollView { Content = pageContents };
+			contentGrid.Children.Add (new IBUListViewHeader (), 0, 0);
+			contentGrid.Children.Add (table, 0, 1);
+			contentGrid.Children.Add (addButton, 0, 2);
+			contentGrid.Children.Add (VolumeAndGravityGrid, 0, 3);
+			contentGrid.Children.Add (calculatedStackLayout, 0, 4);
+
+			//Wrap the content in a scrollview
+			Content = new ScrollView {
+				Content = contentGrid,
+			};
 
 			//Stepper Controls
-
 			// Connects Gravity Stepper Changes to Entry
 			gravityStepper.ValueChanged += ( sender,  e) => {
 				boilGravityEntry.Text = gravityStepper.Value.ToString();
-			}; 
+			};
 
 			// Connects Volume Steppper Changes to Entry
 			volumeStepper.ValueChanged += ( sender, e) => {
@@ -170,50 +208,47 @@ namespace BrewMate
 				if(boilGravityEntry.Text!="")
 					gravityStepper.Value = Convert.ToDouble(boilGravityEntry.Text);
 			};
+			boilGravityEntry.Focused += (object sender, FocusEventArgs e) => {
+				placeholder = boilGravityEntry.Text;
+				boilGravityEntry.Text = "";
+			};
+			boilGravityEntry.Unfocused += (object sender, FocusEventArgs e) => {
+				if(boilGravityEntry.Text=="")
+					boilGravityEntry.Text = placeholder;
+			};
 
 			//Connects Volume Entry to Stepper
 			boilVolumeEntry.TextChanged += ( sender, e) => {
 				if(boilVolumeEntry.Text!="")
 					volumeStepper.Value = Convert.ToDouble(boilVolumeEntry.Text);
 			};
-				
-			addEntry.Clicked += ( sender, e) => {
-				Navigation.PushAsync(new IBUAddHopPage(headerTableSection));
+			boilVolumeEntry.Focused += (object sender, FocusEventArgs e) => {
+				placeholder = boilVolumeEntry.Text;
+				boilVolumeEntry.Text = "";
+			};
+			boilVolumeEntry.Unfocused += (object sender, FocusEventArgs e) => {
+				if(boilVolumeEntry.Text=="")
+					boilVolumeEntry.Text = placeholder;
 			};
 
-			calculateIBUButton.Clicked += ( sender, e) => {
-				calculateIBU.CalculateIBUs(hopsAddedTableView,boilGravityEntry, boilVolumeEntry, calculatedIBULabel);
+			//Connects Add Entry to Adding a hop page to TableView
+			addButton.Clicked += ( sender, e) => {
+				Navigation.PushAsync(new IBUAddHopPage(false));
 			};
 
-			MessagingCenter.Subscribe<IBUAddHopPage,Hops> (this, "Add", (sender, arg) => {
-				ViewCell addViewCell = new ViewCell {
-					View = new StackLayout {
-						Spacing = 2,
-						Orientation = StackOrientation.Horizontal,
-						Children = {
-							new ThemedLabel {
-								Text = arg.HopName,
-								HorizontalOptions = LayoutOptions.Start,
-								WidthRequest = 120
-							},
-							new HopThemedNumberEntry {
-								HorizontalOptions = LayoutOptions.Fill,
-								Text = arg.AALow.ToString(),
-								WidthRequest = 60
-							},
-							new HopThemedNumberEntry {
-								HorizontalOptions = LayoutOptions.Fill,
-								WidthRequest = 60
-							},
-							new HopThemedNumberEntry {
-								HorizontalOptions = LayoutOptions.Fill,
-								WidthRequest = 60
-							}
-						}
-					}
+			//Calculate IBU button
+			calculateIBUButton.Clicked += (sender, e) => {
+				//Create HopsToBeCalculated model to pass into calculator
+				HopsToBeCalculated hopsToCalculate = new HopsToBeCalculated{
+					BoilGravity = boilGravityEntry,
+					BoilVolume = boilVolumeEntry,
+					CalculatedIBU = calculatedIBULabel,
+					ListViewOfHops = table.ItemsSource
 				};
-				headerTableSection.Add(addViewCell);
-			});
+
+				string calculatedIBU = calculateIBU.CalculateIBU(hopsToCalculate);
+				calculatedIBULabel.Text = calculatedIBU;
+			};
 		}
 	}
 }

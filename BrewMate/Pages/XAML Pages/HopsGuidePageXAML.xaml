@@ -3,6 +3,8 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 	xmlns:local="clr-namespace:BrewMate;assembly=BrewMate" 
 	x:Class="BrewMate.HopsGuidePageXAML">
+
+	<!--This page provides details on the different types of hops you can add to your brew-->
 	<StackLayout Spacing="0">
 		<local:HopListHeader/>
 		<local:HopListView x:Name="HopList" ItemSelected="OnItemSelected"/>

@@ -11,35 +11,48 @@ namespace BrewMate
 
 		public HopListView ()
 		{
+			//Create list of grains
 			List<Hops> hopsAvailable = hopDatabase.GetHops();
+			for (var i = 0; i<hopsAvailable.Count; i++) {
+				hopsAvailable [i].Id = i.ToString();
+			}
 
+			//Set properties and source for table
 			VerticalOptions = LayoutOptions.FillAndExpand;
 			HorizontalOptions = LayoutOptions.FillAndExpand;
 			BackgroundColor = Color.Transparent;
 			ItemsSource = hopsAvailable;
 
+			//Create ItemTemplate for rows
 			ItemTemplate = new DataTemplate (() => {
-				Label hopLabel = new Label ();
-				hopLabel.SetBinding(Label.TextProperty,
-					new Binding("HopName", BindingMode.OneWay,null,null,"{0}"));
-				hopLabel.HorizontalOptions = LayoutOptions.Start;
-				hopLabel.VerticalOptions = LayoutOptions.CenterAndExpand;
-				hopLabel.TextColor = Color.White;
+				//Create label for hop name and bind it to "HopName"
+				Label hopLabel = new Label {
+					HorizontalOptions = LayoutOptions.Start,
+					VerticalOptions = LayoutOptions.CenterAndExpand,
+					TextColor = Color.White,
+				};
+				hopLabel.SetBinding (Label.TextProperty,
+					new Binding ("HopName", BindingMode.OneWay, null, null, "{0}"));
 
-				Label aaPercentageLow = new Label ();
+				//Create label for AA Percentage Low and bind it to AALow
+				Label aaPercentageLow = new Label {
+					HorizontalOptions = LayoutOptions.EndAndExpand,
+					VerticalOptions = LayoutOptions.CenterAndExpand,
+					TextColor = Color.White
+				};
 				aaPercentageLow.SetBinding (Label.TextProperty,
 					new Binding ("AALow", BindingMode.OneWay, null, null, "{0} - "));
-				aaPercentageLow.HorizontalOptions = LayoutOptions.EndAndExpand;
-				aaPercentageLow.VerticalOptions = LayoutOptions.CenterAndExpand;
-				aaPercentageLow.TextColor = Color.White;
 
-				Label aaPercentageHigh = new Label ();
+				//Create label for AA Percentage High and bind it to AAHigh
+				Label aaPercentageHigh = new Label {
+					HorizontalOptions = LayoutOptions.End,
+					VerticalOptions = LayoutOptions.CenterAndExpand,
+					TextColor = Color.White
+				};
 				aaPercentageHigh.SetBinding (Label.TextProperty,
 					new Binding ("AAHigh", BindingMode.OneWay, null, null, "{0}%"));
-				aaPercentageHigh.HorizontalOptions = LayoutOptions.End;
-				aaPercentageHigh.VerticalOptions = LayoutOptions.CenterAndExpand;
-				aaPercentageHigh.TextColor = Color.White;
 
+				//Return those items to a ViewCell for the ListView
 				return new ViewCell {
 					View = new StackLayout {
 						Orientation = StackOrientation.Horizontal,

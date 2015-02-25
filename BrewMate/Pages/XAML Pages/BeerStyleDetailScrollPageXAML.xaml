@@ -3,16 +3,19 @@
 		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 		xmlns:local="clr-namespace:BrewMate;assembly=BrewMate" 
 		x:Class="BrewMate.BeerStyleDetailScrollPageXAML">
+
+<!--This page correlates to a beer style item being selected from BeerStylePageXAML-->
 	<ScrollView>
 		<StackLayout>
 			<StackLayout.Padding>
 				<OnPlatform x:TypeArguments="Thickness" iOS="10,5,10,5" Android="10,0,10,0" WinPhone="10,0,10,0" />
 			</StackLayout.Padding>
-
-			<local:ThemedButton Clicked="CommercialBeers" 
-				Text="Commercial Beers of this style" 
-				WidthRequest="250"/>
-
+			<!--Button navigates to CommercialBeersDetailPageXAML-->
+			<local:ThemedButton 
+				x:Name="commercialBeersButton"
+				Clicked="CommercialBeers" 
+				Text="Commercial Beers of this style" />
+			<!--This is all of the free text information about the beer style-->
 			<local:CenteredBoldWhiteTextColorLabel Text="Aroma"/>
 			<local:WhiteTextColorLabel Text="{Binding Aroma}"/>
 
@@ -30,6 +33,7 @@
 
 			<local:CenteredBoldWhiteTextColorLabel Text="Beer Color Range"/>
 
+			<!--This stacklayout contains the colored labels that show the range of color for the beer selected-->
 			<StackLayout Orientation="Horizontal">
 				<local:WhiteTextColorLabel 
 					x:Name="srmLow" 
@@ -47,7 +51,9 @@
 					XAlign="Center"/> 
 			</StackLayout>
 
+			<!--This stacklayout contains the specifications for the beer-->
 			<StackLayout Orientation="Horizontal">
+				<!--This stacklayout contains the labels for the beer style specifications-->
 				<StackLayout Orientation="Vertical">
 					<local:WhiteTextColorLabel Text="IBU:"
 						HorizontalOptions="End"/>
@@ -59,6 +65,7 @@
 						HorizontalOptions="End"/>
 				</StackLayout>
 
+				<!--This stacklayout contains the labels with bindings containing the beer style specifications-->
 				<StackLayout Orientation="Vertical">
 					<local:WhiteTextColorLabel Text="{Binding IBUs}"/>
 					<local:WhiteTextColorLabel Text="{Binding OG}"/>
@@ -66,6 +73,7 @@
 					<local:WhiteTextColorLabel Text="{Binding ABV}"/>
 				</StackLayout>
 			</StackLayout>
+
 		</StackLayout>
 	</ScrollView>
 </GreenGradientPage>

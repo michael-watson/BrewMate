@@ -20,11 +20,13 @@ namespace CalabashSample.iOS
 	partial class MainViewController
 	{
 		[Outlet]
-		UILabel statusLabel { get; set; }
+		UILabel statusLabel {
+			get; set;
+		}
 
 		[Action ("showInfo:")]
 		partial void showInfo (NSObject sender);
-		
+
 		void ReleaseDesignerOutlets ()
 		{
 			if (statusLabel != null) {

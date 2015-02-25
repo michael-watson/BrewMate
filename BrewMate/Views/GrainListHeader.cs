@@ -6,16 +6,16 @@ namespace BrewMate
 {
 	public class GrainListHeader : StackLayout
 	{
-		public GrainDatabase grainDatabase = new GrainDatabase();
-
 		public GrainListHeader ()
 		{
+			//Set properties of StackLayout
 			Orientation = StackOrientation.Horizontal;
 			HorizontalOptions = LayoutOptions.FillAndExpand;
-			VerticalOptions = LayoutOptions.CenterAndExpand;
+			VerticalOptions = LayoutOptions.Center;
 			BackgroundColor = Color.Transparent;
 			Padding = new Thickness (5, 0, 5, 0);
 
+			//Add elements to the stack
 			Children.Add (new Label {
 				Text = "Grain Name",
 				TextColor = Color.White,
