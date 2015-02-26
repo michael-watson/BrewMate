@@ -38,7 +38,6 @@
     <Compile Include="Databases\BeerStyleDatabase.cs" />
     <Compile Include="Models\Grains.cs" />
     <Compile Include="Models\Hops.cs" />
-    <Compile Include="Models\HopBoilObject.cs" />
     <Compile Include="Models\BeerStyle.cs" />
     <Compile Include="Views\HopListView.cs" />
     <Compile Include="Views\HopListHeader.cs" />
@@ -46,7 +45,6 @@
     <Compile Include="Views\GrainListView.cs" />
     <Compile Include="Views\BeerStylesListView.cs" />
     <Compile Include="Models\MashCalculatedModel.cs" />
-    <Compile Include="Calculators\CaculateGravity.cs" />
     <Compile Include="Models\ExtractAndPPGModel.cs" />
     <Compile Include="Views\CalcPages_TableViewHeader_Label.cs" />
     <Compile Include="Views\CenteredBoldWhiteTextColorLabel.cs" />
@@ -127,6 +125,7 @@
     <Compile Include="Models\GrainsToBeCalculated.cs" />
     <Compile Include="Pages\Programmatic Pages\IBUCalculatorPage.cs" />
     <Compile Include="Pages\Programmatic Pages\BeerStylesPage.cs" />
+    <Compile Include="Calculators\GravityCalculator.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.1.3.5.6333-pre1\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.3.5.6333-pre1\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />

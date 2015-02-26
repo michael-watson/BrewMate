@@ -8,7 +8,7 @@ namespace BrewMate
 	public class MashCalculatorPage : BrownGradientPage
 	{
 		public SRMCalculator calculateSRM = new SRMCalculator();
-		public CaculateGravity calculateGravity = new CaculateGravity();
+		public GravityCalculator calculateGravity = new GravityCalculator();
 		public ListView grainsAddedListView;
 
 		string placeholder; 

@@ -9,7 +9,7 @@ namespace BrewMate
 	public partial class MashCalculatorPageXAML : BrownGradientPage
 	{
 		public SRMCalculator calculateSRM = new SRMCalculator();
-		public CaculateGravity calculateGravity = new CaculateGravity();
+		public GravityCalculator calculateGravity = new GravityCalculator();
 
 		public MashCalculatorPageXAML ()
 		{

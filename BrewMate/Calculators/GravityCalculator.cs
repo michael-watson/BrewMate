@@ -7,7 +7,7 @@ using Xamarin.Forms;
 
 namespace BrewMate
 {
-	public class CaculateGravity
+	public class GravityCalculator
 	{
 		public ExtractAndPPGModel CalculatePPG (GrainsToBeCalculated grainsInTable, string mashVolume)
 		{
