@@ -15,6 +15,8 @@ namespace BrewMate
 			//Break passed-in Model BeerStyle Commercial Beers into string array
 			string[] commercialBeers = selected.CommercialExamples.Split (',');
 
+			StyleId = "CommercialBeersPage";
+
 			InitializeComponent ();
 			//Call method to populate TableSection and assign it to TableRoot
 			LoadCommercialBeers (commercialBeers);

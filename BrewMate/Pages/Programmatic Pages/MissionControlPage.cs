@@ -10,6 +10,13 @@ namespace BrewMate
 	{
 		StackLayout buttonCollection;
 		WhiteTextColorLabel haveBeer;
+		HopThemedButton ibuCalculator;
+		HopThemedButton SRMCalculator;
+		HopThemedButton aaPercentageCalculator;
+		HopThemedButton grainDescriptions;
+		HopThemedButton hopDescriptions;
+		HopThemedButton beerStyles;
+
 		int counter = 1;
 
 		public MissionControlPage ()
@@ -19,79 +26,42 @@ namespace BrewMate
 			//Set the StyleId for Xamarin Test Cloud
 			StyleId = "BrewMateToolbelt";
 
-			double buttonWidth = (double)(App.ScreenWidth * 0.8);
 			//Create the buttons to navigate to application functions
-			ThemedButton ibuCalculator = new ThemedButton {
+			ibuCalculator = new HopThemedButton {
 				StyleId = "ibuCalculatorButton",
 				Text = "IBU Caluclator",
-				HeightRequest = Device.OnPlatform(
-					(double)(App.ScreenHeight * 0.1),
-					(double)(App.ScreenHeight / 2 * 0.1),
-					(double)(App.ScreenHeight * 0.1)),
-				WidthRequest = Device.OnPlatform(
-					(double)(App.ScreenWidth * 0.8),
-					(double)(App.ScreenWidth / 2 * 0.8),
-					(double)(App.ScreenWidth * 0.8))
+				HeightRequest = (double)(App.ScreenHeight * 0.1),
+				WidthRequest = (double)(App.ScreenWidth * 0.8)
 			};
-			ThemedButton SRMCalculator = new ThemedButton {
+			SRMCalculator = new HopThemedButton {
 				StyleId = "mashCalculatorButton",
 				Text = "Mash Calculator",
-				HeightRequest = Device.OnPlatform(
-					(double)(App.ScreenHeight * 0.1),
-					(double)(App.ScreenHeight / 2 * 0.1),
-					(double)(App.ScreenHeight * 0.1)),
-				WidthRequest = Device.OnPlatform(
-					(double)(App.ScreenWidth * 0.8),
-					(double)(App.ScreenWidth / 2 * 0.8),
-					(double)(App.ScreenWidth * 0.8))
+				HeightRequest = (double)(App.ScreenHeight * 0.1),
+				WidthRequest = (double)(App.ScreenWidth * 0.8)
 			};
-			ThemedButton aaPercentageCalculator = new ThemedButton {
+			aaPercentageCalculator = new HopThemedButton {
 				StyleId = "alcoholPercentageCalculatorButton",
 				Text = "Alcohol Percentage Calculator",
-				HeightRequest = Device.OnPlatform(
-					(double)(App.ScreenHeight * 0.1),
-					(double)(App.ScreenHeight / 2 * 0.1),
-					(double)(App.ScreenHeight * 0.1)),
-				WidthRequest = Device.OnPlatform(
-					(double)(App.ScreenWidth * 0.8),
-					(double)(App.ScreenWidth / 2 * 0.8),
-					(double)(App.ScreenWidth * 0.8))
+				HeightRequest = (double)(App.ScreenHeight * 0.1),
+				WidthRequest = (double)(App.ScreenWidth * 0.8)
 			};
-			ThemedButton grainDescriptions = new ThemedButton {
+			grainDescriptions = new HopThemedButton {
 				StyleId = "grainDescriptionsButton",
 				Text = "Grain Descriptions",
-				HeightRequest = Device.OnPlatform(
-					(double)(App.ScreenHeight * 0.1),
-					(double)(App.ScreenHeight / 2 * 0.1),
-					(double)(App.ScreenHeight * 0.1)),
-				WidthRequest = Device.OnPlatform(
-					(double)(App.ScreenWidth * 0.8),
-					(double)(App.ScreenWidth / 2 * 0.8),
-					(double)(App.ScreenWidth * 0.8))
+				HeightRequest = (double)(App.ScreenHeight * 0.1),
+				WidthRequest = (double)(App.ScreenWidth * 0.8)
 			};
-			ThemedButton hopDescriptions = new ThemedButton {
+			hopDescriptions = new HopThemedButton {
 				StyleId = "hopGuideButton",
 				Text = "Hop Guide",
-				HeightRequest = Device.OnPlatform(
-					(double)(App.ScreenHeight * 0.1),
-					(double)(App.ScreenHeight / 2 * 0.1),
-					(double)(App.ScreenHeight * 0.1)),
-				WidthRequest = Device.OnPlatform(
-					(double)(App.ScreenWidth * 0.8),
-					(double)(App.ScreenWidth / 2 * 0.8),
-					(double)(App.ScreenWidth * 0.8))
+				HeightRequest = (double)(App.ScreenHeight * 0.1),
+				WidthRequest = (double)(App.ScreenWidth * 0.8)
 			};
-			ThemedButton beerStyles = new ThemedButton {
+			beerStyles = new HopThemedButton {
 				StyleId = "beerStylesButton",
 				Text = "Beer Styles",
-				HeightRequest = Device.OnPlatform(
-					(double)(App.ScreenHeight * 0.1),
-					(double)(App.ScreenHeight / 2 * 0.1),
-					(double)(App.ScreenHeight * 0.1)),
-				WidthRequest = Device.OnPlatform(
-					(double)(App.ScreenWidth * 0.8),
-					(double)(App.ScreenWidth / 2 * 0.8),
-					(double)(App.ScreenWidth * 0.8))
+				HeightRequest = (double)(App.ScreenHeight * 0.1),
+				WidthRequest = (double)(App.ScreenWidth * 0.8)
 			};
 
 			haveBeer = new WhiteTextColorLabel {
@@ -115,36 +85,19 @@ namespace BrewMate
 					hopDescriptions,
 				}
 			};
-
-			//Button Controls to navigate to app functions
-			hopDescriptions.Clicked += ( sender, e) =>
-			{
-				Navigation.PushAsync(new HopsGuidePage());
-			};
-
-			ibuCalculator.Clicked += ( sender, e) => {
-				Navigation.PushAsync(new IBUCalculatorPage());
-			};
-
-			SRMCalculator.Clicked += ( sender, e) => {
-				Navigation.PushAsync(new MashCalculatorPage());
-			};
-
-			aaPercentageCalculator.Clicked += ( sender, e) => {
-				Navigation.PushAsync(new CalculateAlcoholPercentPage());
-			};
-
-			grainDescriptions.Clicked += ( sender, e) => {
-				Navigation.PushAsync(new GrainsGuidePage());
-			};
-			beerStyles.Clicked += ( sender, e) => {
-				Navigation.PushAsync(new BeerStylesPage());
-			};
 		}
 
 		async protected override void OnAppearing ()
 		{
 			base.OnAppearing ();
+
+			hopDescriptions.Clicked += Navigate;
+			ibuCalculator.Clicked += Navigate;
+			SRMCalculator.Clicked += Navigate;
+			aaPercentageCalculator.Clicked += Navigate;
+			grainDescriptions.Clicked += Navigate;
+			beerStyles.Clicked += Navigate;
+
 			//set content, use counter to make sure this happens only once to save memory
 			if (counter == 1) {
 				Content = new StackLayout {
@@ -160,6 +113,44 @@ namespace BrewMate
 				await buttonCollection.FadeTo (1, 1000);
 				//Add one to the counter to ensure no memory leaks
 				counter++;
+			}
+		}
+
+		protected override void OnDisappearing ()
+		{
+			base.OnDisappearing ();
+
+			hopDescriptions.Clicked -= Navigate;
+			ibuCalculator.Clicked -= Navigate;
+			SRMCalculator.Clicked -= Navigate;
+			aaPercentageCalculator.Clicked -= Navigate;
+			grainDescriptions.Clicked -= Navigate;
+			beerStyles.Clicked -= Navigate;
+		}
+
+		void Navigate(object sender, EventArgs e)
+		{
+			Button button = sender as Button;
+
+			switch (button.StyleId) {
+				case "ibuCalculatorButton":
+					Navigation.PushAsync(new IBUCalculatorPage());
+					break;
+				case "mashCalculatorButton":
+					Navigation.PushAsync(new MashCalculatorPage());
+					break;
+				case "alcoholPercentageCalculatorButton":
+					Navigation.PushAsync(new CalculateAlcoholPercentPage());
+					break;
+				case "grainDescriptionsButton":
+					Navigation.PushAsync(new GrainsGuidePage());
+					break;
+				case "hopGuideButton":
+					Navigation.PushAsync(new HopsGuidePage());
+					break;
+				case "beerStylesButton":
+					Navigation.PushAsync(new BeerStylesPage());
+					break;		
 			}
 		}
 	}

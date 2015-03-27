@@ -18,7 +18,7 @@ namespace BrewMate
 			//Create items for Hop specifications
 			ThemedLabel hopName = new ThemedLabel {
 				Text = selectedHop.HopName,
-				Font = Font.SystemFontOfSize(NamedSize.Large)
+				FontSize = Device.GetNamedSize(NamedSize.Large,typeof(Label))
 			};
 			ThemedLabel hopAA = new ThemedLabel {
 				Text = "Alpha Acid: " + selectedHop.AALow + " - " + selectedHop.AAHigh + "%"
@@ -50,14 +50,12 @@ namespace BrewMate
 			{
 				WhiteTextColorLabel beerName = new WhiteTextColorLabel {
 					Text = sub,
-					Font = Font.SystemFontOfSize (NamedSize.Small),
+					FontSize = Device.GetNamedSize(NamedSize.Small,typeof(Label)),
 					YAlign = TextAlignment.Center,
 					XAlign = TextAlignment.Center
 				};
 				//Add ViewCell containing label to TableSection
-				section.Add (new ViewCell {
-				                     View = beerName
-					     });
+				section.Add (new ViewCell { View = beerName });
 			}
 			//Add Tablesection to TableRoot
 			list.Add (section);

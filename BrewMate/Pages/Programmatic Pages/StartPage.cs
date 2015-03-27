@@ -6,6 +6,10 @@ namespace BrewMate
 {
 	public class StartPage : GreenGradientPage
 	{
+		HopThemedButton programmatic;
+		HopThemedButton xaml;
+		HopThemedButton customRenderedUITableView;
+
 		public StartPage ()
 		{
 			//Set the title on the navigation bar to the selected hop
@@ -13,58 +17,26 @@ namespace BrewMate
 			//Set the StyleId for Xamarin Test Cloud
 			StyleId = "PickUIViewPage";
 
-			double buttonWidth = (double)(App.ScreenWidth * 0.8);
-
 			//Create page to separate XAML and Programmatic parts of application
-			ThemedButton programmatic = new ThemedButton {
+			programmatic = new HopThemedButton {
 				StyleId = "programmaticButton",
 				Text = "Programmatic",
-				HeightRequest = Device.OnPlatform(
-					(double)(App.ScreenHeight * 0.1),
-					(double)(App.ScreenHeight / 2 * 0.1),
-					(double)(App.ScreenHeight * 0.1)),
-				WidthRequest = Device.OnPlatform(
-					(double)(App.ScreenWidth * 0.8),
-					(double)(App.ScreenWidth / 2 * 0.8),
-					(double)(App.ScreenWidth * 0.8))
+				HeightRequest = (double)(App.ScreenHeight * 0.1),
+				WidthRequest = (double)(App.ScreenWidth * 0.8)
 			};
 
-			ThemedButton xaml = new ThemedButton {
+			xaml = new HopThemedButton {
 				StyleId = "xamlButton",
 				Text = "XAML",
-				HeightRequest = Device.OnPlatform(
-					(double)(App.ScreenHeight * 0.1),
-					(double)(App.ScreenHeight / 2 * 0.1),
-					(double)(App.ScreenHeight * 0.1)),
-				WidthRequest = Device.OnPlatform(
-					(double)(App.ScreenWidth * 0.8),
-					(double)(App.ScreenWidth / 2 * 0.8),
-					(double)(App.ScreenWidth * 0.8))
+				HeightRequest = (double)(App.ScreenHeight * 0.1),
+				WidthRequest = (double)(App.ScreenWidth * 0.8)
 			};
 
-			ThemedButton customRenderedUITableView = new ThemedButton {
+			customRenderedUITableView = new HopThemedButton {
 				StyleId = "UITableViewControllerButton",
 				Text = "UITableViewController example",
-				HeightRequest = Device.OnPlatform(
-					(double)(App.ScreenHeight * 0.1),
-					(double)(App.ScreenHeight / 2 * 0.1),
-					(double)(App.ScreenHeight * 0.1)),
-				WidthRequest = Device.OnPlatform(
-					(double)(App.ScreenWidth * 0.8),
-					(double)(App.ScreenWidth / 2 * 0.8),
-					(double)(App.ScreenWidth * 0.8))
-			};
-
-			customRenderedUITableView.Clicked += (object sender, EventArgs e) => {
-				Navigation.PushAsync(new UITableViewController_IBUCalculatorPage());
-			};
-
-			programmatic.Clicked += ( sender, e) => {
-				Navigation.PushAsync(new MissionControlPage());
-			};
-
-			xaml.Clicked += ( sender, e) => {
-				Navigation.PushAsync(new MissionControlPageXAML());
+				HeightRequest = (double)(App.ScreenHeight * 0.1),
+				WidthRequest = (double)(App.ScreenWidth * 0.8)
 			};
 
 			Content = new StackLayout {
@@ -76,6 +48,41 @@ namespace BrewMate
 					customRenderedUITableView
 				}
 			};
+		}
+
+		protected override void OnAppearing ()
+		{
+			base.OnAppearing ();
+
+			programmatic.Clicked += Navigate;
+			xaml.Clicked += Navigate;
+			customRenderedUITableView.Clicked += Navigate;
+		}
+
+		protected override void OnDisappearing ()
+		{
+			base.OnDisappearing ();
+
+			programmatic.Clicked -= Navigate;
+			xaml.Clicked -= Navigate;
+			customRenderedUITableView.Clicked -= Navigate;
+		}
+
+		void Navigate(object sender, EventArgs e)
+		{
+			Button button = sender as Button;
+
+			switch (button.StyleId) {
+			case "programmaticButton":
+				Navigation.PushAsync(new MissionControlPage());
+				break;
+			case "xamlButton":
+				Navigation.PushAsync(new MissionControlPageXAML());
+				break;
+			case "UITableViewControllerButton":
+				Navigation.PushAsync(new UITableViewController_IBUCalculatorPage());
+				break;	
+			}
 		}
 	}
 }

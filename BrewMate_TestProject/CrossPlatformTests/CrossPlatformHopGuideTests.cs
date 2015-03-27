@@ -24,12 +24,18 @@ namespace BrewMate_TestProject
 			app.Repl ();
 		}
 
-		[Test ()]
-		public void AViewColumbusHopDetailsAndSubstitutes ()
+		[TestCase ("xaml")]
+		[TestCase ("prog")]
+		public void AViewColumbusHopDetailsAndSubstitutes (string option)
 		{
 			app.Screenshot("Application Start");
-		//Now I tap the programmatic button
-			app.WaitForThenTap (x => x.Id ("programmaticButton"), "Then I press the 'programmatic' button");
+
+			if (option == "xaml") {
+				app.WaitForThenTap (x => x.Id ("xamlButton"), "Then I press the 'programmatic' button");
+			} else if (option == "prog"){
+				app.WaitForThenTap (x => x.Id ("programmaticButton"), "Then I press the 'programmatic' button");
+			}
+
 		//Now I tap the Hop Guide button
 			app.WaitForThenTap (x => x.Id ("hopGuideButton"), "Then I press the 'Grain Descriptions' button");
 		//Now I scroll down and tap the Columbus grain

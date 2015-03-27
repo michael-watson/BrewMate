@@ -5,22 +5,28 @@ namespace BrewMate
 	public class Grains
 	{
 		public int Id {
-			get; set;
+			get;
+			set;
 		}
 		public string GrainName {
-			get; set;
+			get;
+			set;
 		}
 		public double PPG {
-			get; set;
+			get;
+			set;
 		}
 		public string Origin {
-			get; set;
+			get;
+			set;
 		}
 		public string Type {
-			get; set;
+			get;
+			set;
 		}
 		public int srmColor {
-			get; set;
+			get;
+			set;
 		}
 	}
 }

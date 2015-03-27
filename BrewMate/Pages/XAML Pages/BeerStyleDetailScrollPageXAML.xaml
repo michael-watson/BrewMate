@@ -11,8 +11,9 @@
 				<OnPlatform x:TypeArguments="Thickness" iOS="10,5,10,5" Android="10,0,10,0" WinPhone="10,0,10,0" />
 			</StackLayout.Padding>
 			<!--Button navigates to CommercialBeersDetailPageXAML-->
-			<local:ThemedButton 
+			<local:HopThemedButton 
 				x:Name="commercialBeersButton"
+				StyleId="commercialBeersOfThisStyleButton"
 				Clicked="CommercialBeers" 
 				Text="Commercial Beers of this style" />
 			<!--This is all of the free text information about the beer style-->
@@ -37,6 +38,7 @@
 			<StackLayout Orientation="Horizontal">
 				<local:WhiteTextColorLabel 
 					x:Name="srmLow" 
+					StyleId="lowSRMLabel"
 					HorizontalOptions="CenterAndExpand" 
 					HeightRequest="30" 
 					WidthRequest="150" 
@@ -44,6 +46,7 @@
 					XAlign="Center"/>
 				<local:WhiteTextColorLabel 
 					x:Name="srmHigh"
+					StyleId="highSRMLabel"
 					HorizontalOptions="CenterAndExpand" 
 					HeightRequest="30" 
 					WidthRequest="150" 
@@ -52,7 +55,8 @@
 			</StackLayout>
 
 			<!--This stacklayout contains the specifications for the beer-->
-			<StackLayout Orientation="Horizontal">
+			<StackLayout Orientation="Horizontal"
+				HorizontalOptions="Center">
 				<!--This stacklayout contains the labels for the beer style specifications-->
 				<StackLayout Orientation="Vertical">
 					<local:WhiteTextColorLabel Text="IBU:"

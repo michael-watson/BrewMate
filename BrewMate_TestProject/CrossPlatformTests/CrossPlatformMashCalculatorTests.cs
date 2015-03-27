@@ -22,11 +22,18 @@ namespace BrewMate_TestProject
 			app.Repl ();
 		}
 
-		[Test ()]
-		public void ACalculateBeerSpecificationsOfBrewmatesIPA()
+		[TestCase ("xaml")]
+		[TestCase ("prog")]
+		public void ACalculateBeerSpecificationsOfBrewmatesIPA(string option)
 		{
 			app.Screenshot ("Application Start");
-			app.WaitForThenTap (x => x.Id ("programmaticButton"), "Then I press the 'programmatic' button");
+
+			if (option == "xaml") {
+				app.WaitForThenTap (x => x.Id ("xamlButton"), "Then I press the 'programmatic' button");
+			} else if (option == "prog"){
+				app.WaitForThenTap (x => x.Id ("programmaticButton"), "Then I press the 'programmatic' button");
+			}
+
 			app.WaitForThenTap (x => x.Id ("mashCalculatorButton"), "Then I press the 'IBU Calculator' Button");
 		//Now add 2-row grains - 44 pounds
 			app.WaitForThenTap (x => x.Id ("addGrainButton"), "Then I press the 'Add Hop' Button");

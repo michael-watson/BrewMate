@@ -1,12 +1,14 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<GreenGradientPage xmlns="http://xamarin.com/schemas/2014/forms" 
-	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-	xmlns:local="clr-namespace:BrewMate;assembly=BrewMate" 
-	x:Class="BrewMate.HopsGuidePageXAML">
+﻿<?xml version = "1.0" encoding = "UTF-8"?>
+<GreenGradientPage xmlns = "http://xamarin.com/schemas/2014/forms" 
+	xmlns:x = "http://schemas.microsoft.com/winfx/2009/xaml" 
+	xmlns:local = "clr-namespace:BrewMate;assembly = BrewMate" 
+	x:Class = "BrewMate.HopsGuidePageXAML">
 
 	<!--This page provides details on the different types of hops you can add to your brew-->
-	<StackLayout Spacing="0">
+	<StackLayout Spacing = "0">
 		<local:HopListHeader/>
-		<local:HopListView x:Name="HopList" ItemSelected="OnItemSelected"/>
+		<local:HopListView x:Name = "HopList" 
+			StyleId = "hopListView"
+			ItemSelected = "OnItemSelected"/>
 	</StackLayout>
 </GreenGradientPage>

@@ -11,6 +11,8 @@ namespace BrewMate
 		{
 			Title = "Grains Grains Grains";
 
+			StyleId = "GrainsGrainsGrainsPage";
+
 			InitializeComponent ();
 		}
 

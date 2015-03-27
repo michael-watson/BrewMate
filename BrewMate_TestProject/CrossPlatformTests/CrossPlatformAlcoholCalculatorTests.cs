@@ -18,18 +18,23 @@ namespace BrewMate_TestProject
 		}
 
 		[Test ()]
-		[Ignore]
 		public void REPL ()
 		{
 			app.Repl ();
 		}
 
-		[Test ()]
-		public void ACalculateAlcoholPercentOfBrewmateIPA ()
+		[TestCase ("xaml")]
+		[TestCase ("prog")]
+		public void ACalculateAlcoholPercentOfBrewmateIPA (string option)
 		{
 			app.Screenshot("Application Start");
-		//Now I tap the programmatic button
-			app.WaitForThenTap (x => x.Id ("programmaticButton"), "Then I press the 'programmatic' button");
+
+			if (option == "xaml") {
+				app.WaitForThenTap (x => x.Id ("xamlButton"), "Then I press the 'programmatic' button");
+			} else if (option == "prog"){
+				app.WaitForThenTap (x => x.Id ("programmaticButton"), "Then I press the 'programmatic' button");
+			}
+
 		//Now I tap the Alcohol Percentage Calculator
 			app.WaitForThenTap (x => x.Id ("alcoholPercentageCalculatorButton"), "Then I press the 'Alcohol Percentage Calculator' button");
 		//Then I set the original gravity to 1.06

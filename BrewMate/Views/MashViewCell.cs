@@ -12,7 +12,8 @@ namespace BrewMate
 			WhiteTextColorLabel grainLabel = new WhiteTextColorLabel {
 				HorizontalOptions = LayoutOptions.Fill,
 				VerticalOptions = LayoutOptions.CenterAndExpand,
-				WidthRequest = (double)(App.ScreenWidth * 0.55)
+				WidthRequest = (double)(App.ScreenWidth * 0.55),
+				FontSize = Device.GetNamedSize(NamedSize.Medium,typeof(Label))
 			};
 			grainLabel.SetBinding (Label.TextProperty,
 				new Binding ("SelectedGrain.GrainName", BindingMode.OneWay, null, null, "{0}"));
@@ -22,6 +23,7 @@ namespace BrewMate
 				HorizontalOptions = LayoutOptions.Fill,
 				VerticalOptions = LayoutOptions.CenterAndExpand,
 				WidthRequest = (double)(App.ScreenWidth * 0.13),
+				FontSize = Device.GetNamedSize(NamedSize.Medium,typeof(Label)),
 				XAlign = TextAlignment.Center
 			};
 			srm.SetBinding (Label.TextProperty,
@@ -31,6 +33,7 @@ namespace BrewMate
 				HorizontalOptions = LayoutOptions.Fill,
 				VerticalOptions = LayoutOptions.CenterAndExpand,
 				WidthRequest = (double)(App.ScreenWidth * 0.15),
+				FontSize = Device.GetNamedSize(NamedSize.Medium,typeof(Label)),
 				XAlign = TextAlignment.Center
 			};
 			ppg.SetBinding (Label.TextProperty,

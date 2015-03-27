@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<GreenGradientPage xmlns="http://xamarin.com/schemas/2014/forms" 
-	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-	xmlns:local="clr-namespace:BrewMate;assembly=BrewMate" 
-	x:Class="BrewMate.CommercialBeersDetailPageXAML">
+<GreenGradientPage xmlns = "http://xamarin.com/schemas/2014/forms" 
+	xmlns:x = "http://schemas.microsoft.com/winfx/2009/xaml" 
+	xmlns:local = "clr-namespace:BrewMate;assembly=BrewMate" 
+	x:Class = "BrewMate.CommercialBeersDetailPageXAML">
 
 	<StackLayout>
 		<!--Create a table that will hold all of Commercial beers of Model Beer Style passed in-->
-		<TableView BackgroundColor="Transparent">
+		<TableView BackgroundColor = "Transparent">
 			<!--Define TableRoot name to add content to it-->
-			<TableRoot x:Name="tableRoot">
+			<TableRoot x:Name = "tableRoot">
 			</TableRoot>
 		</TableView>
 	</StackLayout>

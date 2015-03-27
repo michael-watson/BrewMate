@@ -10,6 +10,8 @@ namespace BrewMate
 		{
 			Title = "Hops Hops Hops";
 
+			StyleId = "HopsHopsHopsPage";
+
 			InitializeComponent ();
 		}
 

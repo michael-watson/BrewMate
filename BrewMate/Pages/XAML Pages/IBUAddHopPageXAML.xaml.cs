@@ -9,6 +9,8 @@ namespace BrewMate
 		public IBUAddHopPageXAML ()
 		{
 			InitializeComponent ();
+
+			StyleId = "AddHopsPage";
 		}
 
 		public void OnItemSelected(object sender, SelectedItemChangedEventArgs e)

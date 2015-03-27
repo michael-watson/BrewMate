@@ -6,62 +6,42 @@ namespace BrewMate
 {
 	public class IBUViewCell : Grid
 	{
+		WhiteTextColorLabel hopLabel;
+		HopThemedNumberEntry aaPercentage;
+		HopThemedNumberEntry ounces;
+		HopThemedNumberEntry boilTime;
+
 		public IBUViewCell ()
 		{
 			//Create label for hop name and bind it to "HopName"
-			WhiteTextColorLabel hopLabel = new WhiteTextColorLabel {
+			hopLabel = new WhiteTextColorLabel {
 				HorizontalOptions = LayoutOptions.Fill,
 				VerticalOptions = LayoutOptions.CenterAndExpand,
-				WidthRequest = (double)(App.ScreenWidth * 0.45)
+				WidthRequest = (double)(App.ScreenWidth * 0.45),
+				FontSize = Device.GetNamedSize(NamedSize.Medium,typeof(Label))
 			};
-			hopLabel.SetBinding (Label.TextProperty,
-				new Binding ("SelectedHop.HopName", BindingMode.OneWay, null, null, "{0}"));
 
 			//Create label for AA Percentage Low and bind it to AALow
-			HopThemedNumberEntry aaPercentage = new HopThemedNumberEntry {
+			aaPercentage = new HopThemedNumberEntry {
 				HorizontalOptions = LayoutOptions.CenterAndExpand,
 				VerticalOptions = LayoutOptions.CenterAndExpand,
 				Keyboard = Keyboard.Numeric,
 				WidthRequest = (double)(App.ScreenWidth * 0.3),
 			};
-			aaPercentage.SetBinding (Entry.TextProperty,
-				new Binding ("AA", BindingMode.TwoWay, null, null, "{0}"));
-			aaPercentage.Focused += (object sender, FocusEventArgs e) => {
-				Handlefocus(aaPercentage);
-			};
-			aaPercentage.Unfocused += (object sender, FocusEventArgs e) => {
-				HandleUnfocused(aaPercentage);
-			};
 
 			//Create label for AA Percentage High and bind it to AAHigh
-			HopThemedNumberEntry ounces = new HopThemedNumberEntry {
+			ounces = new HopThemedNumberEntry {
 				HorizontalOptions = LayoutOptions.CenterAndExpand,
 				VerticalOptions = LayoutOptions.CenterAndExpand,
 				Keyboard = Keyboard.Numeric,
 				WidthRequest = (double)(App.ScreenWidth * 0.15)
-			};
-			ounces.SetBinding (Entry.TextProperty,
-				new Binding ("ounces", BindingMode.TwoWay, null, null, "{0}"));
-			ounces.Focused += (object sender, FocusEventArgs e) => {
-				Handlefocus(ounces);
-			};
-			ounces.Unfocused += (object sender, FocusEventArgs e) => {
-				HandleUnfocused(ounces);
 			};
 
-			HopThemedNumberEntry boilTime = new HopThemedNumberEntry {
+			boilTime = new HopThemedNumberEntry {
 				HorizontalOptions = LayoutOptions.CenterAndExpand,
 				VerticalOptions = LayoutOptions.CenterAndExpand,
 				Keyboard = Keyboard.Numeric,
 				WidthRequest = (double)(App.ScreenWidth * 0.15)
-			};
-			boilTime.SetBinding (Entry.TextProperty,
-				new Binding ("BoilTime", BindingMode.TwoWay, null, null, "{0}"));
-			boilTime.Focused += (object sender, FocusEventArgs e) => {
-				Handlefocus(boilTime);
-			};
-			boilTime.Unfocused += (object sender, FocusEventArgs e) => {
-				HandleUnfocused(boilTime);
 			};
 				
 			VerticalOptions = LayoutOptions.CenterAndExpand;
@@ -82,18 +62,66 @@ namespace BrewMate
 			Children.Add (boilTime,3,4,0,1);
 		}
 
-		public void Handlefocus (Entry entry)
+		protected override void OnAdded (View view)
 		{
+			base.OnAdded (view);
+
+			aaPercentage.Focused += HandleFocus;
+			aaPercentage.Unfocused += HandleUnfocus;
+
+			ounces.Focused += HandleFocus;
+			ounces.Unfocused += HandleUnfocus;
+
+			boilTime.Focused += HandleFocus;
+			boilTime.Unfocused += HandleUnfocus;
+
+			hopLabel.SetBinding (Label.TextProperty,
+				new Binding ("SelectedHop.HopName", BindingMode.OneWay, null, null, "{0}"));
+
+			aaPercentage.SetBinding (Entry.TextProperty,
+				new Binding ("AA", BindingMode.TwoWay, null, null, "{0}"));
+
+			ounces.SetBinding (Entry.TextProperty,
+				new Binding ("ounces", BindingMode.TwoWay, null, null, "{0}"));
+
+			boilTime.SetBinding (Entry.TextProperty,
+				new Binding ("BoilTime", BindingMode.TwoWay, null, null, "{0}"));
+		}
+
+		protected override void OnRemoved (View view)
+		{
+			base.OnRemoved (view);
+
+			aaPercentage.Focused += HandleFocus;
+			aaPercentage.Unfocused += HandleUnfocus;
+
+			ounces.Focused += HandleFocus;
+			ounces.Unfocused += HandleUnfocus;
+
+			boilTime.Focused += HandleFocus;
+			boilTime.Unfocused += HandleUnfocus;
+
+			hopLabel.RemoveBinding (Label.TextProperty);
+			aaPercentage.RemoveBinding (Entry.TextProperty);
+			ounces.RemoveBinding (Entry.TextProperty);
+			boilTime.RemoveBinding (Entry.TextProperty);
+		}
+
+		void HandleFocus (object sender, FocusEventArgs e)
+		{
+			Entry entry = sender as Entry;
+
 			if (entry.Text == "0") {
 				entry.Text = "";
 			}
 		}
-		public void HandleUnfocused (Entry entry)
+		public void HandleUnfocus (object sender, FocusEventArgs ey)
 		{
+			Entry entry = sender as Entry;
+
 			if (entry.Text == "") {
 				entry.Text = "0";
 			}
-
 		}
 	}
 }

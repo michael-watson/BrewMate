@@ -10,35 +10,57 @@ namespace BrewMate
 	{
 		public SRMCalculator calculateSRM = new SRMCalculator();
 		public GravityCalculator calculateGravity = new GravityCalculator();
+		string placeholder;
 
 		public MashCalculatorPageXAML ()
 		{
 			InitializeComponent ();
 
-			int pageWidth = App.ScreenWidth;
-			ListView fwef = new ListView ();
-
-			grainsAddedListView.MinimumHeightRequest = Device.OnPlatform (
-				(double)(App.ScreenHeight * 0.5),
-				(double)(App.ScreenHeight / 2 * 0.5),
-				(double)(App.ScreenHeight * 0.5));
+			grainsAddedListView.HeightRequest = (double)(App.ScreenHeight * 0.2);
 
 			grainNameLabel.WidthRequest = Device.OnPlatform (
 				(double)(App.ScreenWidth * 0.55),
-				(double)(App.ScreenWidth / 2 * 0.55),
+				(double)(App.ScreenWidth * 0.55),
 				(double)(App.ScreenWidth * 0.55));
 			srmLabel.WidthRequest = Device.OnPlatform (
-				(double)(App.ScreenWidth * 0.13),
-				(double)(App.ScreenWidth / 2 * 0.13),
+				(double)(App.ScreenWidth * 0.17),
+				(double)(App.ScreenWidth * 0.15),
 				(double)(App.ScreenWidth * 0.13));
 			ppgLabel.WidthRequest = Device.OnPlatform (
-				(double)(App.ScreenWidth * 0.15),
-				(double)(App.ScreenWidth / 2 * 0.15),
+				(double)(App.ScreenWidth * 0.12),
+				(double)(App.ScreenWidth * 0.13),
 				(double)(App.ScreenWidth * 0.15));
 			poundsLabel.WidthRequest = Device.OnPlatform (
+				(double)(App.ScreenWidth * 0.18),
 				(double)(App.ScreenWidth * 0.15),
-				(double)(App.ScreenWidth / 2 * 0.15),
 				(double)(App.ScreenWidth * 0.15));
+
+			mashVolumeEntry.WidthRequest = (double)(App.ScreenWidth * 0.3);
+			mashVolumeStepper.WidthRequest = (double)(App.ScreenWidth * 0.35);
+
+			addGrainButton.HeightRequest = (double)(App.ScreenHeight * 0.07);
+			addGrainButton.FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Button));
+
+			calculateSRMButton.HeightRequest = (double)(App.ScreenHeight * 0.07);
+			calculateSRMButton.FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Button));
+
+			scrollView.HeightRequest = (double)(App.ScreenHeight);
+			grid.ColumnDefinitions.Add (
+				new ColumnDefinition {
+					Width = Device.OnPlatform(
+						(double)(App.ScreenWidth * 0.33),
+						(double)(App.ScreenWidth * 0.3),
+						(double)(App.ScreenWidth * 0.3)
+					)
+				});
+			grid.ColumnDefinitions.Add (
+				new ColumnDefinition {
+					Width = (double)(App.ScreenWidth * 0.3)
+				});
+			grid.ColumnDefinitions.Add (
+				new ColumnDefinition {
+					Width = (double)(App.ScreenWidth * 0.35)
+				});
 		}
 
 		public void AddGrain (object sender, EventArgs e)
@@ -67,15 +89,36 @@ namespace BrewMate
 			}
 		}
 
-		public void VolumeEntryChanged (object sender, TextChangedEventArgs e)
+		void StepperValueChanged (object sender, ValueChangedEventArgs e)
 		{
-			if(mashVolumeEntry.Text!="")
-				mashVolumeStepper.Value = Convert.ToDouble(mashVolumeEntry.Text);
+			Stepper stepper = sender as Stepper;
+
+			mashVolumeEntry.Text = stepper.Value.ToString ();
+
 		}
 
-		public void VolumeStepperChanged (object sender, ValueChangedEventArgs e)
+		void EntryTextChanged (object sender, TextChangedEventArgs e)
 		{
-			mashVolumeEntry.Text = mashVolumeStepper.Value.ToString();
+			Entry entry = sender as Entry;
+			if (entry.Text != "") {
+				mashVolumeStepper.Value = Convert.ToDouble(entry.Text);
+			}
+		}
+
+		void EntryFocused (object sender, FocusEventArgs e)
+		{
+			Entry entry = sender as Entry;
+			placeholder = entry.Text;
+			entry.Text = "";
+		}
+
+		void EntryUnfocused (object sender, FocusEventArgs e)
+		{
+			Entry entry = sender as Entry;
+
+			if (entry.Text == "") {
+				entry.Text = placeholder;
+			}
 		}
 
 		public async void HandleRowTapped (object sender, ItemTappedEventArgs e)

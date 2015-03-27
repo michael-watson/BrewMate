@@ -8,10 +8,13 @@ namespace BrewMate
 	public partial class HopDetailsPageXAML : GreenGradientPage
 	{
 		TableSection hopSection = new TableSection ();
+		Hops _selected;
 
 		public HopDetailsPageXAML (Hops selected)
 		{
-			BindingContext = selected;
+			_selected = selected;
+
+			StyleId = "HopDetailsPage";
 
 			string[] substitutes = selected.Substitutes.Split (',');
 
@@ -35,6 +38,20 @@ namespace BrewMate
 						});
 			}
 			tableRoot.Add (hopSection);
+		}
+
+		protected override void OnAppearing ()
+		{
+			base.OnAppearing ();
+
+			BindingContext = _selected;
+		}
+
+		protected override void OnDisappearing ()
+		{
+			base.OnDisappearing ();
+
+			BindingContext = null;
 		}
 	}
 }

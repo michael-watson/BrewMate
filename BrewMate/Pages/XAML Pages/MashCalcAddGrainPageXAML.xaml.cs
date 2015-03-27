@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+
 using Xamarin.Forms;
 
 namespace BrewMate
@@ -9,6 +10,8 @@ namespace BrewMate
 		public MashCalcAddGrainPageXAML ()
 		{
 			InitializeComponent ();
+
+			StyleId = "AddGrainsPage";
 		}
 
 		public void OnItemSelected (object sender, SelectedItemChangedEventArgs e)

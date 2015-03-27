@@ -4,7 +4,9 @@
 	xmlns:local="clr-namespace:BrewMate;assembly=BrewMate"
 	x:Class="BrewMate.MashCalculatorPageXAML">
 
-	<ScrollView BackgroundColor="Transparent">
+	<ScrollView x:Name="scrollView"
+		BackgroundColor="Transparent">
+
 		<StackLayout BackgroundColor="Transparent" 
 			Padding="5">
 			<StackLayout VerticalOptions="FillAndExpand">
@@ -15,30 +17,32 @@
 					<local:WhiteTextColorLabel
 						x:Name = "grainNameLabel"
 						Text = "Grain Name"
-						FontSize = "10"/>
+						FontSize = "Small"/>
 					<local:WhiteTextColorLabel
 						x:Name = "srmLabel"
 						Text = "SRM"
-						FontSize = "10"/>
+						FontSize = "Small"/>
 					<local:WhiteTextColorLabel
 						x:Name = "ppgLabel"
 						Text = "PPG"
-						FontSize = "10"/>
+						FontSize = "Small"/>
 					<local:WhiteTextColorLabel
 						x:Name = "poundsLabel"
 						Text = "Pounds"
-						FontSize = "10"/>
+						FontSize = "Small"/>
 				</StackLayout>
 					
 				<local:MashListView 
 						x:Name="grainsAddedListView"
+						HasUnevenRows="true"
 						VerticalOptions="FillAndExpand"
 						BackgroundColor = "Transparent"
 						ItemTapped="HandleRowTapped">
 				</local:MashListView>
 			</StackLayout>
 
-			<local:GrainThemedButton 
+			<local:GrainThemedButton x:Name="addGrainButton"
+					StyleId="addGrainButton"
 					Text="Add Grain" 
 					Clicked="AddGrain">
 					<local:GrainThemedButton.WidthRequest>
@@ -46,32 +50,35 @@
 					</local:GrainThemedButton.WidthRequest>
 			</local:GrainThemedButton>
 
-			<Grid>
-				<Grid.ColumnDefinitions>
-					<ColumnDefinition Width="120"/>
-					<ColumnDefinition Width="*"/>
-					<ColumnDefinition Width="*"/>
-				</Grid.ColumnDefinitions>
+			<Grid x:Name="grid">
 
 				<local:WhiteTextColorLabel Grid.Row="0" Grid.Column="0"
-				Text="Mash Volume" />
+					Text="Mash Volume"
+					XAlign="Center"
+					YAlign="Center" />
 									
 				<local:GrainThemedNumberEntry Grid.Row="0" Grid.Column="1"
 					Text="0"
-					TextChanged="VolumeEntryChanged"
-					x:Name="mashVolumeEntry" />
+					TextChanged="EntryTextChanged"
+					Focused="EntryFocused"
+					Unfocused="EntryUnfocused"
+					x:Name="mashVolumeEntry"
+					StyleId="mashVolumeEntry" />
 
 				<local:BrownStepper Value="0"
 					Minimum="0"
 					Maximum="1000"	
 					Increment="1"
-					ValueChanged="VolumeStepperChanged"
+					ValueChanged="StepperValueChanged"
+					StyleId="mashVolumeStepper"
 					x:Name="mashVolumeStepper"
 					Grid.Row="0" Grid.Column="2"/>
 			</Grid>
 
 			<StackLayout>
-				<local:GrainThemedButton Text="Calculate SRM" 
+				<local:GrainThemedButton x:Name="calculateSRMButton"
+					StyleId="calculateSRMButton"
+					Text="Calculate SRM" 
 					Clicked="CalculateSRM">
 					<local:GrainThemedButton.WidthRequest>
 						<OnPlatform x:TypeArguments="x:Double" iOS="200" Android="250" WinPhone="250" />	

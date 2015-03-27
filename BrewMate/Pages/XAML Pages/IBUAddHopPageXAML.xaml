@@ -1,19 +1,21 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<GreenGradientPage xmlns="http://xamarin.com/schemas/2014/forms" 
-	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-	xmlns:local="clr-namespace:BrewMate;assembly=BrewMate"
-	x:Class="BrewMate.IBUAddHopPageXAML">
+﻿<?xml version = "1.0" encoding = "UTF-8"?>
+<GreenGradientPage xmlns = "http://xamarin.com/schemas/2014/forms" 
+	xmlns:x = "http://schemas.microsoft.com/winfx/2009/xaml" 
+	xmlns:local = "clr-namespace:BrewMate;assembly = BrewMate"
+	x:Class = "BrewMate.IBUAddHopPageXAML">
 
-	<StackLayout Spacing="0">
+	<StackLayout Spacing = "0">
 		<StackLayout.Padding>
-			<OnPlatform x:TypeArguments="Thickness" iOS="0,20,10,0" Android="0,0,0,0" WinPhone="0,0,0,0" />
+			<OnPlatform x:TypeArguments = "Thickness" iOS = "0,20,10,0" Android = "0,0,0,0" WinPhone = "0,0,0,0" />
 		</StackLayout.Padding>
 
 		<local:HopListHeader/>
 		<local:HopListView 
-			x:Name="HopList" 
-			ItemSelected="OnItemSelected"/>
-		<local:ThemedButton Text = "Cancel" 
+			x:Name = "HopList" 
+			StyleId = "hopListView"
+			ItemSelected = "OnItemSelected"/>
+		<local:HopThemedButton Text = "Cancel" 
+			StyleId = "cancelButton"
 			Clicked = "Cancel" 
 			HorizontalOptions = "Center"
 			WidthRequest = "150"/>

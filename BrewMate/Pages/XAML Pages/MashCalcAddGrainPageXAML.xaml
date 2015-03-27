@@ -1,16 +1,18 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<BrownGradientPage xmlns="http://xamarin.com/schemas/2014/forms" 
-	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-	xmlns:local="clr-namespace:BrewMate;assembly=BrewMate"
-	x:Class="BrewMate.MashCalcAddGrainPageXAML">
+<BrownGradientPage xmlns = "http://xamarin.com/schemas/2014/forms" 
+	xmlns:x = "http://schemas.microsoft.com/winfx/2009/xaml" 
+	xmlns:local = "clr-namespace:BrewMate;assembly=BrewMate"
+	x:Class = "BrewMate.MashCalcAddGrainPageXAML">
 
 	<StackLayout>
 		<StackLayout.Padding>
-			<OnPlatform x:TypeArguments="Thickness" iOS="0,20,0,10" Android="0,0,0,0" WinPhone="0,0,0,0" />
+			<OnPlatform x:TypeArguments = "Thickness" iOS = "0,20,0,10" Android = "0,0,0,0" WinPhone = "0,0,0,0" />
 		</StackLayout.Padding>
 
 		<local:GrainListHeader/>
-		<local:GrainListView x:Name="GrainList" ItemSelected="OnItemSelected"/>
+		<local:GrainListView x:Name = "GrainList" 
+			StyleId = "grainListView"
+			ItemSelected = "OnItemSelected"/>
 		<local:GrainThemedButton Text= "Cancel"
 			WidthRequest = "200"
 			Clicked = "Cancel"/>
