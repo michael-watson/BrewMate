@@ -6,6 +6,16 @@ namespace BrewMate
 {
 	public class MashCalculatedResultsPage : ContentPage
 	{
+		GrainThemedButton newBeer;
+		GrainThemedNumberEntry actualOGEntry;
+		GrainThemedButton calculateEfficiencyButton;
+		GrainThemedButton addMoreGrains;
+		Label calculatedEfficiencyLabel;
+		Label extractPPG;
+		Label grainPPG;
+		double og;
+		string placeholder;
+
 		public MashCalculatedResultsPage ( MashCalculatedModel calculations )
 		{
 			//Set the title on the navigation bar to the selected hop
@@ -37,28 +47,15 @@ namespace BrewMate
 				Spacing = 0
 			};
 
-			GrainThemedButton newBeer = new GrainThemedButton {
+			newBeer = new GrainThemedButton {
 				StyleId = "newBeerButton",
 				Text = "New Beer",
-				WidthRequest = Device.OnPlatform(
-					(double)(App.ScreenWidth * 0.45),
-					(double)(App.ScreenWidth / 2 * 0.45),
-					(double)(App.ScreenWidth / 2 * 0.45))
+				WidthRequest = (double)(App.ScreenWidth * 0.45)
 			};
-			GrainThemedButton addMoreGrains = new GrainThemedButton {
+			addMoreGrains = new GrainThemedButton {
 				StyleId = "addModeGrainsButton",
 				Text = "Add more grains",
-				WidthRequest = Device.OnPlatform(
-					(double)(App.ScreenWidth * 0.45),
-					(double)(App.ScreenWidth / 2 * 0.45),
-					(double)(App.ScreenWidth / 2 * 0.45))
-			};
-
-			StackLayout buttonStack = new StackLayout {
-				Orientation = StackOrientation.Horizontal,
-				Children = { newBeer, addMoreGrains },
-				HorizontalOptions = LayoutOptions.Start,
-				Padding = new Thickness (10, 0, 0, 0)
+				WidthRequest = (double)(App.ScreenWidth * 0.45),
 			};
 
 			//Create labels for calculated estimates
@@ -80,18 +77,18 @@ namespace BrewMate
 			};
 
 			//Perform calculations using the MashCalculatedModel that is passed in
-			double og = (calculations.PPGModel.extract + (calculations.PPGModel.grain*.8))/1000 + 1;
+			og = (calculations.PPGModel.extract + (calculations.PPGModel.grain*.8))/1000 + 1;
 
 			//Create labels to display estimates
 			Label srmIntLabel = new Label {
 				Text = calculations.srmInt.ToString (),
 				HorizontalOptions = LayoutOptions.CenterAndExpand
 			};
-			Label extractPPG = new Label {
+			extractPPG = new Label {
 				Text = calculations.PPGModel.extract.ToString (),
 				HorizontalOptions = LayoutOptions.CenterAndExpand
 			};
-			Label grainPPG = new Label {
+			grainPPG = new Label {
 				Text = calculations.PPGModel.grain.ToString (),
 				HorizontalOptions = LayoutOptions.CenterAndExpand
 			};
@@ -105,13 +102,13 @@ namespace BrewMate
 				VerticalOptions = LayoutOptions.Start
 			};
 			//Create efficiency entry and stepper
-			GrainThemedNumberEntry actualOGEntry = new GrainThemedNumberEntry {
+			actualOGEntry = new GrainThemedNumberEntry {
 				StyleId = "actualOGEntry",
 				Text = "1.055",
 				HorizontalOptions = LayoutOptions.Center,
 				VerticalOptions = LayoutOptions.Start
 			};
-			GrainThemedButton calculateEfficiencyButton = new GrainThemedButton {
+			calculateEfficiencyButton = new GrainThemedButton {
 				StyleId = "calculateEfficiencyButton",
 				Text = "Calculate Efficiency",
 				HorizontalOptions = LayoutOptions.CenterAndExpand,
@@ -125,7 +122,7 @@ namespace BrewMate
 				HorizontalOptions = LayoutOptions.EndAndExpand,
 				VerticalOptions = LayoutOptions.CenterAndExpand
 			};
-			Label calculatedEfficiencyLabel = new Label {
+			calculatedEfficiencyLabel = new Label {
 				VerticalOptions = LayoutOptions.CenterAndExpand
 			};
 			//Create a grid to add all elements to
@@ -186,25 +183,11 @@ namespace BrewMate
 			gridLayout.Children.Add (calculateEfficiencyButton, 0, 2, 6, 7);
 			gridLayout.Children.Add (efficiencyLabel, 0, 7);
 			gridLayout.Children.Add (calculatedEfficiencyLabel, 1, 7);
-			gridLayout.Children.Add (buttonStack, 0, 1, 8, 9);
+			gridLayout.Children.Add (newBeer, 0, 8);
+			gridLayout.Children.Add (addMoreGrains, 1, 8);
 
 			Content = gridLayout;
 
-			calculateEfficiencyButton.Clicked += (object sender, EventArgs e) => {
-				if(actualOGEntry.Text != ""){
-					og = ( Convert.ToDouble(extractPPG.Text) + Convert.ToDouble(grainPPG.Text) )/1000 + 1;
-					calculatedEfficiencyLabel.Text = (Math.Round(Convert.ToDouble(actualOGEntry.Text) / og * 100,2)).ToString() + " %";
-				}
-			};
-			//Clears TableView and removes all grains from it
-			newBeer.Clicked += ( sender, e) => {
-				MessagingCenter.Send<MashCalculatedResultsPage>(this,"ClearTable");
-				Navigation.PopModalAsync();
-			};
-			//Just pop the modal view to add more grains to the TableView
-			addMoreGrains.Clicked += ( sender, e) => {
-				Navigation.PopModalAsync();
-			};
 			//Change the text color used if the background is too dark
 			if (calculations.srmInt > 20) {
 				srmLabel.TextColor = Color.White;
@@ -220,6 +203,62 @@ namespace BrewMate
 				subtitle.TextColor = Color.White;
 				efficiencyLabel.TextColor = Color.White;
 				calculatedEfficiencyLabel.TextColor = Color.White;
+			}
+		}
+
+		protected override void OnAppearing ()
+		{
+			base.OnAppearing ();
+
+			calculateEfficiencyButton.Clicked += CalculateEfficiency;
+			newBeer.Clicked += ClearTable;
+			addMoreGrains.Clicked += AddMoreGrains;
+			actualOGEntry.Focused += EntryFocused;
+			actualOGEntry.Unfocused += EntryUnfocused;
+		}
+
+		protected override void OnDisappearing ()
+		{
+			base.OnDisappearing ();
+
+			calculateEfficiencyButton.Clicked -= CalculateEfficiency;
+			newBeer.Clicked -= ClearTable;
+			addMoreGrains.Clicked -= AddMoreGrains;
+		}
+
+		void CalculateEfficiency(object sender, EventArgs e)
+		{
+			if(actualOGEntry.Text != ""){
+				var ogInPoints = (og - 1) * 1000;
+				var actualOG = (Math.Round(Convert.ToDouble(actualOGEntry.Text),3) - 1) * 1000;
+				calculatedEfficiencyLabel.Text = Math.Round((actualOG / ogInPoints * 100),2).ToString() + " %";
+			}	
+		}
+
+		void ClearTable(object sender, EventArgs e)
+		{
+			MessagingCenter.Send<MashCalculatedResultsPage>(this,"ClearTable");
+			Navigation.PopModalAsync();
+		}
+
+		void AddMoreGrains(object sender, EventArgs e)
+		{
+			Navigation.PopModalAsync();
+		}
+
+		void EntryFocused (object sender, FocusEventArgs e)
+		{
+			Entry entry = sender as Entry;
+			placeholder = entry.Text;
+			entry.Text = "";
+		}
+
+		void EntryUnfocused (object sender, FocusEventArgs e)
+		{
+			Entry entry = sender as Entry;
+
+			if (entry.Text == "") {
+				entry.Text = placeholder;
 			}
 		}
 	}

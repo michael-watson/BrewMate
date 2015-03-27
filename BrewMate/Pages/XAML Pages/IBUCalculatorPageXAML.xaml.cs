@@ -8,33 +8,59 @@ namespace BrewMate
 	public partial class IBUCalculatorPageXAML : GreenGradientPage
 	{
 		IBUCalculator calculateIBU = new IBUCalculator();
+		string placeholder;
 
 		public IBUCalculatorPageXAML ()
 		{
 			InitializeComponent ();
 
-			int pageWidth = App.ScreenWidth;
+			StyleId = "IBUCalculatorPage";
 
-			hopsAddedListView.HeightRequest = Device.OnPlatform (
-				(double)(App.ScreenHeight * 0.5),
-				(double)(App.ScreenHeight / 2 * 0.22),
-				(double)(App.ScreenHeight * 0.22));
-			hopNameLabel.WidthRequest = Device.OnPlatform (
-				(double)(App.ScreenWidth * 0.55),
-				(double)(App.ScreenWidth / 2 * 0.55),
-				(double)(App.ScreenWidth * 0.55));
-			aaLabel.WidthRequest = Device.OnPlatform (
-				(double)(App.ScreenWidth * 0.13),
-				(double)(App.ScreenWidth / 2 * 0.13),
-				(double)(App.ScreenWidth * 0.13));
+			ScrollView.HeightRequest = (double)App.ScreenHeight;
+			ScrollView.WidthRequest = (double)App.ScreenWidth;
+
+			hopsAddedListView.HeightRequest = (double)(App.ScreenHeight * 0.2);
+			hopNameLabel.WidthRequest = Device.OnPlatform(
+				(double)(App.ScreenWidth * 0.48),
+				(double)(App.ScreenWidth * 0.5),
+				(double)(App.ScreenWidth * 0.5)
+			);
+			aaLabel.WidthRequest = Device.OnPlatform(
+				(double)(App.ScreenWidth * 0.12),
+				(double)(App.ScreenWidth * 0.14),
+				(double)(App.ScreenWidth * 0.14)
+			);//ios 13
 			ouncesLabel.WidthRequest = Device.OnPlatform (
-				(double)(App.ScreenWidth * 0.15),
-				(double)(App.ScreenWidth / 2 * 0.15),
-				(double)(App.ScreenWidth * 0.15));
-			boilTimeLabel.WidthRequest = Device.OnPlatform (
-				(double)(App.ScreenWidth * 0.15),
-				(double)(App.ScreenWidth / 2 * 0.15),
-				(double)(App.ScreenWidth * 0.15));
+				(double)(App.ScreenWidth * 0.17),
+				(double)(App.ScreenWidth * 0.17),
+				(double)(App.ScreenWidth * 0.15)
+			);
+			boilTimeLabel.WidthRequest = (double)(App.ScreenWidth * 0.2);
+
+			boilGravityEntry.WidthRequest = (double)(App.ScreenWidth * 0.3);
+			boilGravityStepper.WidthRequest = (double)(App.ScreenWidth * 0.35);
+			boilVolumeEntry.WidthRequest = (double)(App.ScreenWidth * 0.3);
+			boilVolumeStepper.WidthRequest = (double)(App.ScreenWidth * 0.35);
+
+			addHopButton.HeightRequest = (double)(App.ScreenHeight * 0.07);
+			calculateIBUButton.HeightRequest = (double)(App.ScreenHeight * 0.07);
+
+			grid.ColumnDefinitions.Add (
+				new ColumnDefinition {
+					Width = Device.OnPlatform(
+						(double)(App.ScreenWidth * 0.33),
+						(double)(App.ScreenWidth * 0.3),
+						(double)(App.ScreenWidth * 0.3)
+					)
+				});
+			grid.ColumnDefinitions.Add (
+				new ColumnDefinition {
+					Width = (double)(App.ScreenWidth * 0.3)
+				});
+			grid.ColumnDefinitions.Add (
+				new ColumnDefinition {
+					Width = (double)(App.ScreenWidth * 0.35)
+				});
 		}
 
 		public void AddHop( object sender, EventArgs e )
@@ -52,27 +78,50 @@ namespace BrewMate
 			};
 			calculatedIBULabel.Text = calculateIBU.CalculateIBU(calculate);
 		}
-
-		public void GravityEntryChanged( object sender, TextChangedEventArgs e )
+				
+		void StepperValueChanged (object sender, ValueChangedEventArgs e)
 		{
-			if (boilGravityEntry.Text != "")
-				boilGravityStepper.Value = Convert.ToDouble (boilGravityEntry.Text);
+			Stepper stepper = sender as Stepper;
+
+			switch (stepper.StyleId) {
+			case "boilGravityStepper":
+				boilGravityEntry.Text = stepper.Value.ToString ();
+				break;
+			case "boilVolumeStepper":
+				boilVolumeEntry.Text = stepper.Value.ToString ();
+				break;
+			}
 		}
 
-		public void GravityStepperChanged ( object sender, ValueChangedEventArgs e )
+		void EntryTextChanged (object sender, TextChangedEventArgs e)
 		{
-			boilGravityEntry.Text = boilGravityStepper.Value.ToString ();
+			Entry entry = sender as Entry;
+			if (entry.Text != "") {
+				switch (entry.StyleId) {
+				case "boilVolumeEntry":
+					boilVolumeStepper.Value = Convert.ToDouble(entry.Text);
+					break;
+				case "boilGravityEntry":
+					boilGravityStepper.Value = Convert.ToDouble(entry.Text);
+					break;
+				}
+			}
 		}
 
-		public void VolumeEntryChanged( object sender, TextChangedEventArgs e )
+		void EntryFocused (object sender, FocusEventArgs e)
 		{
-			if (boilVolumeEntry.Text != "")
-				boilVolumeStepper.Value = Convert.ToDouble (boilVolumeEntry.Text);
+			Entry entry = sender as Entry;
+			placeholder = entry.Text;
+			entry.Text = "";
 		}
 
-		public void VolumeStepperChanged ( object sender, ValueChangedEventArgs e )
+		void EntryUnfocused (object sender, FocusEventArgs e)
 		{
-			boilVolumeEntry.Text = boilVolumeStepper.Value.ToString();
+			Entry entry = sender as Entry;
+
+			if (entry.Text == "") {
+				entry.Text = placeholder;
+			}
 		}
 
 		public async void HandleRowTapped (object sender, ItemTappedEventArgs e)

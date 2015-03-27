@@ -9,7 +9,11 @@ namespace BrewMate
 	{
 		public SRMCalculator calculateSRM = new SRMCalculator();
 		public GravityCalculator calculateGravity = new GravityCalculator();
-		public ListView grainsAddedListView;
+		MashListView grainsAddedListView;
+		GrainThemedButton addEntry;
+		GrainThemedNumberEntry mashVolumeEntry;
+		BrownStepper volumeStepper;
+		GrainThemedButton calculateSRMButton;
 
 		string placeholder; 
 
@@ -20,58 +24,51 @@ namespace BrewMate
 			//Set the StyleId for Xamarin Test Cloud
 			StyleId = "SRMCalculatorPage";
 
-			MashListView grainsAddedTableView = new MashListView {
+			grainsAddedListView = new MashListView {
 				StyleId = "mashListView",
-				VerticalOptions = LayoutOptions.Start,
+				VerticalOptions = LayoutOptions.FillAndExpand,
 				HorizontalOptions = LayoutOptions.FillAndExpand,
 				BackgroundColor = Color.Transparent,
-				HeightRequest = Device.OnPlatform(
-					(double)(App.ScreenHeight * 0.65),
-					(double)(App.ScreenHeight / 2 * 0.61),
-					(double)(App.ScreenHeight * 0.5))
+				HeightRequest = (double)(App.ScreenHeight * 0.2),
+				HasUnevenRows = true
 			};
 
-			grainsAddedTableView.ItemTapped += async (object sender, ItemTappedEventArgs e) => {
-				MashTableRowDataModel selected = e.Item as MashTableRowDataModel;
-				var answer = await DisplayAlert ("Delete Hop", "Would you like to delete this hop?", "Yes", "No");
-				if(answer == true){
-					MessagingCenter.Send<MashCalculatorPage,MashTableRowDataModel>(this,"DeleteGrain",selected);
-				};
-				grainsAddedTableView.SelectedItem = null;
-			};
-
-			GrainThemedButton addEntry = new GrainThemedButton {
+			addEntry = new GrainThemedButton {
 				StyleId = "addGrainButton",
 				Text = "Add Grain",
-				WidthRequest = Device.OnPlatform(
-					(double)(App.ScreenWidth * 0.5),
-					(double)(App.ScreenWidth / 2 * 0.5),
-					(double)(App.ScreenWidth * 0.5)),
+				WidthRequest = (double)(App.ScreenWidth * 0.8),
+				HeightRequest = (double)(App.ScreenHeight * 0.07)
 			};
 
-			GrainThemedNumberEntry mashVolumeEntry = new GrainThemedNumberEntry {
+			mashVolumeEntry = new GrainThemedNumberEntry {
 				StyleId = "mashVolumeEntry",
 				Text = "0",
+				WidthRequest = (double)(App.ScreenWidth * 0.3)
 			};
 
-			BrownStepper volumeStepper = new BrownStepper {
+			volumeStepper = new BrownStepper {
 				StyleId = "volumeStepper",
 				Minimum = 0,
 				Maximum = 1000,
 				Increment = 1,
 				Value = Convert.ToDouble (mashVolumeEntry.Text),
+				WidthRequest = (double)(App.ScreenWidth * 0.35)
 			};
 
 			Grid VolumeAndGravityGrid = new Grid {
 				ColumnDefinitions = {
 					new ColumnDefinition {
-						Width = 120
+						Width = Device.OnPlatform(
+							(double)(App.ScreenWidth * 0.33),
+							(double)(App.ScreenWidth * 0.3),
+							(double)(App.ScreenWidth * 0.3)
+						)
 					},
 					new ColumnDefinition {
-						Width = new GridLength (1, GridUnitType.Star)
+						Width = (double)(App.ScreenWidth * 0.3)
 					},
 					new ColumnDefinition {
-						Width = new GridLength (1, GridUnitType.Star)
+						Width = (double)(App.ScreenWidth * 0.35)
 					}
 				},
 			};
@@ -90,13 +87,11 @@ namespace BrewMate
 			VolumeAndGravityGrid.Children.Add (volumeStepper, 2, 0);
 			VolumeAndGravityGrid.Padding = new Thickness (0, 0, 10, 0);
 
-			GrainThemedButton calculateSRMButton = new GrainThemedButton {
+			calculateSRMButton = new GrainThemedButton {
 				StyleId = "calculateSRMButton",
 				Text = "Calculate SRM",
-				WidthRequest = Device.OnPlatform(
-					(double)(App.ScreenWidth * 0.5),
-					(double)(App.ScreenWidth / 2 * 0.5),
-					(double)(App.ScreenWidth * 0.5)),
+				WidthRequest = (double)(App.ScreenWidth * 0.8),
+				HeightRequest = (double)(App.ScreenHeight * 0.07)
 			};
 
 			StackLayout pageContents = new StackLayout {
@@ -104,7 +99,7 @@ namespace BrewMate
 				Spacing = 2,
 				Children = {
 					new MashViewHeader(),
-					grainsAddedTableView,
+					grainsAddedListView,
 					addEntry,
 					VolumeAndGravityGrid,
 					calculateSRMButton
@@ -112,45 +107,104 @@ namespace BrewMate
 			};
 
 			Content = new ScrollView {
+				HeightRequest = (double)(App.ScreenHeight),
 				Content = pageContents
 			};
+		}
 
-			volumeStepper.ValueChanged += ( sender, e) => {
-				mashVolumeEntry.Text = volumeStepper.Value.ToString ();
-			};
+		protected override void OnAppearing ()
+		{
+			base.OnAppearing ();
 
-			mashVolumeEntry.TextChanged += ( sender, e) => {
-				if (mashVolumeEntry.Text != "")
-					volumeStepper.Value = Convert.ToDouble (mashVolumeEntry.Text);
+			grainsAddedListView.ItemTapped += HandleItemTapped;
+
+			volumeStepper.ValueChanged += StepperValueChanged;
+
+			mashVolumeEntry.TextChanged += EntryTextChanged;
+			mashVolumeEntry.Focused += EntryFocused;
+			mashVolumeEntry.Unfocused += EntryUnfocused;
+
+			addEntry.Clicked += AddGrain;
+			calculateSRMButton.Clicked += CalculateIBU;
+		}
+
+		protected override void OnDisappearing ()
+		{
+			base.OnDisappearing ();
+
+			grainsAddedListView.ItemTapped -= HandleItemTapped;
+
+			volumeStepper.ValueChanged -= StepperValueChanged;
+
+			mashVolumeEntry.TextChanged -= EntryTextChanged;
+			mashVolumeEntry.Focused -= EntryFocused;
+			mashVolumeEntry.Unfocused -= EntryUnfocused;
+
+			addEntry.Clicked -= AddGrain;
+			calculateSRMButton.Clicked -= CalculateIBU;
+		}
+			
+		void AddGrain(object sender, EventArgs e)
+		{
+			Navigation.PushAsync (new MashCalcAddGrainPage ());
+		}
+
+		void CalculateIBU (object sender, EventArgs e)
+		{
+			if(mashVolumeEntry.Text != "0") {
+				GrainsToBeCalculated calculate = new GrainsToBeCalculated {
+					MashVolume = mashVolumeEntry.Text,
+					ListViewOfGrains = grainsAddedListView.ItemsSource
+				};
+				MashCalculatedModel results = new MashCalculatedModel {
+					PPGModel = calculateGravity.CalculatePPG(calculate,mashVolumeEntry.Text),
+				};
+				calculateSRM.MashCalculatedModelCalculator(results,calculate,mashVolumeEntry.Text);
+				Navigation.PushModalAsync(new MashCalculatedResultsPage(results));
+			} else{
+				DisplayAlert("Volume Error","You must enter a mash volume.","OK");
+			}
+		}
+
+		void StepperValueChanged (object sender, ValueChangedEventArgs e)
+		{
+			Stepper stepper = sender as Stepper;
+
+			mashVolumeEntry.Text = stepper.Value.ToString ();
+		}
+
+		void EntryTextChanged (object sender, TextChangedEventArgs e)
+		{
+			Entry entry = sender as Entry;
+			if (entry.Text != "") {
+				volumeStepper.Value = Convert.ToDouble(entry.Text);
+			}
+		}
+
+		void EntryFocused (object sender, FocusEventArgs e)
+		{
+			Entry entry = sender as Entry;
+			placeholder = entry.Text;
+			entry.Text = "";
+		}
+
+		void EntryUnfocused (object sender, FocusEventArgs e)
+		{
+			Entry entry = sender as Entry;
+
+			if (entry.Text == "") {
+				entry.Text = placeholder;
+			}
+		}
+
+		async void HandleItemTapped (object sender, ItemTappedEventArgs e)
+		{
+			MashTableRowDataModel selected = e.Item as MashTableRowDataModel;
+			var answer = await DisplayAlert ("Delete Hop", "Would you like to delete this hop?", "Yes", "No");
+			if(answer == true){
+				MessagingCenter.Send<MashCalculatorPage,MashTableRowDataModel>(this,"DeleteGrain",selected);
 			};
-			mashVolumeEntry.Focused += (object sender, FocusEventArgs e) => {
-				placeholder = mashVolumeEntry.Text;
-				mashVolumeEntry.Text = "";
-			};
-			mashVolumeEntry.Unfocused += (object sender, FocusEventArgs e) => {
-				if(mashVolumeEntry.Text=="")
-					mashVolumeEntry.Text = placeholder;
-			};
-				
-			addEntry.Clicked += ( sender, e) => {
-				Navigation.PushAsync (new MashCalcAddGrainPage ());
-			};
-				
-			calculateSRMButton.Clicked += ( sender, e) => {
-				if(mashVolumeEntry.Text != "0") {
-					GrainsToBeCalculated calculate = new GrainsToBeCalculated {
-						MashVolume = mashVolumeEntry.Text,
-						ListViewOfGrains = grainsAddedTableView.ItemsSource
-					};
-					MashCalculatedModel results = new MashCalculatedModel {
-						PPGModel = calculateGravity.CalculatePPG(calculate,mashVolumeEntry.Text),
-					};
-					calculateSRM.MashCalculatedModelCalculator(results,calculate,mashVolumeEntry.Text);
-					Navigation.PushModalAsync(new MashCalculatedResultsPage(results));
-				} else{
-					DisplayAlert("Volume Error","You must enter a mash volume.","OK");
-				}
-			};
+			grainsAddedListView.SelectedItem = null;
 		}
 	}
 }

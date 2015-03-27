@@ -22,12 +22,18 @@ namespace BrewMate_TestProject
 			app.Repl ();
 		}
 
-		[Test ()]
-		public void AScrollDownAndSelectCarafoamGrain ()
+		[TestCase ("xaml")]
+		[TestCase ("prog")]
+		public void AScrollDownAndSelectCarafoamGrain (string option)
 		{
 			app.Screenshot("Application Start");
-		//Now I tap the programmatic button
-			app.WaitForThenTap (x => x.Id ("programmaticButton"), "Then I press the 'programmatic' button");
+
+			if (option == "xaml") {
+				app.WaitForThenTap (x => x.Id ("xamlButton"), "Then I press the 'programmatic' button");
+			} else if (option == "prog"){
+				app.WaitForThenTap (x => x.Id ("programmaticButton"), "Then I press the 'programmatic' button");
+			}
+
 		//Now I tap the Grain Descriptions button
 			app.WaitForThenTap (x => x.Id ("grainDescriptionsButton"), "Then I press the 'Grain Descriptions' button");
 		//Now I scroll down and tap the Carafoam grain

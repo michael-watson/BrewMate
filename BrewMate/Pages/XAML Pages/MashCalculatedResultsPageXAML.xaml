@@ -95,11 +95,13 @@
 			Orientation = "Horizontal"
 			HorizontalOptions = "Center">
 			<local:GrainThemedButton 
-				x:Name="newBeerButton"
+				x:Name = "newBeerButton"
+				StyleId = "newBeerButton"
 				Text = "New Beer"
 				Clicked = "NewBeer"/>
 			<local:GrainThemedButton 
-				x:Name="addMoreGrainsButton"
+				x:Name = "addMoreGrainsButton"
+				StyleId = "addMoreGrainsButton"
 				Text = "Add more grains"
 				Clicked = "AddMoreGrains"/>
 		</StackLayout>

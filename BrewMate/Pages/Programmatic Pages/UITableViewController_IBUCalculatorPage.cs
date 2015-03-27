@@ -27,7 +27,7 @@ namespace BrewMate
 			};
 
 			//Add hop button
-			ThemedButton addEntry = new ThemedButton {
+			HopThemedButton addEntry = new HopThemedButton {
 				Text = "Add Hop",
 				WidthRequest = Device.OnPlatform(200,250,250),
 			};
@@ -95,7 +95,7 @@ namespace BrewMate
 			VolumeAndGravityGrid.Padding = new Thickness (0, 0, 10, 0);
 
 			//Create calculated IBU stack
-			ThemedButton calculateIBUButton = new ThemedButton {
+			HopThemedButton calculateIBUButton = new HopThemedButton {
 				Text = "Calculate IBU",
 				WidthRequest = Device.OnPlatform(200,250,250),
 			};

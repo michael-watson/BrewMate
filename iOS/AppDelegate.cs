@@ -7,14 +7,13 @@ using UIKit;
 
 using Xamarin;
 using Xamarin.Forms;
+using Xamarin.Forms.Platform.iOS;
 
 namespace BrewMate.iOS
 {
 	[Register ("AppDelegate")]
-	public partial class AppDelegate : UIApplicationDelegate
+	public partial class AppDelegate : FormsApplicationDelegate
 	{
-		UIWindow window;
-
 		public override bool FinishedLaunching (UIApplication app, NSDictionary options)
 		{
 			Forms.Init ();
@@ -32,12 +31,9 @@ namespace BrewMate.iOS
 			App.ScreenWidth = (int)UIScreen.MainScreen.Bounds.Width;
 			App.ScreenHeight = (int)UIScreen.MainScreen.Bounds.Height;
 
-			window = new UIWindow (UIScreen.MainScreen.Bounds);
+			LoadApplication (new App ());
 
-			window.RootViewController = App.GetMainPage ().CreateViewController ();
-			window.MakeKeyAndVisible ();
-
-			return true;
+			return base.FinishedLaunching (app, options);
 		}
 	}
 }

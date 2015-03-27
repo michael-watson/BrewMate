@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<GreenGradientPage xmlns="http://xamarin.com/schemas/2014/forms" 
-	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-	xmlns:local="clr-namespace:BrewMate;assembly=BrewMate"
-	x:Class="BrewMate.CalculateAlcoholPercentPageXAML">
+<GreenGradientPage xmlns = "http://xamarin.com/schemas/2014/forms" 
+	xmlns:x = "http://schemas.microsoft.com/winfx/2009/xaml" 
+	xmlns:local = "clr-namespace:BrewMate;assembly=BrewMate"
+	x:Class = "BrewMate.CalculateAlcoholPercentPageXAML">
 
 	<!--Create a StackLayout to center all contents on page-->
 	<StackLayout HorizontalOptions = "Center"
@@ -18,9 +18,10 @@
 			<!--Stepper and Entry are linked through TextChanged and ValueChanged properties-->
 			<local:HopThemedNumberEntry Text = "1.050"
 				HorizontalOptions = "FillAndExpand"
-				TextChanged = "OGTextChanged"
+				TextChanged = "EntryTextChanged"
 				Focused = "EntryFocused"
 				Unfocused = "EntryUnfocused"
+				StyleId = "ogEntry"
 				x:Name = "ogEntry"/>
 			<local:GreenStepper Minimum = "0"
 				Maximum = "1.12"
@@ -28,7 +29,8 @@
 				HorizontalOptions = "End"
 				Value = "1.050"
 				x:Name = "ogStepper"
-				ValueChanged = "OGStepperChanged"/>
+				StyleId="ogStepper"
+				ValueChanged = "StepperValueChanged"/>
 		</StackLayout>
 
 		<!--Wrap Final Gravity elements into single line-->
@@ -40,17 +42,19 @@
 			<!--Stepper and Entry are linked through TextChanged and ValueChanged properties-->
 			<local:HopThemedNumberEntry Text = "1.012"
 				HorizontalOptions = "FillAndExpand"
-				TextChanged = "FGTextChanged"
+				TextChanged = "EntryTextChanged"
 				Focused = "EntryFocused"
 				Unfocused = "EntryUnfocused"
+				StyleId = "fgEntry"
 				x:Name = "fgEntry"/>
 			<local:GreenStepper Minimum = "0"
 				Maximum = "1.12"
 				Increment = "0.001"
 				HorizontalOptions = "End"
 				Value = "1.012"
+				StyleId = "fgEntry"
 				x:Name = "fgStepper"
-				ValueChanged = "FGStepperChanged"/>
+				ValueChanged = "StepperValueChanged"/>
 		</StackLayout>
 
 		<!--Create label to show calculated alcohol %-->
@@ -60,11 +64,14 @@
 			<!--Give name to Label to enable changing the text to calculated alcohol percent-->
 			<local:ThemedLabel Text = "0.0%"
 				HorizontalOptions = "FillAndExpand"
+				StyleId = "calculatedAlcoholPercent"
 				x:Name = "AlcoholPercentCalculated"/>
 		</StackLayout>
 
 		<!--Passes the values from OG/FG entries into Alcohol Percent calculator-->
-		<local:ThemedButton Text = "Calculate Alcohol Percent"
+		<local:HopThemedButton x:Name = "calculateAlcoholPercentButton"
+			StyleId = "calculateAlcoholPercentButton"
+			Text = "Calculate Alcohol Percent"
 			BorderWidth = "1"
 			TextColor = "Green"
 			WidthRequest = "200"

@@ -29,14 +29,14 @@ namespace BrewMate
 			{
 				WhiteTextColorLabel beerName = new WhiteTextColorLabel {
 					Text = beer,
-					Font = Font.SystemFontOfSize (NamedSize.Small),
+					FontSize = Device.GetNamedSize(NamedSize.Small,typeof(Label)),
 					YAlign = TextAlignment.Center,
 					XAlign = TextAlignment.Center
 				};
 				//Add Viewcell containing commercial beers to TableSection of TableView
 				section.Add (new ViewCell {
-				                     View = beerName
-					     });
+					View = beerName
+				});
 			}
 			//Add TableSection to Root
 			list.Add (section);

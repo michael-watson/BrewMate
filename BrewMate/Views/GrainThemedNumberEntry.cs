@@ -10,7 +10,7 @@ namespace BrewMate
 		{
 			Keyboard = Keyboard.Numeric;
 			TextColor = Color.FromRgb (178, 92, 0);
-			BackgroundColor = Color.FromRgb(237,237,237);
+			BackgroundColor = Color.FromRgb(200,200,200);
 			Placeholder = "0";
 		}
 	}

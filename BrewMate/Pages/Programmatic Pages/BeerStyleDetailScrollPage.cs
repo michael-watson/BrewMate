@@ -8,22 +8,30 @@ namespace BrewMate
 	{
 		//Create instance of the SRM calculator
 		public SRMCalculator srmCalculator = new SRMCalculator();
+		public BeerStyle _selected;
+		HopThemedButton commercialBeers;
 
 		public BeerStyleDetailScrollPage (BeerStyle selected)
 		{
+			_selected = selected;
+
 			//Set the title on the navigation bar to the selected hop
 			Title = selected.Style;
 			//Set the StyleId for Xamarin Test Cloud
 			StyleId = selected.Style + "Page";
-
+			
 			//Create button to navigate to commercial beers of beer style
-			ThemedButton commercialBeers = new ThemedButton {
+			commercialBeers = new HopThemedButton {
 				StyleId = "commercialBeersOfThisStyleButton",
 				Text = "Commercial Beers of this style",
 				WidthRequest = Device.OnPlatform(
-					(double)(App.ScreenWidth * 0.8),
-					(double)(App.ScreenWidth / 2 * 0.8),
+					(double)(App.ScreenWidth),
+					(double)(App.ScreenWidth),
 					(double)(App.ScreenWidth * 0.8)),
+				BorderColor = Color.Transparent,
+				BorderRadius = Device.OnPlatform(0,0,0),
+				HeightRequest = 50,
+				Font = Font.SystemFontOfSize(NamedSize.Large)
 			};
 
 			//Create Aroma labels and details
@@ -188,11 +196,10 @@ namespace BrewMate
 			};
 
 			//Put all of the elements together to create the fullStack
-			StackLayout fullStack = new StackLayout {
+			StackLayout halfStack = new StackLayout {
 				Orientation = StackOrientation.Vertical,
 				Padding = new Thickness(10,10,10,10),
 				Children = {
-					commercialBeers,
 					description,
 					srmLabels,
 					specs,
@@ -200,15 +207,35 @@ namespace BrewMate
 				}
 			};
 
+			StackLayout fullStack = new StackLayout {
+				Children = {
+					commercialBeers,
+					halfStack,
+				}
+			};
+
 			//Wrap the fullStack in a scrollview
 			Content = new ScrollView {
 				Content = fullStack
 			};
+		}
 
-			//Add navigation control to commercial beers button
-			commercialBeers.Clicked += ( sender, e) => {
-				Navigation.PushAsync(new CommercialBeersDetailPage(selected));
-			};
+		protected override void OnAppearing ()
+		{
+			base.OnAppearing ();
+
+			commercialBeers.Clicked += Navigate;
+		}
+
+		protected override void OnDisappearing ()
+		{
+			base.OnDisappearing ();
+			commercialBeers.Clicked -= Navigate;
+		}
+
+		void Navigate(object sender, EventArgs e)
+		{
+			Navigation.PushAsync(new CommercialBeersDetailPage(_selected));
 		}
 	}
 }

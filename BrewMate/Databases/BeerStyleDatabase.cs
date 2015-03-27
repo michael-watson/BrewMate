@@ -403,7 +403,7 @@ namespace BrewMate
 					ABV = "3.8-4.6"
 				},
 				new BeerStyle {
-					Style = "Extra Special/Strong Bitter (English Pale Ale)",
+					Style = "Strong Bitter (English Pale Ale)",
 					Aroma = "Hop aroma moderately-high to moderately-low, and can use any variety of hops although UK hops are most traditional. Medium to medium-high malt aroma, often with a low to moderately strong caramel component (although this character will be more subtle in paler versions). Medium-low to medium- high fruity esters. Generally no diacetyl, although very low levels are allowed.",
 					Appearance = "Golden to deep copper. Good to brilliant clarity. Low to moderate white to off-white head. A low head is acceptable when carbonation is also low.",
 					Flavor = "Medium-high to medium bitterness with supporting malt flavors evident. Normally has a moderately low to somewhat strong caramelly malt sweetness. Hop flavor moderate to moderately high (any variety, although earthy, resiny, and/or floral UK hops are most traditional). Hop bitterness and flavor should be noticeable, but should not totally dominate malt flavors. May have low levels of secondary malt flavors (e.g., nutty, biscuity) adding complexity. Moderately-low to high fruity esters.",

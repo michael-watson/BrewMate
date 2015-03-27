@@ -10,26 +10,38 @@ namespace BrewMate
 		{
 			WhiteTextColorLabel grainNameLabel = new WhiteTextColorLabel {
 				Text = "Grain Name",
-				FontSize = 10,
-				WidthRequest = (double)(App.ScreenWidth * 0.5)
+				FontSize = Device.GetNamedSize(NamedSize.Small, typeof(Label)),
+				WidthRequest = Device.OnPlatform (
+					(double)(App.ScreenWidth * 0.53),
+					(double)(App.ScreenWidth * 0.48),
+					(double)(App.ScreenWidth * 0.55))
 			};
 			WhiteTextColorLabel srmLabel = new WhiteTextColorLabel {
 				Text = "SRM",
-				FontSize = 10,
-				WidthRequest = (double)(App.ScreenWidth * 0.13),
-				XAlign = TextAlignment.Center
+				XAlign = TextAlignment.Center,
+				FontSize = Device.GetNamedSize(NamedSize.Small, typeof(Label)),
+				WidthRequest = Device.OnPlatform (
+					(double)(App.ScreenWidth * 0.18),
+					(double)(App.ScreenWidth * 0.15),
+					(double)(App.ScreenWidth * 0.13)),
 			};
 			WhiteTextColorLabel ppgLabel = new WhiteTextColorLabel {
 				Text = "PPG",
-				FontSize = 10,
-				WidthRequest = (double)(App.ScreenWidth * 0.15),
-				XAlign = TextAlignment.Center
+				XAlign = TextAlignment.Center,
+				FontSize = Device.GetNamedSize(NamedSize.Small, typeof(Label)),
+				WidthRequest = Device.OnPlatform (
+					(double)(App.ScreenWidth * 0.12),
+					(double)(App.ScreenWidth * 0.13),
+					(double)(App.ScreenWidth * 0.15)),
 			};
 			WhiteTextColorLabel poundsTimeLabel = new WhiteTextColorLabel {
 				Text = "Pounds",
-				FontSize = 10,
-				WidthRequest = (double)(App.ScreenWidth * 0.15),
-				XAlign = TextAlignment.Center
+				XAlign = TextAlignment.Center,
+				FontSize = Device.GetNamedSize(NamedSize.Small, typeof(Label)),
+				WidthRequest = Device.OnPlatform (
+					(double)(App.ScreenWidth * 0.18),
+					(double)(App.ScreenWidth * 0.15),
+					(double)(App.ScreenWidth * 0.15)),
 			};
 
 			Children.Add (grainNameLabel);

@@ -22,12 +22,18 @@ namespace BrewMate_TestProject
 			app.Repl ();
 		}
 
-		[Test ()]
-		public void AScrollDownAndSelectSaisonStyle ()
+		[TestCase ("xaml")]
+		[TestCase ("prog")]
+		public void AScrollDownAndSelectSaisonStyle (string option)
 		{
 			app.Screenshot ("I start the application");
-		//Now I press the programmatic button
-			app.WaitForThenTap (x => x.Id ("programmaticButton"), "Then I press programmatic button");
+
+			if (option == "xaml") {
+				app.WaitForThenTap (x => x.Id ("xamlButton"), "Then I press the 'programmatic' button");
+			} else if (option == "prog"){
+				app.WaitForThenTap (x => x.Id ("programmaticButton"), "Then I press the 'programmatic' button");
+			}
+
 		//Now I press the Beer Styles button
 			app.WaitForThenTap (x => x.Id ("beerStylesButton"), "Then I press 'Beer Styles'");
 		//Now I scroll down and tap Saison

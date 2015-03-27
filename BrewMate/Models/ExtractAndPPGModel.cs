@@ -5,10 +5,12 @@ namespace BrewMate
 	public class ExtractAndPPGModel
 	{
 		public int extract {
-			get; set;
+			get;
+			set;
 		}
 		public int grain {
-			get; set;
+			get;
+			set;
 		}
 	}
 }

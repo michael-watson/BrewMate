@@ -35,28 +35,16 @@ namespace BrewMate
 			//Create grid for the details of the grain
 			Grid layout = new Grid {
 				ColumnDefinitions = {
-					new ColumnDefinition {
-						Width = new GridLength (1, GridUnitType.Star)
-					},
-					new ColumnDefinition {
-						Width = new GridLength (1, GridUnitType.Star)
-					},
+					new ColumnDefinition { Width = new GridLength (1, GridUnitType.Star) },
+					new ColumnDefinition { Width = new GridLength (1, GridUnitType.Star) },
 				},
 				RowDefinitions = {
-					new RowDefinition {
-						Height = 50
-					},
-					new RowDefinition {
-						Height = 50
-					},
-					new RowDefinition {
-						Height = 50
-					},
-					new RowDefinition {
-						Height = 50
-					}
+					new RowDefinition { Height = 50 },
+					new RowDefinition { Height = 50 },
+					new RowDefinition { Height = 50 },
+					new RowDefinition { Height = 50 },
 				},
-				Padding = new Thickness(30,0,20,0)
+				Padding = new Thickness (30, 0, 20, 0)
 			};
 
 			//Place the elements in the grid with their details

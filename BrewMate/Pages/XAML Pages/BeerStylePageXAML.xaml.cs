@@ -9,6 +9,9 @@ namespace BrewMate
 		public BeerStylePageXAML ()
 		{
 			InitializeComponent ();
+
+			//Set the StyleId for Xamarin Test Cloud
+			StyleId = "BeerStylesPage";
 		}
 
 		public void OnItemSelected(object sender, SelectedItemChangedEventArgs e)

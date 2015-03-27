@@ -1,8 +1,8 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 
 using Xamarin.Forms;
-using System.Linq;
 
 namespace BrewMate
 {
@@ -11,10 +11,12 @@ namespace BrewMate
 		//Create beerstyle database
 		public BeerStyleDatabase beerStyleDatabase = new BeerStyleDatabase();
 
+		List<BeerStyle> beersAvailable;
+
 		public BeerStylesListView ()
 		{
 			//Get the list of beer styles available
-			List<BeerStyle> beersAvailable = beerStyleDatabase.GetStyles ();
+			beersAvailable = beerStyleDatabase.GetStyles ();
 			for (var i = 0; i<beersAvailable.Count; i++) {
 				beersAvailable [i].Id = i;
 			}
@@ -27,39 +29,13 @@ namespace BrewMate
 
 			//Create ItemTemplate for rows
 			ItemTemplate = new DataTemplate (() => {
-				//Create label for beer name
-				WhiteTextColorLabel beerName = new WhiteTextColorLabel {
-					XAlign = TextAlignment.Start,
-					YAlign = TextAlignment.Center,
-					HorizontalOptions = LayoutOptions.StartAndExpand
-				};
-
-				//Set binding to bind names to beerName label
-				beerName.SetBinding (Label.TextProperty,
-					new Binding ("Style", BindingMode.OneWay, null, null, "{0}"));
-
-				//Create label for ABV range
-				WhiteTextColorLabel abv = new WhiteTextColorLabel {
-					XAlign = TextAlignment.Start,
-					YAlign = TextAlignment.Center,
-					HorizontalOptions = LayoutOptions.End
-				};
-
-				//Set binding to bind ABV to label
-				abv.SetBinding (Label.TextProperty,
-					new Binding ("ABV", BindingMode.OneWay, null, null, "{0} %"));
-
-				//Return those items to a ViewCell for the ListView
-				return new ViewCell {
-					View = new StackLayout {
-						Orientation = StackOrientation.Horizontal,
-						Children = {
-							beerName,
-							abv
-						}
-					}
-				};
+				return new ViewCell { View = new BeerStylesListViewCell () };
 			});
+		}
+
+		public List<BeerStyle> GetBeers {
+			get{ return beersAvailable; }
+			set{ beersAvailable = beerStyleDatabase.GetStyles (); }
 		}
 	}
 }

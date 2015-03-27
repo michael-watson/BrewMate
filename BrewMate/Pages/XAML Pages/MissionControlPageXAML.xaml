@@ -16,32 +16,32 @@
 			<OnPlatform x:TypeArguments="Thickness" iOS="10,20,10,5" Android="5,0,5,5" WinPhone="5,0,5,5" />
 		</StackLayout.Padding>
 
-		<local:ThemedButton 
+		<local:HopThemedButton 
 			x:Name="beerStyles"
 			Clicked="BeerStyles" 
 			Text="Beer Styles" />
 
-		<local:ThemedButton 
+		<local:HopThemedButton 
 			x:Name="ibuCalculator"
 			Clicked="IBUCalculator" 
 			Text="IBU Calculator" />
 
-		<local:ThemedButton
+		<local:HopThemedButton
 			x:Name="mashCalculator" 
 			Clicked="MashCalculator" 
 			Text="Mash Calculator" />
 
-		<local:ThemedButton 
+		<local:HopThemedButton 
 			x:Name="abvCalculator"
 			Clicked="ABVCalculator" 
 			Text="Alcohol Percentage Calculator" />
 
-		<local:ThemedButton 
+		<local:HopThemedButton 
 			x:Name="grainDescriptions"
 			Clicked="GrainDescriptions" 
 			Text="Grain Descriptions" />
 
-		<local:ThemedButton 
+		<local:HopThemedButton 
 			x:Name="hopGuide"
 			Clicked="HopGuide" 
 			Text="Hop Guide" />

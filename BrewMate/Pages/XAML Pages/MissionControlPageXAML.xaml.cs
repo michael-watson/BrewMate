@@ -16,56 +16,21 @@ namespace BrewMate
 			Title = "BrewMate Toolbelt";
 
 			double buttonWidth = (double)(0.8 * App.ScreenWidth);
+			double buttonHeight = (double)(0.1 * App.ScreenHeight);
 
-			beerStyles.WidthRequest = Device.OnPlatform(
-					(double)(App.ScreenWidth * 0.8),
-					(double)(App.ScreenWidth / 2 * 0.8),
-					(double)(App.ScreenWidth * 0.8));
-			ibuCalculator.WidthRequest = Device.OnPlatform(
-				(double)(App.ScreenWidth * 0.8),
-				(double)(App.ScreenWidth / 2 * 0.8),
-				(double)(App.ScreenWidth * 0.8));
-			mashCalculator.WidthRequest = Device.OnPlatform(
-				(double)(App.ScreenWidth * 0.8),
-				(double)(App.ScreenWidth / 2 * 0.8),
-				(double)(App.ScreenWidth * 0.8));
-			abvCalculator.WidthRequest = Device.OnPlatform(
-				(double)(App.ScreenWidth * 0.8),
-				(double)(App.ScreenWidth / 2 * 0.8),
-				(double)(App.ScreenWidth * 0.8));
-			grainDescriptions.WidthRequest = Device.OnPlatform(
-				(double)(App.ScreenWidth * 0.8),
-				(double)(App.ScreenWidth / 2 * 0.8),
-				(double)(App.ScreenWidth * 0.8));
-			hopGuide.WidthRequest = Device.OnPlatform(
-				(double)(App.ScreenWidth * 0.8),
-				(double)(App.ScreenWidth / 2 * 0.8),
-				(double)(App.ScreenWidth * 0.8));
+			beerStyles.WidthRequest = buttonWidth;
+			ibuCalculator.WidthRequest = buttonWidth;
+			mashCalculator.WidthRequest = buttonWidth;
+			abvCalculator.WidthRequest = buttonWidth;
+			grainDescriptions.WidthRequest = buttonWidth;
+			hopGuide.WidthRequest = buttonWidth;
 
-			beerStyles.HeightRequest = Device.OnPlatform(
-				(double)(App.ScreenHeight * 0.1),
-				(double)(App.ScreenHeight / 2 * 0.1),
-				(double)(App.ScreenHeight * 0.1));
-			ibuCalculator.HeightRequest = Device.OnPlatform(
-				(double)(App.ScreenHeight * 0.1),
-				(double)(App.ScreenHeight / 2 * 0.1),
-				(double)(App.ScreenHeight * 0.1));
-			mashCalculator.HeightRequest = Device.OnPlatform(
-				(double)(App.ScreenHeight * 0.1),
-				(double)(App.ScreenHeight / 2 * 0.1),
-				(double)(App.ScreenHeight * 0.1));
-			abvCalculator.HeightRequest = Device.OnPlatform(
-				(double)(App.ScreenHeight * 0.1),
-				(double)(App.ScreenHeight / 2 * 0.1),
-				(double)(App.ScreenHeight * 0.1));
-			grainDescriptions.HeightRequest = Device.OnPlatform(
-				(double)(App.ScreenHeight * 0.1),
-				(double)(App.ScreenHeight / 2 * 0.1),
-				(double)(App.ScreenHeight * 0.1));
-			hopGuide.HeightRequest = Device.OnPlatform(
-				(double)(App.ScreenHeight * 0.1),
-				(double)(App.ScreenHeight / 2 * 0.1),
-				(double)(App.ScreenHeight * 0.1));
+			beerStyles.HeightRequest = buttonHeight;
+			ibuCalculator.HeightRequest = buttonHeight;
+			mashCalculator.HeightRequest = buttonHeight;
+			abvCalculator.HeightRequest = buttonHeight;
+			grainDescriptions.HeightRequest = buttonHeight;
+			hopGuide.HeightRequest = buttonHeight;
 
 			helperLabel.Text = "Don't worry, I'm here to help!\nGo ahead and have another beer...";
 		}

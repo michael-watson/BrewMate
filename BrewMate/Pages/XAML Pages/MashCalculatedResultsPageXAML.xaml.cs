@@ -6,13 +6,16 @@ namespace BrewMate
 {
 	public partial class MashCalculatedResultsPageXAML : ContentPage
 	{
+		MashCalculatedModel _calculations;
 		double ogValue;
 
-		public MashCalculatedResultsPageXAML ( MashCalculatedModel calculations)
+		public MashCalculatedResultsPageXAML (MashCalculatedModel calculations)
 		{
 			InitializeComponent ();
 
-			BindingContext = calculations;
+			_calculations = calculations;
+
+			StyleId = "CalculatedResultsPage";
 			BackgroundColor = calculations.srmColor;
 
 			ogValue = (calculations.PPGModel.extract + (calculations.PPGModel.grain*.8))/1000 + 1;
@@ -49,6 +52,20 @@ namespace BrewMate
 				(double)(App.ScreenWidth * 0.45),
 				(double)(App.ScreenWidth / 2 * 0.45),
 				(double)(App.ScreenWidth * 0.45));
+		}
+
+		protected override void OnAppearing ()
+		{
+			base.OnAppearing ();
+
+			BindingContext = _calculations;
+		}
+
+		protected override void OnDisappearing ()
+		{
+			base.OnDisappearing ();
+
+			BindingContext = null;
 		}
 
 		public void EfficiencyEntryChanged( object sender, TextChangedEventArgs e )

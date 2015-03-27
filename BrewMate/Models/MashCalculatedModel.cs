@@ -7,16 +7,20 @@ namespace BrewMate
 	public class MashCalculatedModel
 	{
 		public Color srmColor {
-			get; set;
+			get;
+			set;
 		}
 		public Int16 srmInt {
-			get; set;
+			get;
+			set;
 		}
 		public ExtractAndPPGModel PPGModel {
-			get; set;
+			get;
+			set;
 		}
 		public string name {
-			get; set;
+			get;
+			set;
 		}
 	}
 }

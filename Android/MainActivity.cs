@@ -10,11 +10,12 @@ using Android.OS;
 
 using Xamarin;
 using Xamarin.Forms.Platform.Android;
+using Android.Content.Res;
 
 namespace BrewMate.Android
 {
 	[Activity (Label = "BrewMate.Android.Android", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
-	public class MainActivity : AndroidActivity
+	public class MainActivity : FormsApplicationActivity
 	{
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -31,10 +32,19 @@ namespace BrewMate.Android
 				}
 			};
 
-			App.ScreenWidth = (int)Resources.DisplayMetrics.WidthPixels; // real pixels
-			App.ScreenHeight = (int)Resources.DisplayMetrics.HeightPixels; // real pixels
+			var pixels = Resources.DisplayMetrics.WidthPixels; // real pixels
+			var scale = Resources.DisplayMetrics.Density;
+			int dps = (int)((pixels-0.5f)/scale);
 
-			SetPage (App.GetMainPage ());
+			App.ScreenWidth = dps;
+
+			pixels = Resources.DisplayMetrics.HeightPixels; // real pixels
+			scale = Resources.DisplayMetrics.Density;
+			dps = (int)((pixels-0.5f)/scale);
+
+			App.ScreenHeight = dps; // real pixels
+
+			LoadApplication (new App());
 		}
 	}
 }

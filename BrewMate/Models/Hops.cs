@@ -9,22 +9,28 @@ namespace BrewMate
 			set;
 		}
 		public string HopName {
-			get; set;
+			get;
+			set;
 		}
 		public double AALow {
-			get; set;
+			get;
+			set;
 		}
 		public double AAHigh {
-			get; set;
+			get;
+			set;
 		}
 		public string Type {
-			get; set;
+			get;
+			set;
 		}
 		public string Substitutes {
-			get; set;
+			get;
+			set;
 		}
 		public string Description {
-			get; set;
+			get;
+			set;
 		}
 	}
 }
