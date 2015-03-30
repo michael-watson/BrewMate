@@ -1,5 +1,5 @@
 #BrewMate Toolbelt
-![Phones](images/iPhoneAndNexus.png)
+![Phones](Images/iPhoneAndNexus.png)
 I am a die-hard homebrewer and I decided to make my first application around beer. All for beer and beer for all! This application has a lot of functionality from being able to calculate the international bittering units of your recipe to calculating the color, OG estimate, FG estimate, Efficiency calculator. I also included multiple other guides to assist while brewing your favorite beer. 
 
 I will be creating working on upgrading this application to managing recipes and tracking everything about your brewery! Please feel free to reach out to me if you have any suggestions on adding features or certain functionality.

@@ -1,9 +1,11 @@
 ﻿<Properties StartupItem="iOS/BrewMate.iOS.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.Michael Watson’s iPhone" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="BrewMate/Pages/Programmatic Pages/MashCalculatedResultsPage.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.072880f50de88b32" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="../../../Downloads/TabbedPageDemo/TabbedPageDemo/TabbedPageDemo/TabbedPageDemoPage.xaml">
     <Files>
-      <File FileName="BrewMate/Pages/Programmatic Pages/MashCalculatedResultsPage.cs" Line="15" Column="18" />
-      <File FileName="BrewMate/Pages/Programmatic Pages/IBUCalculatorPage.cs" Line="289" Column="4" />
+      <File FileName="../../../Downloads/TabbedPageDemo/TabbedPageDemo/TabbedPageDemo/TabbedPageDemoPage.xaml" Line="9" Column="20" />
+      <File FileName="BrewMate/Pages/XAML Pages/BeerStyleDetailScrollPageXAML.xaml.cs" Line="1" Column="1" />
+      <File FileName="BrewMate/Pages/XAML Pages/BeerStyleDetailScrollPageXAML.xaml" Line="12" Column="26" />
+      <File FileName="../../../Downloads/TabbedPageDemo/TabbedPageDemo/TabbedPageDemo/TabbedPageDemoPage.xaml.cs" Line="13" Column="4" NotebookId="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
