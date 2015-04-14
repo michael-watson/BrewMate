@@ -1,5 +1,5 @@
 #BrewMate Pickle
-If you have attending any of my webinars, you know I call Portable Class Libraries "Pickles". Xamarin CTO Miguel De Icaza started this saying at Xamarin's 2014 Evolve and I think we should all do the same! If you think about it, PCLs are really Pickle Jars and the NuGet packages are like Pickles in the Pickle Jar. I might be getting off topic a bit....
+If you have attending any of my webinars, you know I call Portable Class Libraries "Pickles". Xamarin CTO Miguel De Icaza started this saying at Xamarin's 2014 Evolve and I think we should all do the same! If you think about it, PCLs are really Pickle Jars and the files are like Pickles in the Pickle Jar. I might be getting off topic a bit...but who doesn't like pickles?
 
 ##Pickle Sections
 1. Calculators
@@ -16,7 +16,7 @@ If you have attending any of my webinars, you know I call Portable Class Librari
 	4. Hop Boil Database
 		* Contains equations based on hops time in boil  
 		
-	*** Each database is just a List<Model> 
+	*** Each database is just a List, but will soon be upgraded to SQL
 3. Models
 	1. Beer Style
 		* Used in Beer Style Database, Beer Styles Page, Beer Styles Details Scroll Page
