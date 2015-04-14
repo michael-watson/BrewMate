@@ -13,19 +13,18 @@ I'm basing these stats off of the production application found in the platform a
 * 126 lines of Xamarin.iOS code
 * 95% of code is shared between the iOS and Android application
 * 6 cross-platform automation tests
-	* Majority of functionality is tested 
+	* Still undergoing work
 * UI is shown being built with both XAML and programmatically
 	* Navigate to BrewMate > Pages to find the corresponding folders 
 
 BrewMate is a cross-platform (iOS and Android) application that leverages Xamarin.Forms, Xamarin.Insights and Xamarin Test Cloud. Xamarin.Forms enables BrewMate to share 95% of the code between iOS and Android. The remaining 5% of platform-specific code is used for Custom Renderers.
 
 ##What is in the pipeline for BrewMate?
-1. Incorporate MVVM pattern
-2. Incorporate SQLite for databases
+1. Incorporate SQLite for databases
 	* Add option to create hops and grains that save to database 
-3. Upgrade application to include Windows Phone
+2. Upgrade application to include Windows Phone
 	* Teting will be unavailable on Windows Phone until it is supported by Xamarin Test Cloud
-4. Begin working on next version of application 
+3. Begin working on next version of application 
 	* Leverage push notifications with Azure
 	* Create database storage access
 	* Create ability to collaborate on recipes
