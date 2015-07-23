@@ -39,166 +39,214 @@
     <Compile Include="Models\Grains.cs" />
     <Compile Include="Models\Hops.cs" />
     <Compile Include="Models\BeerStyle.cs" />
-    <Compile Include="Views\HopListView.cs" />
-    <Compile Include="Views\HopListHeader.cs" />
-    <Compile Include="Views\GrainListHeader.cs" />
-    <Compile Include="Views\GrainListView.cs" />
-    <Compile Include="Views\BeerStylesListView.cs" />
     <Compile Include="Models\MashCalculatedModel.cs" />
     <Compile Include="Models\ExtractAndPPGModel.cs" />
-    <Compile Include="Views\CalcPages_TableViewHeader_Label.cs" />
-    <Compile Include="Views\CenteredBoldWhiteTextColorLabel.cs" />
-    <Compile Include="Views\GrainThemedButton.cs" />
-    <Compile Include="Views\GrainThemedNumberEntry.cs" />
-    <Compile Include="Views\HopThemedNumberEntry.cs" />
-    <Compile Include="Views\ThemedLabel.cs" />
-    <Compile Include="Views\WhiteTextColorLabel.cs" />
-    <Compile Include="Views\NoAttributeViews.cs" />
-    <Compile Include="Pages\XAML Pages\HopDetailsPageXAML.xaml.cs">
-      <DependentUpon>HopDetailsPageXAML.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\XAML Pages\MissionControlPageXAML.xaml.cs">
-      <DependentUpon>MissionControlPageXAML.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\XAML Pages\BeerStylePageXAML.xaml.cs">
-      <DependentUpon>BeerStylePageXAML.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\XAML Pages\BeerStyleDetailScrollPageXAML.xaml.cs">
-      <DependentUpon>BeerStyleDetailScrollPageXAML.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\XAML Pages\CommercialBeersDetailPageXAML.xaml.cs">
-      <DependentUpon>CommercialBeersDetailPageXAML.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\XAML Pages\HopsGuidePageXAML.xaml.cs">
-      <DependentUpon>HopsGuidePageXAML.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\XAML Pages\GrainsGuidePageXAML.xaml.cs">
-      <DependentUpon>GrainsGuidePageXAML.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\XAML Pages\GrainDetailsPageXAML.xaml.cs">
-      <DependentUpon>GrainDetailsPageXAML.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\XAML Pages\IBUCalculatorPageXAML.xaml.cs">
-      <DependentUpon>IBUCalculatorPageXAML.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\XAML Pages\IBUAddHopPageXAML.xaml.cs">
-      <DependentUpon>IBUAddHopPageXAML.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\XAML Pages\MashCalculatorPageXAML.xaml.cs">
-      <DependentUpon>MashCalculatorPageXAML.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\XAML Pages\MashCalcAddGrainPageXAML.xaml.cs">
-      <DependentUpon>MashCalcAddGrainPageXAML.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\XAML Pages\MashCalculatedResultsPageXAML.xaml.cs">
-      <DependentUpon>MashCalculatedResultsPageXAML.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\XAML Pages\CalculateAlcoholPercentPageXAML.xaml.cs">
-      <DependentUpon>CalculateAlcoholPercentPageXAML.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Programmatic Pages\BeerStyleDetailScrollPage.cs" />
-    <Compile Include="Pages\Programmatic Pages\CalculateAlcoholPercentPage.cs" />
-    <Compile Include="Pages\Programmatic Pages\CommercialBeersDetailPage.cs" />
-    <Compile Include="Pages\Programmatic Pages\GrainDetailsPage.cs" />
-    <Compile Include="Pages\Programmatic Pages\GrainsGuidePage.cs" />
-    <Compile Include="Pages\Programmatic Pages\HopDetailsPage.cs" />
-    <Compile Include="Pages\Programmatic Pages\HopsGuidePage.cs" />
-    <Compile Include="Pages\Programmatic Pages\IBUAddHopPage.cs" />
-    <Compile Include="Pages\Programmatic Pages\MashCalcAddGrainPage.cs" />
-    <Compile Include="Pages\Programmatic Pages\MashCalculatedResultsPage.cs" />
-    <Compile Include="Pages\Programmatic Pages\MashCalculatorPage.cs" />
-    <Compile Include="Pages\Programmatic Pages\MissionControlPage.cs" />
-    <Compile Include="Pages\Programmatic Pages\StartPage.cs" />
     <Compile Include="Calculators\SRMCalculator.cs" />
     <Compile Include="Models\HopsToBeCalculated.cs" />
     <Compile Include="Models\IBUTableRowDataModel.cs" />
     <Compile Include="Models\MashTableRowDataModel.cs" />
-    <Compile Include="Views\IBUListView.cs" />
-    <Compile Include="Pages\Programmatic Pages\UITableViewController_IBUCalculatorPage.cs" />
-    <Compile Include="Views\IBUListViewHeader.cs" />
-    <Compile Include="Views\IBUViewCell.cs" />
     <Compile Include="Calculators\IBUCalculator.cs" />
-    <Compile Include="Views\MashListView.cs" />
-    <Compile Include="Views\MashViewCell.cs" />
-    <Compile Include="Views\MashViewHeader.cs" />
     <Compile Include="Models\GrainsToBeCalculated.cs" />
-    <Compile Include="Pages\Programmatic Pages\IBUCalculatorPage.cs" />
-    <Compile Include="Pages\Programmatic Pages\BeerStylesPage.cs" />
     <Compile Include="Calculators\GravityCalculator.cs" />
-    <Compile Include="Views\HopThemedButton.cs" />
-    <Compile Include="Views\GrainListViewCell.cs" />
-    <Compile Include="Views\HopListViewCell.cs" />
-    <Compile Include="Views\BeerStylesListViewCell.cs" />
+    <Compile Include="Models\MasterListOption.cs" />
+    <Compile Include="UI\Views\MasterListViewCell.cs" />
+    <Compile Include="UI\Views\NoAttributeViews.cs" />
+    <Compile Include="UI\Views\ThemedLabel.cs" />
+    <Compile Include="UI\Views\WhiteTextColorLabel.cs" />
+    <Compile Include="UI\Pages\Master.cs" />
+    <Compile Include="UI\Pages\Programmatic Pages\CalculateAlcoholPercentPage.cs" />
+    <Compile Include="UI\Pages\Programmatic Pages\MashCalcAddGrainPage.cs" />
+    <Compile Include="UI\Pages\Programmatic Pages\MashCalculatedResultsPage.cs" />
+    <Compile Include="UI\Pages\Programmatic Pages\MashCalculatorPage.cs" />
+    <Compile Include="UI\Pages\Programmatic Pages\MasterListPage.cs" />
+    <Compile Include="UI\Pages\Programmatic Pages\MissionControlPage.cs" />
+    <Compile Include="UI\Pages\Programmatic Pages\MyRecipesPage.cs" />
+    <Compile Include="UI\Pages\XAML Pages\BeerStyleDetailScrollPageXAML.xaml.cs">
+      <DependentUpon>BeerStyleDetailScrollPageXAML.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\XAML Pages\BeerStylePageXAML.xaml.cs">
+      <DependentUpon>BeerStylePageXAML.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\XAML Pages\CalculateAlcoholPercentPageXAML.xaml.cs">
+      <DependentUpon>CalculateAlcoholPercentPageXAML.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\XAML Pages\CommercialBeersDetailPageXAML.xaml.cs">
+      <DependentUpon>CommercialBeersDetailPageXAML.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\XAML Pages\GrainDetailsPageXAML.xaml.cs">
+      <DependentUpon>GrainDetailsPageXAML.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\XAML Pages\GrainsGuidePageXAML.xaml.cs">
+      <DependentUpon>GrainsGuidePageXAML.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\XAML Pages\HopDetailsPageXAML.xaml.cs">
+      <DependentUpon>HopDetailsPageXAML.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\XAML Pages\HopsGuidePageXAML.xaml.cs">
+      <DependentUpon>HopsGuidePageXAML.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\XAML Pages\IBUAddHopPageXAML.xaml.cs">
+      <DependentUpon>IBUAddHopPageXAML.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\XAML Pages\IBUCalculatorPageXAML.xaml.cs">
+      <DependentUpon>IBUCalculatorPageXAML.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\XAML Pages\MashCalcAddGrainPageXAML.xaml.cs">
+      <DependentUpon>MashCalcAddGrainPageXAML.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\XAML Pages\MashCalculatedResultsPageXAML.xaml.cs">
+      <DependentUpon>MashCalculatedResultsPageXAML.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\XAML Pages\MashCalculatorPageXAML.xaml.cs">
+      <DependentUpon>MashCalculatorPageXAML.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\XAML Pages\MissionControlPageXAML.xaml.cs">
+      <DependentUpon>MissionControlPageXAML.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\HopGuide\HopListHeader.cs" />
+    <Compile Include="UI\Views\HopGuide\HopListView.cs" />
+    <Compile Include="UI\Views\HopGuide\HopListViewCell.cs" />
+    <Compile Include="UI\Views\GrainGuide\GrainListHeader.cs" />
+    <Compile Include="UI\Views\GrainGuide\GrainListView.cs" />
+    <Compile Include="UI\Views\GrainGuide\GrainListViewCell.cs" />
+    <Compile Include="UI\Views\IBUCalculatorPage\IBUListView.cs" />
+    <Compile Include="UI\Views\IBUCalculatorPage\IBUListViewHeader.cs" />
+    <Compile Include="UI\Views\IBUCalculatorPage\IBUViewCell.cs" />
+    <Compile Include="UI\Views\Theme Views\CalcPages_TableViewHeader_Label.cs" />
+    <Compile Include="UI\Views\Theme Views\CenteredBoldWhiteTextColorLabel.cs" />
+    <Compile Include="UI\Views\Theme Views\GrainThemedButton.cs" />
+    <Compile Include="UI\Views\Theme Views\GrainThemedNumberEntry.cs" />
+    <Compile Include="UI\Views\Theme Views\HopThemedButton.cs" />
+    <Compile Include="UI\Views\Theme Views\HopThemedNumberEntry.cs" />
+    <Compile Include="UI\Views\SRMCalculatorPage\MashListView.cs" />
+    <Compile Include="UI\Views\SRMCalculatorPage\MashViewCell.cs" />
+    <Compile Include="UI\Views\SRMCalculatorPage\MashViewHeader.cs" />
+    <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\BeerStyles\BeerStylesPage_ViewModel.cs" />
+    <Compile Include="UI\Pages\Programmatic Pages\BeerStyles\BeerStylesPage.cs" />
+    <Compile Include="UI\Pages\Programmatic Pages\BeerStyles\BeerStyleDetailScrollPage.cs" />
+    <Compile Include="ViewModels\BeerStyles\BeerStylesDetailScollPage_ViewModel.cs" />
+    <Compile Include="UI\Layouts\BeerStyles\BeerStylesLayout.cs" />
+    <Compile Include="UI\Layouts\BeerStyles\BeerStylesDetailsLayout.cs" />
+    <Compile Include="UI\Views\BeerStyles\BeerStylesListView.cs" />
+    <Compile Include="UI\Views\BeerStyles\BeerStylesListViewCell.cs" />
+    <Compile Include="UI\Views\BeerStyles\BeerStylesDetailsTextDescriptionsStackLayout.cs" />
+    <Compile Include="UI\Views\BeerStyles\BeerStylesDetailsSpecsStackLayout.cs" />
+    <Compile Include="UI\Views\BeerStyles\BeerStylesDetailsSRMStackLayout.cs" />
+    <Compile Include="UI\Pages\Programmatic Pages\BeerStyles\CommercialBeersDetailPage.cs" />
+    <Compile Include="UI\Views\BeerStyles\CommercialBeersDetailsTableView.cs" />
+    <Compile Include="UI\Pages\Programmatic Pages\GrainGuide\GrainsGuidePage.cs" />
+    <Compile Include="UI\Pages\Programmatic Pages\GrainGuide\GrainDetailsPage.cs" />
+    <Compile Include="UI\Layouts\GrainGuide\GrainsGuideLayout.cs" />
+    <Compile Include="ViewModels\GrainGuide\GrainGuidePage_ViewModel.cs" />
+    <Compile Include="UI\Layouts\GrainGuide\GrainDetailLayout.cs" />
+    <Compile Include="UI\Pages\Programmatic Pages\HopGuide\HopDetailsPage.cs" />
+    <Compile Include="UI\Pages\Programmatic Pages\HopGuide\HopsGuidePage.cs" />
+    <Compile Include="ViewModels\HopGuide\HopeGuidePage_ViewModel.cs" />
+    <Compile Include="UI\Layouts\HopGuide\HopGuideLayout.cs" />
+    <Compile Include="UI\Layouts\HopGuide\HopDetailsLayout.cs" />
+    <Compile Include="UI\Pages\Programmatic Pages\IBUCalculator\IBUAddHopPage.cs" />
+    <Compile Include="UI\Pages\Programmatic Pages\IBUCalculator\IBUCalculatorPage.cs" />
+    <Compile Include="UI\Layouts\IBUCalculatorPage\IBUCalculatorLayout.cs" />
+    <Compile Include="UI\Views\IBUCalculatorPage\IBUVolumeGravityGrid.cs" />
+    <Compile Include="ViewModels\IBUCalculator\IBUCalculatorPage_ViewModel.cs" />
+    <Compile Include="UI\Layouts\IBUCalculatorPage\IBUAddHopLayout.cs" />
+    <Compile Include="ViewModels\IBUCalculator\IBUAddHopPage_ViewModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
-  <Import Project="..\packages\Xamarin.Forms.1.4.0.6341\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.4.0.6341\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
+  <Import Project="..\packages\Xamarin.Forms.1.4.3.6376\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.4.3.6376\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Databases\" />
     <Folder Include="Calculators\" />
-    <Folder Include="Pages\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\" />
-    <Folder Include="Pages\XAML Pages\" />
-    <Folder Include="Pages\Programmatic Pages\" />
+    <Folder Include="ViewModels\" />
+    <Folder Include="UI\" />
+    <Folder Include="UI\Layouts\" />
+    <Folder Include="UI\Views\IBUCalculatorPage\" />
+    <Folder Include="UI\Views\SRMCalculatorPage\" />
+    <Folder Include="UI\Views\AACalculatorPage\" />
+    <Folder Include="UI\Views\GrainGuide\" />
+    <Folder Include="UI\Views\HopGuide\" />
+    <Folder Include="UI\Views\Theme Views\" />
+    <Folder Include="UI\Views\MasterListPage\" />
+    <Folder Include="UI\Layouts\AACalculatorPage\" />
+    <Folder Include="UI\Layouts\GrainGuide\" />
+    <Folder Include="UI\Layouts\HopGuide\" />
+    <Folder Include="UI\Layouts\IBUCalculatorPage\" />
+    <Folder Include="UI\Layouts\MasterListPage\" />
+    <Folder Include="UI\Layouts\SRMCalculatorPage\" />
+    <Folder Include="ViewModels\BeerStyles\" />
+    <Folder Include="UI\Pages\Programmatic Pages\BeerStyles\" />
+    <Folder Include="UI\Layouts\BeerStyles\" />
+    <Folder Include="UI\Views\BeerStyles\" />
+    <Folder Include="UI\Pages\Programmatic Pages\GrainGuide\" />
+    <Folder Include="ViewModels\GrainGuide\" />
+    <Folder Include="UI\Pages\Programmatic Pages\HopGuide\" />
+    <Folder Include="ViewModels\HopGuide\" />
+    <Folder Include="UI\Pages\Programmatic Pages\IBUCalculator\" />
+    <Folder Include="ViewModels\IBUCalculator\" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="ExifLib">
-      <HintPath>..\packages\ExifLib.PCL.1.0.0\lib\portable-net45+sl50+win+WindowsPhoneApp81+wp80+MonoAndroid10+MonoTouch10\ExifLib.dll</HintPath>
-    </Reference>
     <Reference Include="Xamarin.UITest">
-      <HintPath>..\packages\Xamarin.UITest.0.7.0\lib\Xamarin.UITest.dll</HintPath>
+      <HintPath>..\packages\Xamarin.UITest.1.0.0\lib\Xamarin.UITest.dll</HintPath>
+    </Reference>
+    <Reference Include="ExifLib">
+      <HintPath>..\packages\ExifLib.PCL.1.0.1\lib\portable-net45+sl50+win+WindowsPhoneApp81+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10\ExifLib.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.Core">
-      <HintPath>..\packages\Xamarin.Forms.1.4.0.6341\lib\portable-win+net45+wp80+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.Core.dll</HintPath>
+      <HintPath>..\packages\Xamarin.Forms.1.4.3.6376\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.Core.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.Xaml">
-      <HintPath>..\packages\Xamarin.Forms.1.4.0.6341\lib\portable-win+net45+wp80+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.Xaml.dll</HintPath>
+      <HintPath>..\packages\Xamarin.Forms.1.4.3.6376\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.Xaml.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Platform">
+      <HintPath>..\packages\Xamarin.Forms.1.4.3.6376\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.Platform.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Pages\XAML Pages\HopDetailsPageXAML.xaml">
+    <EmbeddedResource Include="UI\Pages\XAML Pages\BeerStyleDetailScrollPageXAML.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pages\XAML Pages\MissionControlPageXAML.xaml">
+    <EmbeddedResource Include="UI\Pages\XAML Pages\BeerStylePageXAML.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pages\XAML Pages\BeerStylePageXAML.xaml">
+    <EmbeddedResource Include="UI\Pages\XAML Pages\CalculateAlcoholPercentPageXAML.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pages\XAML Pages\BeerStyleDetailScrollPageXAML.xaml">
+    <EmbeddedResource Include="UI\Pages\XAML Pages\CommercialBeersDetailPageXAML.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pages\XAML Pages\CommercialBeersDetailPageXAML.xaml">
+    <EmbeddedResource Include="UI\Pages\XAML Pages\GrainDetailsPageXAML.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pages\XAML Pages\HopsGuidePageXAML.xaml">
+    <EmbeddedResource Include="UI\Pages\XAML Pages\GrainsGuidePageXAML.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pages\XAML Pages\GrainsGuidePageXAML.xaml">
+    <EmbeddedResource Include="UI\Pages\XAML Pages\HopDetailsPageXAML.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pages\XAML Pages\GrainDetailsPageXAML.xaml">
+    <EmbeddedResource Include="UI\Pages\XAML Pages\HopsGuidePageXAML.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pages\XAML Pages\IBUCalculatorPageXAML.xaml">
+    <EmbeddedResource Include="UI\Pages\XAML Pages\IBUAddHopPageXAML.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pages\XAML Pages\IBUAddHopPageXAML.xaml">
+    <EmbeddedResource Include="UI\Pages\XAML Pages\IBUCalculatorPageXAML.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pages\XAML Pages\MashCalculatorPageXAML.xaml">
+    <EmbeddedResource Include="UI\Pages\XAML Pages\MashCalcAddGrainPageXAML.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pages\XAML Pages\MashCalcAddGrainPageXAML.xaml">
+    <EmbeddedResource Include="UI\Pages\XAML Pages\MashCalculatedResultsPageXAML.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pages\XAML Pages\MashCalculatedResultsPageXAML.xaml">
+    <EmbeddedResource Include="UI\Pages\XAML Pages\MashCalculatorPageXAML.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pages\XAML Pages\CalculateAlcoholPercentPageXAML.xaml">
+    <EmbeddedResource Include="UI\Pages\XAML Pages\MissionControlPageXAML.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
   </ItemGroup>

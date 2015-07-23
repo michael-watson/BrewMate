@@ -5,19 +5,11 @@ using Xamarin.Forms;
 
 namespace BrewMate
 {
-	public class GrainDatabase
+	public static class GrainDatabase
 	{
-		//This is the database of available Grains
-		private List<Grains> grains;
-
-		public List<Grains> GetGrains()
+		public static List<Grains> GetGrains()
 		{
-			return grains;
-		}
-
-		public GrainDatabase ()
-		{
-			grains = new List<Grains> {
+			List<Grains> grains = new List<Grains> {
 				new Grains {
 					GrainName = "Acid Malt", Origin = "Germany", Type = "Grain", srmColor = 3, PPG = 1.027
 				},
@@ -286,6 +278,8 @@ namespace BrewMate
 					GrainName = "White Wheat Malt", Origin = "US", Type = "Grain", srmColor = 2, PPG = 1.040
 				},
 			};
+
+			return grains;
 		}
 	}
 }

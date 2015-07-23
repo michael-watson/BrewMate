@@ -1,21 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace BrewMate
 {
-	public class BeerStyleDatabase
+	public static class BeerStyleDatabase
 	{
-		//This is the database of available Beer Styles
-		private List<BeerStyle> styles;
-
-		public List<BeerStyle> GetStyles()
+		public static ObservableCollection<BeerStyle> GetStyles()
 		{
-			return styles;
-		}
-
-		public BeerStyleDatabase ()
-		{
-			styles = new List<BeerStyle> {
+			ObservableCollection<BeerStyle> styles = new ObservableCollection<BeerStyle> {
 				new BeerStyle {
 					Id = 1,
 					Style = "Lite American Lager",
@@ -795,7 +788,7 @@ namespace BrewMate
 					ABV = "8.0-12.0"
 				}
 			};
-
+			return styles;
 		}
 	}
 }

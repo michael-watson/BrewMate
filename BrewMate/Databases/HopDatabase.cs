@@ -4,19 +4,11 @@ using System.Linq;
 
 namespace BrewMate
 {
-	public class HopDatabases
+	public static class HopDatabases
 	{
-		//This is the database of available Hops
-		private List<Hops> hops;
-
-		public List<Hops> GetHops()
+		public static List<Hops> GetHops()
 		{
-			return hops;
-		}
-
-		public HopDatabases()
-		{
-			hops = new List<Hops> {
+			List<Hops> hops = new List<Hops> {
 				new Hops {
 					HopName = "Admiral",
 					AALow = 11,
@@ -746,6 +738,8 @@ namespace BrewMate
 					Description = "Designed to complement existing IPA and Pale Ale hop varieties. An excellent blend for any hop forward beer"
 				},
 			};
+
+			return hops;
 		}
 	}
 }

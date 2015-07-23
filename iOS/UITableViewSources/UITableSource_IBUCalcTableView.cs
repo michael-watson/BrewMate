@@ -28,10 +28,6 @@ namespace BrewMate.iOS
 
 				data.Add (addedModel);
 			});
-
-			MessagingCenter.Subscribe<UITableViewController_IBUCalculatorPage,HopsToBeCalculated> (this, "CalculateIBU", (sender, arg) => {
-				ibuCalculator.CalculateIBU(arg,data);
-			});
 		}
 
 		public override nint RowsInSection (UITableView tableview, nint section)
