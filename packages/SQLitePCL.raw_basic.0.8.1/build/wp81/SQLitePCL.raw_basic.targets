@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Automatically generated-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Target Name="check_cpu_6e548227-f343-4f22-b231-4e82b298b453" BeforeTargets="ResolveAssemblyReferences" Condition=" ( ($(Platform.ToLower()) != 'arm') AND ($(Platform.ToLower()) != 'x86') ) ">
+    <Warning Text="$(Platform) is not supported. The Platform configuration must be arm or x86" />
+  </Target>
+  <Target Name="InjectReference_3cbf146d-8a3f-4e62-864a-40fa3214dea0" BeforeTargets="ResolveAssemblyReferences">
+    <Message Text="NOTE that you may need to add a reference to Microsoft Visual C++ Runtime." Importance="High" />
+    <!--platform.wp81_sl.cppinterop_sqlite3_dynamic.arm-->
+    <ItemGroup Condition=" '$(Platform.ToLower())' == 'arm' ">
+      <Reference Include="SQLitePCL.raw">
+        <HintPath>$(MSBuildThisFileDirectory)cppinterop_sqlite3_dynamic\arm\SQLitePCL.raw.dll</HintPath>
+      </Reference>
+      <Content Include="$(MSBuildThisFileDirectory)..\..\build\native\sqlite3_dynamic\wp81_sl\arm\sqlite3.dll">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+    </ItemGroup>
+    <Message Text="NOTE that you may need to add a reference to Microsoft Visual C++ Runtime." Importance="High" />
+    <!--platform.wp81_sl.cppinterop_sqlite3_dynamic.x86-->
+    <ItemGroup Condition=" '$(Platform.ToLower())' == 'x86' ">
+      <Reference Include="SQLitePCL.raw">
+        <HintPath>$(MSBuildThisFileDirectory)cppinterop_sqlite3_dynamic\x86\SQLitePCL.raw.dll</HintPath>
+      </Reference>
+      <Content Include="$(MSBuildThisFileDirectory)..\..\build\native\sqlite3_dynamic\wp81_sl\x86\sqlite3.dll">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+    </ItemGroup>
+  </Target>
+</Project>

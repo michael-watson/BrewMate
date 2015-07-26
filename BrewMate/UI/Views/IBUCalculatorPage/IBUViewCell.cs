@@ -92,14 +92,14 @@ namespace BrewMate
 		{
 			base.OnRemoved (view);
 
-			aaPercentage.Focused += HandleFocus;
-			aaPercentage.Unfocused += HandleUnfocus;
+			aaPercentage.Focused -= HandleFocus;
+			aaPercentage.Unfocused -= HandleUnfocus;
 
-			ounces.Focused += HandleFocus;
-			ounces.Unfocused += HandleUnfocus;
+			ounces.Focused -= HandleFocus;
+			ounces.Unfocused -= HandleUnfocus;
 
-			boilTime.Focused += HandleFocus;
-			boilTime.Unfocused += HandleUnfocus;
+			boilTime.Focused -= HandleFocus;
+			boilTime.Unfocused -= HandleUnfocus;
 
 			hopLabel.RemoveBinding (Label.TextProperty);
 			aaPercentage.RemoveBinding (Entry.TextProperty);

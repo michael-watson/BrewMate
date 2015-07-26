@@ -18,7 +18,7 @@ namespace BrewMate
 			_calcViewModel = calcViewModel;
 			cancelCommand = new Command (Cancel);
 
-			HopListSource = new ObservableCollection<Hops> (HopDatabases.GetHops ().OrderBy (x => x.HopName));
+			HopListSource = new ObservableCollection<Hops> (new HopDatabase().GetHops ().OrderBy (x => x.HopName));
 			UltSource = HopListSource;
 		}
 

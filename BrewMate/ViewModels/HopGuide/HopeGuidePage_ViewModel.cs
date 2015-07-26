@@ -12,7 +12,7 @@ namespace BrewMate
 		public HopeGuidePage_ViewModel (INavigation nav)
 		{
 			NavInstance = nav;
-			HopListSource = new ObservableCollection<Hops>(HopDatabases.GetHops ().OrderBy(x=>x.HopName));
+			HopListSource = new ObservableCollection<Hops>(new HopDatabase().GetHops ().OrderBy(x=>x.HopName));
 			UltSource = HopListSource;
 		}
 

@@ -78,16 +78,6 @@ namespace BrewMate
 			);
 			Children.Add (boilVolumeEntry, 1, 1);
 			Children.Add (volumeStepper, 2, 1);
-
-//			BindingContext = new IBUVolumeGravityGrid_ViewModel ();
-
-//			boilGravityEntry.SetBinding (Entry.TextProperty, "BoilGravityText");
-//			boilGravityEntry.SetBinding (Entry.IsFocusedProperty, "GravityEntryFocus");
-//			gravityStepper.SetBinding (Stepper.ValueProperty, "BoilGravityValue");
-//
-//			boilVolumeEntry.SetBinding (Entry.TextProperty, "BoilVolumeText");
-//			boilVolumeEntry.SetBinding (Entry.IsFocusedProperty, "VolumeEntryFocus");
-//			volumeStepper.SetBinding (Stepper.ValueProperty, "BoilVolumeValue");
 		}
 	}
 }

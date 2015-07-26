@@ -1,12 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using SQLite;
+using Xamarin.Forms;
+using BrewMate.Enums;
 
 namespace BrewMate
 {
-	public static class HopDatabases
+	public class HopDatabase
 	{
-		public static List<Hops> GetHops()
+		private SQLiteConnection connection;
+
+		public HopDatabase()
+		{
+			connection = DependencyService.Get<ISQLite> ().GetConnection (DatabasesAvailable.HopDatabase);
+			connection.CreateTable<Hops> ();
+			CreateTableFile ();
+		}
+
+		public void CreateTableFile()
+		{
+			List<Hops> hops = GetHops ();
+			connection.InsertAll (hops);
+		}
+
+		public List<Hops> GetHops()
 		{
 			List<Hops> hops = new List<Hops> {
 				new Hops {

@@ -1,48 +1,11 @@
 ﻿<Properties StartupItem="iOS/BrewMate.iOS.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone4s.8.3" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="BrewMate/ViewModels/IBUCalculator/IBUCalculatorPage_ViewModel.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="BrewMate/UI/Layouts/SRMCalculator/MashCalcAddGrainLayout.cs">
     <Files>
-      <File FileName="BrewMate/UI/Pages/Programmatic Pages/IBUCalculator/IBUCalculatorPage.cs" Line="14" Column="30" />
-      <File FileName="BrewMate/ViewModels/IBUCalculator/IBUCalculatorPage_ViewModel.cs" Line="9" Column="57" />
-      <File FileName="BrewMate/UI/Layouts/IBUCalculatorPage/IBUCalculatorLayout.cs" Line="15" Column="3" />
-      <File FileName="BrewMate/UI/Pages/XAML Pages/IBUCalculatorPageXAML.xaml.cs" Line="79" Column="43" />
-      <File FileName="BrewMate/Calculators/IBUCalculator.cs" Line="53" Column="4" />
+      <File FileName="BrewMate/UI/Pages/Programmatic/SRMCalculator/MashCalcAddGrainPage.cs" Line="22" Column="48" />
+      <File FileName="BrewMate/UI/Layouts/SRMCalculator/MashCalcAddGrainLayout.cs" Line="8" Column="1" />
+      <File FileName="BrewMate/ViewModels/SRMCalculator/MashCalcAddGrainPage_ViewModel.cs" Line="9" Column="21" NotebookId="1" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="BrewMate" expanded="True">
-            <Node name="BrewMate" expanded="True">
-              <Node name="Calculators" expanded="True" />
-              <Node name="Models" expanded="True" />
-              <Node name="UI" expanded="True">
-                <Node name="Layouts" expanded="True">
-                  <Node name="IBUCalculatorPage" expanded="True" />
-                </Node>
-                <Node name="Pages" expanded="True">
-                  <Node name="Programmatic Pages" expanded="True">
-                    <Node name="IBUCalculator" expanded="True" />
-                  </Node>
-                  <Node name="XAML Pages" expanded="True">
-                    <Node name="IBUCalculatorPageXAML.xaml" expanded="True" />
-                  </Node>
-                </Node>
-                <Node name="Views" expanded="True">
-                  <Node name="IBUCalculatorPage" expanded="True" />
-                </Node>
-              </Node>
-              <Node name="ViewModels" expanded="True">
-                <Node name="HopGuide" expanded="True" />
-                <Node name="IBUCalculator" expanded="True">
-                  <Node name="IBUCalculatorPage_ViewModel.cs" selected="True" />
-                </Node>
-              </Node>
-            </Node>
-            <Node name="BrewMate.iOS" expanded="True" />
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

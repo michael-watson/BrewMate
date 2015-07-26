@@ -14,6 +14,7 @@ namespace BrewMate
 
 		public App ()
 		{
+			HopDatabase database = new HopDatabase ();
 			MainPage = new Master();
 //			MainPage = new NavigationPage(new BeerStylesPage());
 		}
