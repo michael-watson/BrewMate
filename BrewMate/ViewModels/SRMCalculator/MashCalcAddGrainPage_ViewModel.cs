@@ -13,19 +13,18 @@ namespace BrewMate.ViewModels.SRMCalculator
     public class MashCalcAddGrainPage_ViewModel : BaseViewModel
     {
         public MashCalculatorPage_ViewModel _calcViewModel;
+		GrainDatabase grainDatabase;
 
 		ICommand cancelCommand;
 
         public MashCalcAddGrainPage_ViewModel(MashCalculatorPage_ViewModel calcViewModel)
 		{
 			_calcViewModel = calcViewModel;
+			grainDatabase = new GrainDatabase ();
 			cancelCommand = new Command (Cancel);
 
-			GrainListSource = new ObservableCollection<Grains> (GrainDatabase.GetGrains().OrderBy (x => x.GrainName));
-			UltSource = GrainListSource;
+			GrainListSource = new ObservableCollection<Grains> (grainDatabase.GetGrains().OrderBy (x => x.GrainName));
 		}
-
-        public ObservableCollection<Grains> UltSource;
 
         public ObservableCollection<Grains> grainListSource;
         public ObservableCollection<Grains> GrainListSource
@@ -101,10 +100,10 @@ namespace BrewMate.ViewModels.SRMCalculator
 		public void Search (string searchBarText)
 		{
 			if (searchBarText == "" || searchBarText == null) {
-                GrainListSource = new ObservableCollection<Grains>(UltSource.OrderBy(x => x.GrainName));
+				GrainListSource = new ObservableCollection<Grains>(grainDatabase.GetGrains().OrderBy(x => x.GrainName));
 			} else {
 
-                List<Grains> grains = UltSource.ToList();
+				List<Grains> grains = grainDatabase.GetGrains().ToList();
 				var newSource = grains.FindAll (x => x.GrainName.ToLower ().Contains (searchBarText.ToLower ()));
 
                 GrainListSource = new ObservableCollection<Grains>(newSource.OrderBy(x => x.GrainName));

@@ -11,7 +11,7 @@ namespace BrewMate
 		public Master ()
 		{
 			MasterListPage = new MasterListPage ();
-
+			Icon = null;
 			Master = MasterListPage;
 			Detail = MasterListPage.MasterOptions["MyRecipes"];
 

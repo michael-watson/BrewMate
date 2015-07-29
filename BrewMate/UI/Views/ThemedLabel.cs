@@ -12,6 +12,7 @@ namespace BrewMate
 			VerticalOptions = LayoutOptions.Center;
 			HorizontalOptions = LayoutOptions.CenterAndExpand;
 			TextColor = Color.White;
+			FontFamily = App.MiddleWeight;
 		}
 	}
 }

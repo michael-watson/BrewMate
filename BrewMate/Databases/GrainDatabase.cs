@@ -2,12 +2,42 @@
 using System.Collections.Generic;
 
 using Xamarin.Forms;
+using SQLite;
+using System.Linq;
 
 namespace BrewMate
 {
-	public static class GrainDatabase
+	public class GrainDatabase
 	{
-		public static List<Grains> GetGrains()
+		private SQLiteConnection connection;
+
+		public GrainDatabase()
+		{
+			connection = new SQLiteConnection (App.GrainDatabasePath);
+			connection.CreateTable<Grains> ();
+			var table = GetStaticGrains ();
+			connection.InsertAll (table);
+		}
+
+		public IEnumerable<Grains> GetGrains() {
+			return (from t in connection.Table<Grains> ()
+				select t).ToList ();
+		}
+
+		public Grains GetGrain(int id) {
+			return connection.Table<Grains> ().FirstOrDefault (t => t.Id == id);
+		}
+
+		public void DeleteGrain(int id) {
+			connection.Delete<Grains> (id);
+		}
+
+		public void AddGrain(Grains grain) {
+			connection.Insert (grain);
+		}
+
+
+		public static List<Grains> GetStaticGrains()
 		{
 			List<Grains> grains = new List<Grains> {
 				new Grains {

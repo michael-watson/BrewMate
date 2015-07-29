@@ -4,6 +4,7 @@ using System.Linq;
 using SQLite;
 using Xamarin.Forms;
 using BrewMate.Enums;
+using BrewMate.Helpers;
 
 namespace BrewMate
 {
@@ -13,18 +14,27 @@ namespace BrewMate
 
 		public HopDatabase()
 		{
-			connection = DependencyService.Get<ISQLite> ().GetConnection (DatabasesAvailable.HopDatabase);
-			connection.CreateTable<Hops> ();
-			CreateTableFile ();
+			connection = new SQLiteConnection(App.HopDatabasePath);
 		}
 
-		public void CreateTableFile()
-		{
-			List<Hops> hops = GetHops ();
-			connection.InsertAll (hops);
+		public IEnumerable<Hops> GetHops() {
+			return (from t in connection.Table<Hops> ()
+				select t).ToList ();
 		}
 
-		public List<Hops> GetHops()
+		public Hops GetHop(int id) {
+			return connection.Table<Hops> ().FirstOrDefault (t => t.Id == id);
+		}
+
+		public void DeleteHop(int id) {
+			connection.Delete<Hops> (id);
+		}
+
+		public void AddHop(Hops hop) {
+			connection.Insert (hop);
+		}
+
+		public static List<Hops> GetHopsStaticList()
 		{
 			List<Hops> hops = new List<Hops> {
 				new Hops {

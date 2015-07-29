@@ -8,6 +8,8 @@ using UIKit;
 using Xamarin;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
+using BrewMate.Helpers;
+using BrewMate.Enums;
 
 namespace BrewMate.iOS
 {
@@ -28,8 +30,11 @@ namespace BrewMate.iOS
 				}
 			};
 
-			App.ScreenWidth = (int)UIScreen.MainScreen.Bounds.Width;
-			App.ScreenHeight = (int)UIScreen.MainScreen.Bounds.Height;
+			App.HopDatabasePath = FileAccessHelper.GetLocalFilePath (SQLiteDatabaseHelper.GetDatabaseAsString(DatabasesAvailable.GrainDatabase));
+			App.GrainDatabasePath = FileAccessHelper.GetLocalFilePath (SQLiteDatabaseHelper.GetDatabaseAsString(DatabasesAvailable.GrainDatabase));
+
+			App.ScreenWidth = (double)UIScreen.MainScreen.Bounds.Width;
+			App.ScreenHeight = (double)UIScreen.MainScreen.Bounds.Height;
 
 			LoadApplication (new App ());
 

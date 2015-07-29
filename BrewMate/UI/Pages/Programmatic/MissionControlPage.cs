@@ -4,6 +4,8 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 
+using Functions = BrewMateUI.Pages.Programmatic;
+
 namespace BrewMate
 {
 	public class MissionControlPage : GreenGradientPage
@@ -142,8 +144,8 @@ namespace BrewMate
 				case "alcoholPercentageCalculatorButton":
 					Navigation.PushAsync(new CalculateAlcoholPercentPage());
 					break;
-				case "grainDescriptionsButton":
-					Navigation.PushAsync(new GrainsGuidePage());
+			case "grainDescriptionsButton":
+				Navigation.PushAsync (new Functions.GrainGuide.GrainsGuidePage ());
 					break;
 				case "hopGuideButton":
 					Navigation.PushAsync(new HopsGuidePage());

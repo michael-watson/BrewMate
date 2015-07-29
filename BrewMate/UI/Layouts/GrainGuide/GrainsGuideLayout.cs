@@ -1,16 +1,32 @@
 ﻿using System;
 
 using Xamarin.Forms;
+using BrewMate.UI.CustomControls;
+using BrewMate.UI.Layouts.GrainGuide;
 
 namespace BrewMate
 {
-	public class GrainsGuideLayout : StackLayout
+	public class GrainsGuideLayout : AbsoluteLayout
 	{
-		public GrainListView grainList { get; set; }
-		public SearchBar search { get; set; }
+		public GrainListView grainList;
+		public SearchBar search;
+		public StackLayout stack;
+		public Button addGrainButton;
+
+		public Tray tray;
+
+		bool IsInitialized;
+		double _width, _height;
+
+		public AddGrainLayout addGrainLayout;
+
+		StackLayout trayContent;
 
 		public GrainsGuideLayout ()
 		{
+			IsInitialized = false;
+			stack = new StackLayout { Spacing = 0 };
+
 			GrainListHeader grainHeader = new GrainListHeader ();
 			grainList = new GrainListView {
 				StyleId = "grainListView"
@@ -22,11 +38,54 @@ namespace BrewMate
 				HorizontalOptions = LayoutOptions.FillAndExpand
 			};
 
-			Spacing = 0;
+			stack.Children.Add (search);
+			stack.Children.Add (grainHeader);
+			stack.Children.Add (grainList);
 
-			Children.Add (search);
-			Children.Add (grainHeader);
-			Children.Add (grainList);
+			addGrainButton = new HopThemedButton (0){ 
+				Text = "Add Hop",
+				HorizontalOptions = LayoutOptions.Fill
+			};
+			addGrainLayout = new AddGrainLayout ();
+
+			trayContent = new StackLayout {
+				Padding = new Thickness (0, 10, 0, 0),
+				BackgroundColor = Color.FromRgb (255, 195, 0),
+				Children = {
+					addGrainLayout,
+					addGrainButton
+				}
+			};
+			tray = new Tray (trayContent, TrayOrientation.Right, 0.7);
+
+			Children.Add (stack);
+
+		}
+
+		protected override void LayoutChildren (double x, double y, double width, double height)
+		{
+			base.LayoutChildren (x, y, width, height);
+
+			if (!IsInitialized ) {
+				_width = width;
+				_height = height;
+
+				stack.Layout (new Rectangle (0, 0, _width, _height));
+				Children.Add (tray, new Point (_width, 0));
+
+				IsInitialized = true;
+			}
+
+			if (trayContent.Width != -1) {
+				tray.WidthRequest = trayContent.Width;
+				tray.PercentOfScreen = 0.7;
+//				if (App.ScreenWidthPixels > 0) {
+//					tray.PercentOfScreen = (trayContent.Width / App.ScreenWidthPixels);
+//				} else {
+//					tray.PercentOfScreen = (trayContent.Width / App.ScreenWidth);
+//				}
+				tray.SetTranslations ();
+			}
 		}
 	}
 }

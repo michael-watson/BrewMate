@@ -9,14 +9,15 @@ namespace BrewMate
 {
 	public class GrainGuidePage_ViewModel : BaseViewModel
 	{
+		GrainDatabase grainDatabase;
+
 		public GrainGuidePage_ViewModel (INavigation nav)
 		{
-			NavInstance = nav;
-			GrainListSource = new ObservableCollection<Grains>(GrainDatabase.GetGrains ().OrderBy(x=>x.GrainName));
-			UltSource = GrainListSource;
-		}
+			grainDatabase = new GrainDatabase ();
 
-		public ObservableCollection<Grains> UltSource;
+			NavInstance = nav;
+			GrainListSource = new ObservableCollection<Grains>(grainDatabase.GetGrains ().OrderBy(x=>x.GrainName));
+		}
 
 		public ObservableCollection<Grains> _grainListSource;
 		public ObservableCollection<Grains> GrainListSource {
@@ -74,14 +75,20 @@ namespace BrewMate
 		public void Search (string searchBarText)
 		{
 			if (searchBarText == "" || searchBarText == null) {
-				GrainListSource = new ObservableCollection<Grains> (UltSource.OrderBy (x => x.GrainName));
+				GrainListSource = new ObservableCollection<Grains> (grainDatabase.GetGrains ().OrderBy (x => x.GrainName));
 			} else {
 
-				List<Grains> grains = UltSource.ToList();
+				List<Grains> grains = grainDatabase.GetGrains ().ToList();
 				var newSource = grains.FindAll (x => x.GrainName.ToLower ().Contains (searchBarText.ToLower ()));
 
 				GrainListSource = new ObservableCollection<Grains>(newSource.OrderBy (x => x.GrainName));
 			}
+		}
+
+		public void AddGrainToDB(Grains grain)
+		{
+			grainDatabase.AddGrain (grain); 
+			GrainListSource = new ObservableCollection<Grains> (grainDatabase.GetGrains ().OrderBy (x => x.GrainName));
 		}
 	}
 }

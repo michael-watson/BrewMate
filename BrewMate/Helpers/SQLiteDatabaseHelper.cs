@@ -18,7 +18,6 @@ namespace BrewMate.Helpers
 			case DatabasesAvailable.MyRecipesDatabase:
 				return "MyRecipesDatabase.db3";
 			}
-
 			return "";
 		}
 	}

@@ -13,6 +13,7 @@ namespace BrewMate
 			TextColor = Color.White;
 			VerticalOptions = LayoutOptions.Center;
 			XAlign = TextAlignment.Center;
+			FontFamily = App.MiddleWeight;
 		}
 	}
 }

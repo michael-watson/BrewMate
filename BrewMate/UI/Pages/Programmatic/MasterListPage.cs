@@ -2,6 +2,7 @@
 
 using Xamarin.Forms;
 using System.Collections.Generic;
+using Functions = BrewMateUI.Pages.Programmatic;
 
 namespace BrewMate
 {
@@ -17,7 +18,7 @@ namespace BrewMate
 			MasterOptions.Add ("IBUCalculator", new IBUCalculatorPage ());
 			MasterOptions.Add ("SRMCalculator", new MashCalculatorPage ());
 			MasterOptions.Add ("AACalculator", new CalculateAlcoholPercentPage ());
-			MasterOptions.Add ("GrainGuide", new GrainsGuidePage ());
+			MasterOptions.Add ("GrainGuide", new Functions.GrainGuide.GrainsGuidePage ());
 			MasterOptions.Add ("HopGuide", new HopsGuidePage ());
 
 			List<MasterListOption> masterListBinding = new List<MasterListOption> {

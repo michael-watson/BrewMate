@@ -11,10 +11,12 @@ using Android.OS;
 using Xamarin;
 using Xamarin.Forms.Platform.Android;
 using Android.Content.Res;
+using BrewMate.Helpers;
+using BrewMate.Enums;
 
 namespace BrewMate.Android
 {
-	[Activity (Label = "BrewMate.Android.Android", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+	[Activity (Label = "BrewMate.Android", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
 	public class MainActivity : FormsApplicationActivity
 	{
 		protected override void OnCreate (Bundle bundle)
@@ -32,15 +34,17 @@ namespace BrewMate.Android
 				}
 			};
 
-			var pixels = Resources.DisplayMetrics.WidthPixels; // real pixels
+			App.HopDatabasePath = FileAccessHelper.GetLocalFilePath (SQLiteDatabaseHelper.GetDatabaseAsString(DatabasesAvailable.GrainDatabase));
+			App.GrainDatabasePath = FileAccessHelper.GetLocalFilePath (SQLiteDatabaseHelper.GetDatabaseAsString(DatabasesAvailable.GrainDatabase));
+
+			App.ScreenWidthPixels = Resources.DisplayMetrics.WidthPixels; // real pixels
 			var scale = Resources.DisplayMetrics.Density;
-			int dps = (int)((pixels-0.5f)/scale);
+			double dps = (double)((App.ScreenWidthPixels-0.5f)/scale);
 
 			App.ScreenWidth = dps;
 
-			pixels = Resources.DisplayMetrics.HeightPixels; // real pixels
-			scale = Resources.DisplayMetrics.Density;
-			dps = (int)((pixels-0.5f)/scale);
+			App.ScreenHeightPixels = Resources.DisplayMetrics.HeightPixels; // real pixels
+			dps = (double)((App.ScreenHeightPixels-0.5f)/scale);
 
 			App.ScreenHeight = dps; // real pixels
 

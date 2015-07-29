@@ -12,6 +12,7 @@ namespace BrewMate
 			FontSize = Device.GetNamedSize (NamedSize.Medium, this);
 			FontAttributes = FontAttributes.Bold;
 			TextColor = Color.White;
+			FontFamily = App.MiddleWeight;
 		}
 	}
 }

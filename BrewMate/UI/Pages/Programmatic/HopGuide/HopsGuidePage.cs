@@ -4,13 +4,15 @@ using System.Reflection;
 using System.Collections.Generic;
 
 using Xamarin.Forms;
+using BrewMate.UI.Pages.Programmatic.HopGuide;
 
 namespace BrewMate
 {
 	public class HopsGuidePage : GreenGradientPage
 	{
-		HopeGuidePage_ViewModel ViewModel;
+		HopsGuidePage_ViewModel ViewModel;
 		HopGuideLayout layout;
+		ToolbarItem addHop;
 
 		public HopsGuidePage ()
 		{
@@ -19,7 +21,10 @@ namespace BrewMate
 			//Set the StyleId for Xamarin Test Cloud
 			StyleId = "HopsHopsHopsPage";
 
-			ViewModel = new HopeGuidePage_ViewModel (Navigation);
+			addHop = new ToolbarItem { Text = "Add Hop" };
+			ToolbarItems.Add (addHop);
+
+			ViewModel = new HopsGuidePage_ViewModel (Navigation);
 
 			layout = new HopGuideLayout ();
 			Content = layout;
@@ -33,6 +38,7 @@ namespace BrewMate
 
 			BindingContext = ViewModel;
 
+			addHop.Clicked += AddNewHopToolbarItem;
 			layout.hopList.SetBinding (ListView.ItemsSourceProperty, "HopListSource");;
 			layout.hopList.SetBinding (ListView.SelectedItemProperty, "SelectedHop");
 			layout.search.SetBinding (SearchBar.TextProperty, "SearchBarText");
@@ -44,9 +50,19 @@ namespace BrewMate
 
 			BindingContext = null;
 
+			addHop.Clicked -= AddNewHopToolbarItem;
 			layout.hopList.RemoveBinding (ListView.ItemsSourceProperty);
 			layout.hopList.RemoveBinding (ListView.SelectedItemProperty);
 			layout.search.RemoveBinding (SearchBar.TextProperty); 
+		}
+
+		public void AddNewHopToolbarItem(object sender, EventArgs e)
+		{
+			if (layout.search.IsFocused) {
+				layout.search.Unfocus ();
+			} else if (!layout.search.IsFocused) {
+				Navigation.PushAsync (new AddHopToDBPage (ViewModel));
+			}
 		}
 	}
 }
