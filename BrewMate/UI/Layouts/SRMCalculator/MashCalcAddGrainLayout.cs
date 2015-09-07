@@ -47,6 +47,7 @@ namespace BrewMate.UI.Layouts.SRMCalculator
 			);
 
             Spacing = 0;
+			BackgroundColor = Color.FromRgb (221, 150, 42);
 
 			Children.Add(search);
             Children.Add(grainHeader);

@@ -4,8 +4,9 @@ using Xamarin.Forms;
 
 namespace BrewMate
 {
-	public class HopListViewCell : StackLayout
+	public class HopListViewCell : ViewCell
 	{
+		StackLayout view;
 		WhiteTextColorLabel hopLabel;
 		WhiteTextColorLabel aaPercentageLow;
 		WhiteTextColorLabel aaPercentageHigh;
@@ -32,20 +33,25 @@ namespace BrewMate
 				VerticalOptions = LayoutOptions.CenterAndExpand,
 				FontSize = Device.GetNamedSize(NamedSize.Medium,typeof(Label))
 			};
+					
+			view = new StackLayout {
+				Orientation = StackOrientation.Horizontal,
+				VerticalOptions = LayoutOptions.CenterAndExpand,
+				Padding = new Thickness (5, 0, 10, 5),
+				Spacing = 0,
+				Children = {
+					hopLabel,
+					aaPercentageLow,
+					aaPercentageHigh
+				}
+			};
 
-			Orientation = StackOrientation.Horizontal;
-			VerticalOptions = LayoutOptions.CenterAndExpand;
-			Padding = new Thickness (5, 0, 10, 5);
-			Spacing = 0;
-
-			Children.Add (hopLabel);
-			Children.Add (aaPercentageLow);
-			Children.Add (aaPercentageHigh);
+			View = view;
 		}
 
-		protected override void OnAdded (View view)
+		protected override void OnAppearing ()
 		{
-			base.OnAdded (view);
+			base.OnAppearing ();
 
 			hopLabel.SetBinding (Label.TextProperty,
 				new Binding ("HopName", BindingMode.OneWay, null, null, "{0}"));
@@ -57,9 +63,9 @@ namespace BrewMate
 				new Binding ("AAHigh", BindingMode.OneWay, null, null, "{0}%"));
 		}
 
-		protected override void OnRemoved (View view)
+		protected override void OnDisappearing ()
 		{
-			base.OnRemoved (view);
+			base.OnDisappearing ();
 
 			hopLabel.RemoveBinding (Label.TextProperty);
 			aaPercentageLow.RemoveBinding (Label.TextProperty);
@@ -67,4 +73,3 @@ namespace BrewMate
 		}
 	}
 }
-

@@ -42,6 +42,15 @@ namespace BrewMate
 			layout.hopList.SetBinding (ListView.ItemsSourceProperty, "HopListSource");;
 			layout.hopList.SetBinding (ListView.SelectedItemProperty, "SelectedHop");
 			layout.search.SetBinding (SearchBar.TextProperty, "SearchBarText");
+
+//			layout.hopList.ItemSelected += (sender, e) => {
+//				MessagingCenter.Send<HopsGuidePage,object>(this,"ChangeColor",sender);
+//			};
+		}
+
+		protected override void OnSizeAllocated (double width, double height)
+		{
+			base.OnSizeAllocated (width, height);
 		}
 
 		protected override void OnDisappearing ()

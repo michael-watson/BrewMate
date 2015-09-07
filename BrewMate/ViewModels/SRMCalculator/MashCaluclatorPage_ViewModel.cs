@@ -4,6 +4,8 @@ using System.Collections.ObjectModel;
 
 using Xamarin.Forms;
 using BrewMate.UI.Pages.Programmatic;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace BrewMate
 {
@@ -12,19 +14,14 @@ namespace BrewMate
         public SRMCalculator calculateSRM = new SRMCalculator();
         public GravityCalculator calculateGravity = new GravityCalculator();
 
-        public MashCalculatorPage_ViewModel(INavigation nav, Page page)
+		GrainDatabase grainDatabase;
+
+        public MashCalculatorPage_ViewModel()
         {
-            NavInstance = nav;
-			_page = page;
-
-			_addCommand = new Command (AddGrain);
-			_calculateCommand = new Command (Calculate);
-
+			grainDatabase = new GrainDatabase ();
             GrainListSource = new ObservableCollection<MashTableRowDataModel>();
+			AddGrainListSource = new ObservableCollection<Grains> (grainDatabase.GetGrains().OrderBy (x => x.GrainName));
         }
-
-        ICommand _addCommand, _calculateCommand;
-        Page _page;
 
         public ObservableCollection<MashTableRowDataModel> grainListSource;
         public ObservableCollection<MashTableRowDataModel> GrainListSource
@@ -39,55 +36,17 @@ namespace BrewMate
 			}
 		}
 
-		public ICommand AddCommand {
-			get {
-				return _addCommand;
-			}
-			set { 
-				if (_addCommand == value)
-					return;
-				_addCommand = value;
-				OnPropertyChanged ("AddCommand");
-			}
-		}
-
-		public ICommand CalculateCommand {
-			get {
-				return _calculateCommand;
-			}
-			set { 
-				if (_calculateCommand == value)
-					return;
-				_calculateCommand = value;
-				OnPropertyChanged ("CalculateCommand");
-			}
-		}
-
-		public void AddGrain()
+		public ObservableCollection<Grains> addgrainListSource;
+		public ObservableCollection<Grains> AddGrainListSource
 		{
-			NavInstance.PushModalAsync (new MashCalcAddGrainPage (this));
-		}
-
-		public void Calculate()
-		{
-			if (GrainListSource.Count == 0) {
-				_page.DisplayAlert ("Error", "No hops selected. Tap Add Hops to build you hop list.", "Ok");
-				return;
-			} else if(MashVolumeValue == 0){
-				_page.DisplayAlert ("Error", "Boil Volume can't be 0,", "Ok");
-			}else if (GrainListSource.Count != 0) {
-
-                GrainsToBeCalculated calculate = new GrainsToBeCalculated
-                {
-                    MashVolume = MashVolumeText,
-                    ListViewOfGrains = GrainListSource
-                };
-                MashCalculatedModel results = new MashCalculatedModel
-                {
-                    PPGModel = calculateGravity.CalculatePPG(calculate, MashVolumeText),
-                };
-                calculateSRM.MashCalculatedModelCalculator(results, calculate, MashVolumeText);
-				NavInstance.PushModalAsync(new MashCalculatedResultsPage(results,this));
+			get {
+				return addgrainListSource;
+			}
+			set {
+				if (addgrainListSource == value)
+					return;
+				addgrainListSource = value;
+				OnPropertyChanged("AddGrainListSource");
 			}
 		}
 
@@ -102,56 +61,41 @@ namespace BrewMate
 
 				GrainListSource.Add (toBeAdded);
 			}
-
-			NavInstance.PopModalAsync ();
 		}
 
-		public string mashVolumeText = "0";
-		public string MashVolumeText {
-			get {
-				return mashVolumeText;
+		string  _searchBarText = "" ;
+		public string SearchBarText 
+		{
+			get
+			{
+				return _searchBarText ;
 			}
-			set {
-				if (mashVolumeText == value) {
-					return;
+			set
+			{
+				if (_searchBarText != value) {
+					_searchBarText = value;
+					OnPropertyChanged ("SearchBarText");
+					Search (_searchBarText);
 				}
-				mashVolumeText = value;
-				if (mashVolumeText == "")
-					mashVolumeText = "0";
-                OnPropertyChanged("MashVolumeText");
 			}
 		}
 
-		public double mashVolumeValue = 0;
-		public double MashVolumeValue {
-			get {
-				return (double)mashVolumeValue;
-			}
-			set {
-				if (mashVolumeValue == value)
-					return;
-				mashVolumeValue = value;
-				MashVolumeText = value.ToString ();
-                OnPropertyChanged("MashVolumeValue");
+		public void Search (string searchBarText)
+		{
+			if (searchBarText == "" || searchBarText == null) {
+				AddGrainListSource = new ObservableCollection<Grains>(grainDatabase.GetGrains().OrderBy(x => x.GrainName));
+			} else {
+
+				List<Grains> grains = grainDatabase.GetGrains().ToList();
+				var newSource = grains.FindAll (x => x.GrainName.ToLower ().Contains (searchBarText.ToLower ()));
+
+				AddGrainListSource = new ObservableCollection<Grains>(newSource.OrderBy(x => x.GrainName));
 			}
 		}
 
-		public bool volumeEntryFocus = false;
-		public bool VolumeEntryFocus {
-			get {
-				return volumeEntryFocus;
-			}
-			set {
-				if (volumeEntryFocus == value)
-					return;
-				volumeEntryFocus = value;
-				if (!value && Convert.ToDouble (MashVolumeText) > 1000) {
-					MashVolumeText = MashVolumeValue.ToString ();
-				} else if (!value) {
-					MashVolumeValue = Convert.ToDouble (MashVolumeText);
-				} 
-				OnPropertyChanged ("VolumeEntryFocus");
-			}
+		public void NewMash()
+		{
+			GrainListSource = new ObservableCollection<MashTableRowDataModel>();
 		}
     }
 }

@@ -42,13 +42,15 @@ namespace BrewMate
 			stack.Children.Add (grainHeader);
 			stack.Children.Add (grainList);
 
-			addGrainButton = new HopThemedButton (0){ 
-				Text = "Add Hop",
+			addGrainButton = new GrainThemedButton (0,0){ 
+				Text = "Add Grain",
 				HorizontalOptions = LayoutOptions.Fill
 			};
 			addGrainLayout = new AddGrainLayout ();
 
 			trayContent = new StackLayout {
+				WidthRequest = App.ScreenWidth * 0.7 + 10,
+				Spacing = 0,
 				Padding = new Thickness (0, 10, 0, 0),
 				BackgroundColor = Color.FromRgb (255, 195, 0),
 				Children = {
@@ -59,7 +61,6 @@ namespace BrewMate
 			tray = new Tray (trayContent, TrayOrientation.Right, 0.7);
 
 			Children.Add (stack);
-
 		}
 
 		protected override void LayoutChildren (double x, double y, double width, double height)
@@ -77,15 +78,11 @@ namespace BrewMate
 			}
 
 			if (trayContent.Width != -1) {
-				tray.WidthRequest = trayContent.Width;
 				tray.PercentOfScreen = 0.7;
-//				if (App.ScreenWidthPixels > 0) {
-//					tray.PercentOfScreen = (trayContent.Width / App.ScreenWidthPixels);
-//				} else {
-//					tray.PercentOfScreen = (trayContent.Width / App.ScreenWidth);
-//				}
 				tray.SetTranslations ();
 			}
+				
+			stack.Layout (new Rectangle (0, 0, _width, _height));
 		}
 	}
 }

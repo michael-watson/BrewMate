@@ -1,19 +1,13 @@
 ﻿<Properties StartupItem="Android/BrewMate.Android.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.072880f50de88b32" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="BrewMate/UI/Layouts/GrainGuide/AddGrainLayout.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="BrewMate/UI/Pages/Programmatic/AlcoholCalculator/CalculateAlcoholPercentPage.cs">
     <Files>
-      <File FileName="BrewMate/UI/Layouts/GrainGuide/AddGrainLayout.cs" Line="27" Column="17" />
-      <File FileName="BrewMate/UI/Layouts/GrainGuide/GrainsGuideLayout.cs" Line="13" Column="4" />
-      <File FileName="BrewMate/UI/Pages/Programmatic/GrainGuide/GrainsGuidePage.cs" Line="67" Column="34" />
-      <File FileName="BrewMate/UI/Layouts/HopGuide/AddHopLayout.cs" Line="71" Column="45" />
-      <File FileName="BrewMate/UI/Layouts/HopGuide/SelectSubstitutesLayout.cs" Line="12" Column="3" />
-      <File FileName="BrewMate/UI/CustomControls/Tray.cs" Line="39" Column="3" />
+      <File FileName="BrewMate/UI/Pages/Programmatic/AlcoholCalculator/CalculateAlcoholPercentPage.cs" Line="254" Column="3" />
+      <File FileName="Android/CustomRenderers/CustomRenderer_BrownGradientPage.cs" Line="27" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/michaelwatson/Projects/BrewMate Application Files/BrewMate/BrewMate/UI/Layouts/GrainGuide/GrainsGuideLayout.cs" line="74" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches>
     <Watch file="../../../Dropbox (Xamarin)/Sales/Success/Webinars/Xamarin Forms Best Practices/BestPracticesWebinar/Exercise 1/Desktop/Best Practices Webinar/Exercise 1/BrewMate/BrewMate/HopsList.cs" line="152" offsetX="61" offsetY="2324" expression="selected" liveUpdate="False" />

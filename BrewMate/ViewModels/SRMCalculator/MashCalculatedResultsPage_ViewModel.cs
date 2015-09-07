@@ -88,7 +88,6 @@ namespace BrewMate.ViewModels.SRMCalculator
 		public void StartNewMash()
 		{
 			_mashViewModel.GrainListSource = new ObservableCollection<MashTableRowDataModel> ();
-			_mashViewModel.NavInstance.PopModalAsync ();
 		}
 
 		public void AddMoreGrains()

@@ -45,7 +45,7 @@ namespace BrewMate.UI.Layouts.HopGuide
 			aaLowEntry = new HopThemedNumberEntry { Placeholder = "0.0%" };
 			aaHighEntry = new HopThemedNumberEntry { Placeholder = "0.0%" };
 			typeEntry = new HopThemedNumberEntry (Keyboard.Default) { Placeholder = "Enter Type" };
-			addSubsButton = new HopThemedButton (0){ WidthRequest = App.ScreenWidth };
+			addSubsButton = new HopThemedButton (0,0){ WidthRequest = App.ScreenWidth };
 			descEntry = new HopThemedNumberEntry (Keyboard.Default) { Placeholder = "Enter Short Description" };
 
 			grid.Children.Add (new WhiteTextColorLabel{ Text = "Hop Name", YAlign = TextAlignment.Center }, 0, 1, 0, 1);
@@ -62,7 +62,7 @@ namespace BrewMate.UI.Layouts.HopGuide
 			grid.Children.Add (addSubsButton, 1, 3, 4, 5);
 			grid.Children.Add (descEntry, 1, 3, 5, 6);
 
-			addHopButton = new HopThemedButton (0){ 
+			addHopButton = new HopThemedButton (0,0){ 
 				Text = "Add Hop",
 				WidthRequest = App.ScreenWidth
 			};

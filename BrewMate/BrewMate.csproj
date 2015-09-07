@@ -56,7 +56,6 @@
     <Compile Include="UI\Views\ThemedLabel.cs" />
     <Compile Include="UI\Views\WhiteTextColorLabel.cs" />
     <Compile Include="UI\Pages\Master.cs" />
-    <Compile Include="UI\Pages\Programmatic\CalculateAlcoholPercentPage.cs" />
     <Compile Include="UI\Pages\Programmatic\SRMCalculator\MashCalcAddGrainPage.cs" />
     <Compile Include="UI\Pages\Programmatic\SRMCalculator\MashCalculatedResultsPage.cs" />
     <Compile Include="UI\Pages\Programmatic\SRMCalculator\MashCalculatorPage.cs" />
@@ -176,6 +175,9 @@
     <Compile Include="Enums\LayoutAlignExtension.cs" />
     <Compile Include="UI\CustomControls\Tray.cs" />
     <Compile Include="UI\Layouts\GrainGuide\AddGrainLayout.cs" />
+    <Compile Include="UI\Layouts\SRMCalculator\MashResultsLayout.cs" />
+    <Compile Include="IConsole.cs" />
+    <Compile Include="UI\Pages\Programmatic\AlcoholCalculator\CalculateAlcoholPercentPage.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.1.4.4.6391\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.4.4.6391\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
@@ -191,6 +193,7 @@
     <Folder Include="Enums\" />
     <Folder Include="Helpers\" />
     <Folder Include="UI\CustomControls\" />
+    <Folder Include="UI\Pages\Programmatic\AlcoholCalculator\" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.UITest">

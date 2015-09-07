@@ -49,11 +49,14 @@ namespace BrewMate
 				totalMCU += MCU;
 			}
 
-
 			//Calculate the exact SRM color
-			double srmColor = 1.4922 * (Math.Pow (MCU, 0.6859));
+			double srmColor = 1.4922 * (Math.Pow (totalMCU, 0.6859));
 			//Convert the exact SRM to an integer
 			Int16 srmInt = Convert.ToInt16 (srmColor);
+
+			if (srmInt == 0)
+				srmInt = 1;
+
 			//Convert srmInteger to a color
 			Color finalColor = ConvertIntToColor (srmInt);
 

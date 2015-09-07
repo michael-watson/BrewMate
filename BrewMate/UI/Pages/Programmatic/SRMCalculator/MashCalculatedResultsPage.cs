@@ -8,6 +8,10 @@ namespace BrewMate
 {
 	public class MashCalculatedResultsPage : ContentPage
 	{
+		MashCalcResultsLayout layout; 
+
+		MashCalculatedResultsPage_ViewModel ViewModel;
+
 		public MashCalculatedResultsPage (MashCalculatedModel calculations, MashCalculatorPage_ViewModel viewModel)
 		{
 			//Set the title on the navigation bar to the selected hop
@@ -15,16 +19,9 @@ namespace BrewMate
 			//Set the StyleId for Xamarin Test Cloud
 			StyleId = "CalculatedResultsPage";
 
-			//Set background of page to the estimated color of the beer
-//			if (calculations.srmColor.A == 0 && calculations.srmColor.B == 0 && calculations.srmColor.G == 0) {
-//				BackgroundColor = Color.White;
-//			} else {
-//				BackgroundColor = calculations.srmColor;
-//			}
+			ViewModel = new MashCalculatedResultsPage_ViewModel (viewModel, calculations);
 
-			BindingContext = new MashCalculatedResultsPage_ViewModel (viewModel, calculations);
-
-			MashCalcResultsLayout layout = new MashCalcResultsLayout (calculations);
+			layout = new MashCalcResultsLayout (calculations);
 
 			Content = new ScrollView {
 				HeightRequest = (double)(App.ScreenHeight),
@@ -39,9 +36,25 @@ namespace BrewMate
 
 			layout.calculatedEfficiencyLabel.SetBinding (Label.TextProperty, "CalculatedEfficiencyText");
 			layout.actualOGEntry.SetBinding (Entry.TextProperty, "ActualOGEntryText");
+		}
 
-			layout.addMoreGrains.SetBinding (Button.CommandProperty, "AddMoreGrainsCommand");
-			layout.newMash.SetBinding (Button.CommandProperty, "NewMashCommand");
+		protected override void OnAppearing ()
+		{
+			base.OnAppearing ();
+			BindingContext = ViewModel;
+			layout.addMoreGrains.Clicked += AddMoreGrains;
+			layout.newMash.Clicked += StartNewMash;
+		}
+
+		void AddMoreGrains(object sender, EventArgs e)
+		{
+			Navigation.PopModalAsync ();
+		}
+
+		void StartNewMash(object sender, EventArgs e)
+		{
+			ViewModel.StartNewMash ();
+			Navigation.PopModalAsync ();
 		}
 	}
 }

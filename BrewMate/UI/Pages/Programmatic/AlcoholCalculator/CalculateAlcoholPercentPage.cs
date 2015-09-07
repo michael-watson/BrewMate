@@ -237,5 +237,19 @@ namespace BrewMate
 				}
 			}
 		}
+
+		protected override bool OnBackButtonPressed ()
+		{
+			DisplayAlertMethod ();
+			return true;
+		}
+		public async void DisplayAlertMethod()
+		{
+			var test = await DisplayAlert ("Alert", "Are you sure you want to go back?", "Yes", "No");
+
+			if (test) {
+				await Navigation.PopAsync ();
+			}
+		}
 	}
 }

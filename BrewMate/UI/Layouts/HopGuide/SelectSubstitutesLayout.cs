@@ -22,7 +22,7 @@ namespace BrewMate.UI.Layouts.HopGuide
 				ItemTemplate = new DataTemplate (typeof(SubsViewCell)),
 			};
 
-			doneButton = new HopThemedButton (0) {
+			doneButton = new HopThemedButton (0,0) {
 				StyleId = "doneButton",
 				Text = "Done",
 				WidthRequest = (double)(App.ScreenWidth * 0.8),

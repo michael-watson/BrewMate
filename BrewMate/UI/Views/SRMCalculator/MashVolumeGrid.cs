@@ -32,18 +32,18 @@ namespace BrewMate
             };
 
             ColumnDefinitions = new ColumnDefinitionCollection{
+//				new ColumnDefinition {
+//					Width = Device.OnPlatform(
+//						(double)(App.ScreenWidth * 0.33),
+//						(double)(App.ScreenWidth * 0.3),
+//						(double)(App.ScreenWidth * 0.3)
+//					)
+//				},
 				new ColumnDefinition {
-					Width = Device.OnPlatform(
-						(double)(App.ScreenWidth * 0.33),
-						(double)(App.ScreenWidth * 0.3),
-						(double)(App.ScreenWidth * 0.3)
-					)
+					Width = (double)(App.ScreenWidth * 0.65)
 				},
 				new ColumnDefinition {
 					Width = (double)(App.ScreenWidth * 0.3)
-				},
-				new ColumnDefinition {
-					Width = (double)(App.ScreenWidth * 0.35)
 				}
             };
         
@@ -59,7 +59,7 @@ namespace BrewMate
                 0
             );
             Children.Add(mashVolumeEntry, 1, 0);
-            Children.Add(volumeStepper, 2, 0);
+//            Children.Add(volumeStepper, 2, 0);
             Padding = new Thickness(0, 0, 10, 0);
         }
     }

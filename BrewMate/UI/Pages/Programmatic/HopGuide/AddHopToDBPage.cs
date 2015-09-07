@@ -41,11 +41,11 @@ namespace BrewMate.UI.Pages.Programmatic.HopGuide
 			layout.GestureRecognizers.Add (closeTrayTap);
 		}
 
-		public void TapOutsideTray(object sender, EventArgs e)
+		public async void TapOutsideTray(object sender, EventArgs e)
 		{
 			if (layout.tray.IsOpen) {
 				ViewModel.CloseSubTray ();
-				layout.tray.Close ();
+				await layout.tray.Close ();
 				layout.addHopButton.IsEnabled = true;
 			}
 		}
@@ -76,19 +76,19 @@ namespace BrewMate.UI.Pages.Programmatic.HopGuide
 			Navigation.PopAsync();
 		}
 
-		public void OpenTray(object sender, EventArgs e)
+		public async void OpenTray(object sender, EventArgs e)
 		{
 			if (!layout.tray.IsOpen) {
 				layout.addHopButton.IsEnabled = false;
-				layout.tray.Open ();
+				await layout.tray.Open ();
 			}
 		}
 
-		public void CloseTray(object sender, EventArgs e)
+		public async void CloseTray(object sender, EventArgs e)
 		{
 			if (layout.tray.IsOpen) {
 				ViewModel.CloseSubTray ();
-				layout.tray.Close ();
+				await layout.tray.Close ();
 				layout.addHopButton.IsEnabled = true;
 			}
 		}

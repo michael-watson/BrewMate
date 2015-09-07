@@ -16,7 +16,9 @@ using BrewMate.Enums;
 
 namespace BrewMate.Android
 {
-	[Activity (Label = "BrewMate.Android", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+	[Activity (Label = "BrewMate.Android", MainLauncher = true, 
+		ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+//		ScreenOrientation = ScreenOrientation.Sensor)]
 	public class MainActivity : FormsApplicationActivity
 	{
 		protected override void OnCreate (Bundle bundle)

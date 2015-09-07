@@ -10,6 +10,9 @@ namespace BrewMate.UI.Layouts.GrainGuide
 
 		public Grid grid;
 
+		double _width,_height;
+		bool IsInitialized = false;
+
 		public AddGrainLayout ()
 		{
 			RowDefinitions = new RowDefinitionCollection {
@@ -18,6 +21,12 @@ namespace BrewMate.UI.Layouts.GrainGuide
 				new RowDefinition { Height = GridLength.Auto },
 				new RowDefinition { Height = GridLength.Auto },
 				new RowDefinition { Height = GridLength.Auto },
+				new RowDefinition { Height = GridLength.Auto },
+				new RowDefinition { Height = GridLength.Auto },
+				new RowDefinition { Height = GridLength.Auto },
+				new RowDefinition { Height = GridLength.Auto },
+				new RowDefinition { Height = GridLength.Auto },
+				new RowDefinition { Height = 0 },
 			};
 
 			grainNameEntry = new GrainThemedNumberEntry (Keyboard.Default){ 
@@ -45,35 +54,35 @@ namespace BrewMate.UI.Layouts.GrainGuide
 				Text = "Grain Name", 
 				YAlign = TextAlignment.Center, 
 				HorizontalOptions = LayoutOptions.Start 
-			},0,1,1,2);
-			Children.Add (grainNameEntry,0,2,2,3);
-//			Children.Add (new WhiteTextColorLabel{ 
-//				Text = "Points per gallon", 
-//				YAlign = TextAlignment.Center, 
-//				FontSize = 14, 
-//				HorizontalOptions = LayoutOptions.Start 
-//			},0,1,2,3);
-//			Children.Add (ppgEntry);
-//			Children.Add (new WhiteTextColorLabel{ 
-//				Text = "Origin of Grain", 
-//				YAlign = TextAlignment.Center, 
-//				HorizontalOptions = LayoutOptions.Start 
-//			},1,2);
-//			Children.Add (originEntry);
-//			Children.Add (new WhiteTextColorLabel{ 
-//				Text = "Grain Type", 
-//				YAlign = TextAlignment.Center, 
-//				HorizontalOptions = LayoutOptions.Start 
-//			},1,3);
-//			Children.Add (grainTypeEntry);
-//			Children.Add (new WhiteTextColorLabel{ 
-//				Text = "Beer Color (SRM #)", 
-//				YAlign = TextAlignment.Center, 
-//				HorizontalOptions = LayoutOptions.Start 
-//			},1,4);
-//			Children.Add (srmColorEntry);
+			},0,2,0,1);
+			Children.Add (grainNameEntry,0,2,1,2);
+			Children.Add (new WhiteTextColorLabel{ 
+				Text = "Points per gallon", 
+				YAlign = TextAlignment.Center, 
+				HorizontalOptions = LayoutOptions.Start 
+			},0,2,2,3);
+			Children.Add (ppgEntry,0,2,3,4);
+			Children.Add (new WhiteTextColorLabel{ 
+				Text = "Origin of Grain", 
+				YAlign = TextAlignment.Center, 
+				HorizontalOptions = LayoutOptions.Start 
+			},0,2,4,5);
+			Children.Add (originEntry,0,2,5,6);
+			Children.Add (new WhiteTextColorLabel{ 
+				Text = "Grain Type", 
+				YAlign = TextAlignment.Center, 
+				HorizontalOptions = LayoutOptions.Start 
+			},0,2,6,7);
+			Children.Add (grainTypeEntry,0,2,7,8);
+			Children.Add (new WhiteTextColorLabel{ 
+				Text = "Beer Color (SRM #)", 
+				YAlign = TextAlignment.Center, 
+				HorizontalOptions = LayoutOptions.Start 
+			},0,2,8,9);
+			Children.Add (srmColorEntry,0,2,9,10);
 
-			Padding = new Thickness (20, 0, 20, 0);
+			RowSpacing = 0;
+			Padding = new Thickness (10, 0, 20, 10);
 
 			grainTypeEntry.Focused += EntrySpecialFocus;
 			grainTypeEntry.Unfocused += EntrySpecialUnfocus;
@@ -84,6 +93,12 @@ namespace BrewMate.UI.Layouts.GrainGuide
 
 		public void Reset()
 		{
+			grainNameEntry.Unfocus ();
+			ppgEntry.Unfocus ();
+			originEntry.Unfocus ();
+			grainTypeEntry.Unfocus ();
+			srmColorEntry.Unfocus ();
+
 			grainNameEntry.SetValue (Entry.TextProperty, "");
 			ppgEntry.SetValue (Entry.TextProperty, "");
 			originEntry.SetValue (Entry.TextProperty, "");
@@ -95,25 +110,56 @@ namespace BrewMate.UI.Layouts.GrainGuide
 		{
 			switch (((Entry)sender).Placeholder) {
 			case "Grain Type":
+				RowDefinitions [0].Height = 0;
 				RowDefinitions [1].Height = 0;
+				RowDefinitions [2].Height = 0;
 				RowDefinitions [3].Height = 0;
+				RowDefinitions [4].Height = 0;
 				RowDefinitions [5].Height = 0;
+				RowDefinitions [8].Height = 0;
+				RowDefinitions [9].Height = 0;
+				RowDefinitions [7].Height = _height * 0.6;
+				RowDefinitions [10].Height = _height * 0.2;
 				break;
-			case "Beer Color (SRM #)":
+			case "SRM":
+				RowDefinitions [0].Height = 0;
 				RowDefinitions [1].Height = 0;
+				RowDefinitions [2].Height = 0;
 				RowDefinitions [3].Height = 0;
+				RowDefinitions [4].Height = 0;
 				RowDefinitions [5].Height = 0;
+				RowDefinitions [6].Height = 0;
 				RowDefinitions [7].Height = 0;
+				RowDefinitions [9].Height = _height * 0.6;
+				RowDefinitions [10].Height = _height * 0.2;
 				break;
 			}
 		}
 
 		public void EntrySpecialUnfocus(object sender, FocusEventArgs e)
 		{
+			RowDefinitions [0].Height = GridLength.Auto;
 			RowDefinitions [1].Height = GridLength.Auto;
+			RowDefinitions [2].Height = GridLength.Auto;
 			RowDefinitions [3].Height = GridLength.Auto;
+			RowDefinitions [4].Height = GridLength.Auto;
 			RowDefinitions [5].Height = GridLength.Auto;
+			RowDefinitions [6].Height = GridLength.Auto;
 			RowDefinitions [7].Height = GridLength.Auto;
+			RowDefinitions [8].Height = GridLength.Auto;
+			RowDefinitions [9].Height = GridLength.Auto;
+			RowDefinitions [10].Height = 0;
+		}
+
+		protected override void LayoutChildren (double x, double y, double width, double height)
+		{
+			base.LayoutChildren (x, y, width, height);
+
+			if (height > 0 && !IsInitialized) {
+				_width = width;
+				_height = height;
+				IsInitialized = true;
+			}
 		}
 	}
 }

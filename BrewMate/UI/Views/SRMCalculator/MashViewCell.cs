@@ -75,8 +75,8 @@ namespace BrewMate
             pounds.SetBinding(Entry.TextProperty,
                 new Binding("Pounds", BindingMode.TwoWay, null, null, "{0}"));
 
-            pounds.Focused += HandleFocus;
-            pounds.Unfocused += HandleUnfocus;
+//            pounds.Focused += HandleFocus;
+//            pounds.Unfocused += HandleUnfocus;
         }
 
         protected override void OnRemoved(View view)
@@ -88,8 +88,8 @@ namespace BrewMate
             ppg.RemoveBinding(Label.TextProperty);
             pounds.RemoveBinding(Entry.TextProperty);
 
-            pounds.Focused -= HandleFocus;
-            pounds.Unfocused -= HandleUnfocus;
+//            pounds.Focused -= HandleFocus;
+//            pounds.Unfocused -= HandleUnfocus;
         }
 
         void HandleFocus(object sender, FocusEventArgs e)

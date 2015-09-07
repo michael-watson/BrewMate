@@ -1,6 +1,7 @@
 ﻿using System;
 
 using Xamarin.Forms;
+using System.Threading.Tasks;
 
 namespace BrewMate.UI.CustomControls
 {
@@ -74,21 +75,23 @@ namespace BrewMate.UI.CustomControls
 
 		private double x, y;
 
-        public async void Open()
+        public async Task Open()
         {
 			if (!IsOpen) {
 				await this.TranslateTo (x + bounceX, y + bounceY, AnimationLength);
 				await this.TranslateTo (x, y, 200);
 				IsOpen = true;
 			}
+			return;
         }
 
-        public void Close()
+        public async Task Close()
 		{
 			if (IsOpen) {
-				this.TranslateTo (-x, -y, AnimationLength);
+				await this.TranslateTo (-x, -y, AnimationLength);
 				IsOpen = false;
 			} 
+			return;
 		}
 
 		private double bounceX, bounceY;
@@ -120,9 +123,18 @@ namespace BrewMate.UI.CustomControls
 			case TrayOrientation.Bottom:
 				x = 0;
 				bounceX = 0;
-				y = -App.ScreenHeight * PercentOfScreen;
+				y = -HeightRequest;
 				bounceY = -10;
 				break;
+			}
+		}
+
+		protected override void OnPropertyChanged (string propertyName)
+		{
+			base.OnPropertyChanged (propertyName);
+
+			if (propertyName == "HeightRequest" || propertyName == "WidthRequest") {
+				this.SetTranslations ();
 			}
 		}
     }

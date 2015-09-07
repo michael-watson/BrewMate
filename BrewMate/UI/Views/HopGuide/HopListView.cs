@@ -16,7 +16,7 @@ namespace BrewMate
 
 			//Create ItemTemplate for rows
 			ItemTemplate = new DataTemplate (() => {
-				return new ViewCell { View = new HopListViewCell () };
+				return new HopListViewCell();
 			});
 		}
 	}

@@ -22,6 +22,9 @@ namespace BrewMate
 				var ppg = element.SelectedGrain.PPG;
 				var grainWeight = element.Pounds;
 
+				if (grainWeight == "")
+					break;
+
 				//Calculate the points added to the gravity from ViewCell
 				points = (ppg - 1) * 1000;
 
@@ -33,10 +36,14 @@ namespace BrewMate
 				}
 			}
 
+			if (extractPPG == 0 && grainPPG == 0)
+				return new ExtractAndPPGModel { NoBlanks = false };
+
 			//return ExtractAndPPGModel containing the extract and grain ppg types
 			return new ExtractAndPPGModel () {
-				       extract = Convert.ToInt16(extractPPG),
-				       grain = Convert.ToInt16(grainPPG)
+				NoBlanks = true,
+				extract = Convert.ToInt16 (extractPPG),
+				grain = Convert.ToInt16 (grainPPG)
 			};
 		}
 	}

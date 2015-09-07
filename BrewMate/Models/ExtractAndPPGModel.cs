@@ -12,5 +12,6 @@ namespace BrewMate
 			get;
 			set;
 		}
+		public bool NoBlanks { get; set; }
 	}
 }
