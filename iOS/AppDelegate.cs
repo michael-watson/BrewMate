@@ -30,7 +30,7 @@ namespace BrewMate.iOS
 				}
 			};
 
-			App.HopDatabasePath = FileAccessHelper.GetLocalFilePath (SQLiteDatabaseHelper.GetDatabaseAsString(DatabasesAvailable.GrainDatabase));
+			App.HopDatabasePath = FileAccessHelper.GetLocalFilePath (SQLiteDatabaseHelper.GetDatabaseAsString(DatabasesAvailable.HopDatabase));
 			App.GrainDatabasePath = FileAccessHelper.GetLocalFilePath (SQLiteDatabaseHelper.GetDatabaseAsString(DatabasesAvailable.GrainDatabase));
 
 			App.ScreenWidth = (double)UIScreen.MainScreen.Bounds.Width;

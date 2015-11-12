@@ -7,7 +7,7 @@ using BrewMate.Android;
 using BrewMate;
 
 [assembly: ExportRenderer (typeof (HopThemedNumberEntry), typeof (EntryCustsomRenderer))]
-[assembly: ExportRenderer (typeof (GrainThemedNumberEntry), typeof (EntryCustsomRenderer))]
+[assembly: ExportRenderer (typeof (GrainThemedEntry), typeof (EntryCustsomRenderer))]
 
 namespace BrewMate.Android
 {

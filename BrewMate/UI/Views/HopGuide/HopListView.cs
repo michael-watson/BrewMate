@@ -15,9 +15,7 @@ namespace BrewMate
 			BackgroundColor = Color.Transparent;
 
 			//Create ItemTemplate for rows
-			ItemTemplate = new DataTemplate (() => {
-				return new HopListViewCell();
-			});
+			ItemTemplate = new DataTemplate (typeof(HopListViewCell));
 		}
 	}
 }

@@ -29,23 +29,23 @@ namespace BrewMate.UI.Layouts.GrainGuide
 				new RowDefinition { Height = 0 },
 			};
 
-			grainNameEntry = new GrainThemedNumberEntry (Keyboard.Default){ 
+			grainNameEntry = new GrainThemedEntry { 
 				Placeholder = "Enter Grain Name", 
 				HorizontalOptions = LayoutOptions.Fill
 			};
-			ppgEntry = new GrainThemedNumberEntry (Keyboard.Default) { 
+			ppgEntry = new GrainThemedEntry (Keyboard.Numeric) { 
 				Placeholder = "PPG",
 				HorizontalOptions = LayoutOptions.Fill
 			};
-			originEntry = new GrainThemedNumberEntry { 
+			originEntry = new GrainThemedEntry { 
 				Placeholder = "Origin",
 				HorizontalOptions = LayoutOptions.Fill
 			};
-			grainTypeEntry = new GrainThemedNumberEntry { 
+			grainTypeEntry = new GrainThemedEntry { 
 				Placeholder = "Grain Type",
 				HorizontalOptions = LayoutOptions.Fill
 			};
-			srmColorEntry = new GrainThemedNumberEntry (Keyboard.Default) { 
+			srmColorEntry = new GrainThemedEntry (Keyboard.Numeric) { 
 				Placeholder = "SRM",
 				HorizontalOptions = LayoutOptions.Fill
 			};

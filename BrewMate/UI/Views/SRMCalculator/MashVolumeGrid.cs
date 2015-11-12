@@ -9,12 +9,12 @@ namespace BrewMate
 {
     public class MashVolumeGrid : Grid
     {
-        public GrainThemedNumberEntry mashVolumeEntry { get; set; }
+        public GrainThemedEntry mashVolumeEntry { get; set; }
         public BrownStepper volumeStepper { get; set; }
 
         public MashVolumeGrid()
         {
-            mashVolumeEntry = new GrainThemedNumberEntry
+            mashVolumeEntry = new GrainThemedEntry
             {
                 StyleId = "mashVolumeEntry",
                 Text = "0",

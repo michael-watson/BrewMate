@@ -15,5 +15,11 @@ namespace BrewMate
 		public string Type { get; set; }
 		public string Substitutes { get; set; }
 		public string Description { get; set; }
+
+		public string AAString {
+			get { 
+				return AALow + " - " + AAHigh + " %";
+			}
+		}
 	}
 }

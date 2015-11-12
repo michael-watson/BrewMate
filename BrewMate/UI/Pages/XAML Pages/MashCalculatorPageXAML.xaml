@@ -57,7 +57,7 @@
 					XAlign="Center"
 					YAlign="Center" />
 									
-				<local:GrainThemedNumberEntry Grid.Row="0" Grid.Column="1"
+				<local:GrainThemedEntry Grid.Row="0" Grid.Column="1"
 					Text="0"
 					TextChanged="EntryTextChanged"
 					Focused="EntryFocused"

@@ -12,7 +12,7 @@ using CoreGraphics;
 using Foundation;
 
 [assembly: ExportRenderer (typeof (HopThemedNumberEntry), typeof (HopThemedNumberEntryRenderer))]
-[assembly: ExportRenderer (typeof (GrainThemedNumberEntry), typeof (GrainThemedNumberEntryRenderer))]
+[assembly: ExportRenderer (typeof (GrainThemedEntry), typeof (GrainThemedNumberEntryRenderer))]
 [assembly: ExportRenderer (typeof (GreenGradientPage), typeof (GreenGradientRenderer))]
 [assembly: ExportRenderer (typeof (BrownGradientPage), typeof (BrownGradientRenderer))]
 [assembly: ExportRenderer (typeof (IBUListView), typeof (IBUListViewRenderer))]

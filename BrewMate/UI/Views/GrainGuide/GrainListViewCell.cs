@@ -35,7 +35,7 @@ namespace BrewMate
 
 			Orientation = StackOrientation.Horizontal;
 			VerticalOptions = LayoutOptions.CenterAndExpand;
-			Padding = new Thickness (5, 0, 5, 5);
+			Padding = new Thickness (5, 0, 5, 0);
 			Spacing = 0;
 
 			Children.Add (grainLabel);

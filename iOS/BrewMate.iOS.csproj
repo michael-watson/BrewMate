@@ -162,6 +162,8 @@
     <BundleResource Include="Resources\icon-58.png" />
     <BundleResource Include="Resources\settings.png" />
     <BundleResource Include="Resources\settings%402x.png" />
+    <BundleResource Include="Resources\GrainDatabase.db3" />
+    <BundleResource Include="Resources\HopDatabase.db3" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />

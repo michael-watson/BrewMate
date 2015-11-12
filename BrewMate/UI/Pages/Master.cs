@@ -13,7 +13,7 @@ namespace BrewMate
 			MasterListPage = new MasterListPage ();
 			Icon = null;
 			Master = MasterListPage;
-			Detail = MasterListPage.MasterOptions["MyRecipes"];
+			Detail = new MashCalculatorPage ();
 
 			MasterListPage.MasterList.ItemSelected += HandleNavigation;
 		}

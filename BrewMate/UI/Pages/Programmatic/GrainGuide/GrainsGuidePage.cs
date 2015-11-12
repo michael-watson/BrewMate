@@ -127,6 +127,9 @@ namespace BrewMateUI.Pages.Programmatic.GrainGuide
 			layout.grainList.RemoveBinding (ListView.ItemsSourceProperty);
 			layout.grainList.RemoveBinding (ListView.SelectedItemProperty);
 			layout.search.RemoveBinding (SearchBar.TextProperty);
+
+			addGrain.Clicked -= OpenAddGrainTray; 
+			layout.addGrainButton.Clicked -= AddGrainToDB;
 		}
 	}
 }

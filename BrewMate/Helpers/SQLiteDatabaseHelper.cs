@@ -10,13 +10,13 @@ namespace BrewMate.Helpers
 		{
 			switch (database) {
 			case DatabasesAvailable.BeerStyleDatabase:
-				return "BeerStyleDatabase.db3";
+				return "BeerStyleDatabase";
 			case DatabasesAvailable.GrainDatabase:
-				return "GrainDatabase.db3";
+				return "GrainDatabase";
 			case DatabasesAvailable.HopDatabase:
-				return "HopDatabase.db3";
+				return "HopDatabase";
 			case DatabasesAvailable.MyRecipesDatabase:
-				return "MyRecipesDatabase.db3";
+				return "MyRecipesDatabase";
 			}
 			return "";
 		}

@@ -34,6 +34,7 @@ namespace BrewMate.UI.CustomControls
 			Content = view;
 			Orientation = orientation;
 			PercentOfScreen = percentOfScreen;
+            AnimationLength = 250;
 			SetTranslations ();
 			IsOpen = false;
 		}
@@ -45,6 +46,7 @@ namespace BrewMate.UI.CustomControls
 
 			Orientation = orientation;
 			PercentOfScreen = percentOfScreen;
+            AnimationLength = 250;
 
 			if (Orientation == TrayOrientation.Top || Orientation == TrayOrientation.Bottom) {
 				HeightRequest = App.ScreenHeight * PercentOfScreen + 10;
@@ -71,7 +73,7 @@ namespace BrewMate.UI.CustomControls
 
 		public bool IsOpen { get; set; }
 		public double PercentOfScreen { get; set; }
-		public uint AnimationLength { get; set; } = 250;
+		public uint AnimationLength { get; set; } 
 
 		private double x, y;
 

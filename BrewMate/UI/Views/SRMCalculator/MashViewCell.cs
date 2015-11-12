@@ -7,7 +7,7 @@ namespace BrewMate
 	public class MashViewCell : Grid
 	{
         WhiteTextColorLabel grainLabel, srm, ppg;
-        GrainThemedNumberEntry pounds; 
+        GrainThemedEntry pounds; 
 
 		public MashViewCell ()
 		{
@@ -38,7 +38,7 @@ namespace BrewMate
 			
 
 			//Create label for AA Percentage High and bind it to AAHigh
-			pounds = new GrainThemedNumberEntry {
+			pounds = new GrainThemedEntry {
 				HorizontalOptions = LayoutOptions.Fill,
 				VerticalOptions = LayoutOptions.CenterAndExpand,
 				Keyboard = Keyboard.Numeric,

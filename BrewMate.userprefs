@@ -1,13 +1,64 @@
 ﻿<Properties StartupItem="Android/BrewMate.Android.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.072880f50de88b32" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="BrewMate/UI/Pages/Programmatic/AlcoholCalculator/CalculateAlcoholPercentPage.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus 10 (KitKat)" />
+  <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="BrewMate/UI/Pages/Programmatic/AlcoholCalculator/CalculateAlcoholPercentPage.cs" Line="254" Column="3" />
-      <File FileName="Android/CustomRenderers/CustomRenderer_BrownGradientPage.cs" Line="27" Column="1" />
+      <File FileName="iOS/FileAccessHelper.cs" Line="30" Column="67" />
+      <File FileName="iOS/AppDelegate.cs" Line="34" Column="1" />
+      <File FileName="Android/FileAccessHelper.cs" Line="23" Column="1" />
+      <File FileName="Android/MainActivity.cs" Line="39" Column="132" />
+      <File FileName="BrewMate/Databases/GrainDatabase.cs" Line="35" Column="23" />
+      <File FileName="BrewMate/ViewModels/GrainGuide/GrainGuidePage_ViewModel.cs" Line="30" Column="1" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="BrewMate" expanded="True">
+            <Node name="BrewMate" expanded="True">
+              <Node name="Databases" expanded="True" />
+              <Node name="Enums" expanded="True" />
+              <Node name="Helpers" expanded="True" />
+              <Node name="Models" expanded="True" />
+              <Node name="UI" expanded="True">
+                <Node name="CustomControls" expanded="True" />
+                <Node name="Layouts" expanded="True">
+                  <Node name="GrainGuide" expanded="True" />
+                  <Node name="SRMCalculator" expanded="True" />
+                </Node>
+                <Node name="Pages" expanded="True">
+                  <Node name="Programmatic" expanded="True">
+                    <Node name="GrainGuide" expanded="True" />
+                    <Node name="HopGuide" expanded="True" />
+                    <Node name="SRMCalculator" expanded="True" />
+                  </Node>
+                  <Node name="XAML Pages" expanded="True">
+                    <Node name="GrainsGuidePageXAML.xaml" expanded="True" />
+                  </Node>
+                </Node>
+                <Node name="Views" expanded="True">
+                  <Node name="GrainGuide" expanded="True" />
+                  <Node name="HopGuide" expanded="True" />
+                  <Node name="Theme Views" expanded="True" />
+                </Node>
+              </Node>
+              <Node name="ViewModels" expanded="True">
+                <Node name="GrainGuide" expanded="True" />
+              </Node>
+            </Node>
+            <Node name="BrewMate.Android" expanded="True">
+              <Node name="Assets" expanded="True" />
+            </Node>
+            <Node name="BrewMate.iOS" expanded="True" />
+            <Node name="UnitTests" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/michaelwatson/Projects/BrewMate Application Files/BrewMate/BrewMate/ViewModels/GrainGuide/GrainGuidePage_ViewModel.cs" line="19" column="78" />
+      <Breakpoint file="/Users/michaelwatson/Projects/BrewMate Application Files/BrewMate/BrewMate/ViewModels/GrainGuide/GrainGuidePage_ViewModel.cs" line="30" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches>
     <Watch file="../../../Dropbox (Xamarin)/Sales/Success/Webinars/Xamarin Forms Best Practices/BestPracticesWebinar/Exercise 1/Desktop/Best Practices Webinar/Exercise 1/BrewMate/BrewMate/HopsList.cs" line="152" offsetX="61" offsetY="2324" expression="selected" liveUpdate="False" />

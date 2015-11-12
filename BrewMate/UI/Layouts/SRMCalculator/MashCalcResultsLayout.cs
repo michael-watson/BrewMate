@@ -8,7 +8,7 @@ namespace BrewMate.UI.Layouts.SRMCalculator
 	public class MashCalcResultsLayout : Grid
 	{
 		public Label calculatedEfficiencyLabel;
-		public GrainThemedNumberEntry actualOGEntry;
+		public GrainThemedEntry actualOGEntry;
 		public GrainThemedButton newMash, addMoreGrains;
 		public double estimatedOG;
 
@@ -75,7 +75,7 @@ namespace BrewMate.UI.Layouts.SRMCalculator
 				VerticalOptions = LayoutOptions.Start
 			};
 			//Create efficiency entry and stepper
-			actualOGEntry = new GrainThemedNumberEntry {
+			actualOGEntry = new GrainThemedEntry {
 				StyleId = "actualOGEntry",
 				Text = "1.055",
 				HorizontalOptions = LayoutOptions.Center,

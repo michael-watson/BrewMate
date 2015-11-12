@@ -8,18 +8,19 @@ namespace BrewMate.Android
 	{
 		public static string GetLocalFilePath (string filename)
 		{
+			var fileWithExtension = filename + ".db3";
 			string path = Environment.GetFolderPath (Environment.SpecialFolder.Personal);
-			string dbPath = Path.Combine (path, filename);
+			string dbPath = Path.Combine (path, fileWithExtension);
 
-			CopyDatabaseIfNotExists (dbPath);
+			CopyDatabaseIfNotExists (dbPath, filename);
 
 			return dbPath;
 		}
 
-		private static void CopyDatabaseIfNotExists (string dbPath)
+		private static void CopyDatabaseIfNotExists (string dbPath, string fileName)
 		{
 			if (!File.Exists (dbPath)) {
-				using (var br = new BinaryReader (Application.Context.Assets.Open ("HopDatabase.db3"))) {
+				using (var br = new BinaryReader (Application.Context.Assets.Open (fileName + ".db3"))) {
 					using (var bw = new BinaryWriter (new FileStream (dbPath, FileMode.Create))) {
 						byte[] buffer = new byte[2048];
 						int length = 0;
